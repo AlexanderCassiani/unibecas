@@ -1,0 +1,51 @@
+.contenedor-login-form {
+    background-color: #fff;
+    padding: 36px 20px 40px 20px;
+    border-radius: 10px;
+    max-width: 410px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.signup-form {
+    margin-bottom: 32px;
+}
+
+.input-login {
+    margin-bottom: 25px;
+}
+
+.input-login:hover {
+    border-color: #555;
+}
+
+.input-login:focus {
+    border-color: var(--primary-color);
+}
+
+.btn-login {
+    width: 100%;
+}
+
+.opciones-login {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.forgot-password-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16.5px;
+}
+
+.forgot-password-link:hover {
+    background-color: #BEC3C9;
+}
+
+.signup-link {
+    text-align: center;
+    color: var(--primary-color);
+}
