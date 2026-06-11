@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import LoginForm from '../features/auth/components/login_form/LoginForm'
+import LoginForm from '../features/auth/components/loginForm/LoginForm'
 
 const AppRoutes = () => {
     return (
