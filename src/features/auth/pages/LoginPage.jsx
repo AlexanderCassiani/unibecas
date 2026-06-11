@@ -1,4 +1,4 @@
-import './styles/loginPaga.css'
+import '../styles/loginPage.css'
 import LoginForm from "../components/loginForm/LoginForm"
 
 const LoginPage = () => {
