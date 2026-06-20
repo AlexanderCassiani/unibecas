@@ -2,7 +2,7 @@
     background-color: #fff;
     padding: 36px 20px 40px 20px;
     border-radius: 10px;
-    max-width: 410px;
+    max-width: 420px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
 }
@@ -39,7 +39,6 @@
 }
 
 .forgot-password-link {
-    color: var(--text-primary);
     text-decoration: none;
     border-radius: 8px;
     padding: 10px 15px;

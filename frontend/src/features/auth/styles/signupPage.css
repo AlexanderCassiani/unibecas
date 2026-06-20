@@ -1,4 +1,4 @@
-.login-page {
+.signup-page {
     display: flex;
     justify-content: center;
     align-items: center;  
@@ -7,6 +7,6 @@
     padding: 5px;
 }
 
-.login-page h1 {
+.signup-page h1 {
     margin: 0;
 }
