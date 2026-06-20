@@ -11,11 +11,13 @@ const LoginForm = () => {
                     type="email"
                     placeholder="correo@ejemplo.com"
                     className='input-login'
+                    autoComplete='username'
                 />
                 <Input
                     type="password"
                     placeholder="**********"
                     className='input-login'
+                    autoComplete='current-password'
                 />
                 <Button
                     title="Iniciar sesión"

@@ -1,12 +1,15 @@
 import dotenv from "dotenv";
-dotenv.config(); // 🔥 PRIMERO SIEMPRE
+dotenv.config();
 
 import express from "express";
+import cors from "cors";
 import authRoutes from "./modules/auth/auth.routes.js";
-import db from "./config/db.js";
 
 const app = express();
 const port = 3000;
+
+app.use(express.json());
+app.use(cors());
 
 app.use("/api", authRoutes);
 
