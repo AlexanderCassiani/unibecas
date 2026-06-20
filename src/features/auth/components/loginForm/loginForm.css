@@ -25,6 +25,11 @@
 
 .btn-login {
     width: 100%;
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: var(--hover);
 }
 
 .opciones-login {
@@ -42,10 +47,9 @@
 }
 
 .forgot-password-link:hover {
-    background-color: #BEC3C9;
+    background-color: #dae0e9;
 }
 
 .signup-link {
     text-align: center;
-    color: var(--primary-color);
 }
