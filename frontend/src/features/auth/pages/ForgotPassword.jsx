@@ -1,7 +1,7 @@
 const ForgotPassword = () => {
     return (
         <div>
-            <h1>Forgot Password</h1>
+            <h2>Forgot Password</h2>
         </div>
     )
 }

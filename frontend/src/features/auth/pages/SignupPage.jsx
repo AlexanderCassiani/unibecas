@@ -4,7 +4,7 @@ import '../styles/signupPage.css'
 const SignupPage = () => {
     return (
         <div className="signup-page">
-            <h1>Registrarse</h1>
+            <h2>Registrarse</h2>
             <SignupForm />
         </div>
     )
