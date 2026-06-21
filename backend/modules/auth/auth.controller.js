@@ -28,7 +28,7 @@ export async function signup(req, res) {
         if (err.code === "ER_DUP_ENTRY") {
           return res
             .status(409)
-            .json({ message: "Usuario con este email ya existe" });
+            .json({ message: "El usuario ya se encuentra registrado" });
         }
         return res.status(500).json({ message: "Error al crear usuario" });
       }
@@ -43,6 +43,10 @@ export async function signup(req, res) {
 export function login(req, res) {
   const { email, password } = req.body;
 
+  if (!email || !password) {
+    return res.status(400).json({ message: "Todos los campos son requeridos" });
+  }
+
   const query = "SELECT * FROM usuarios WHERE email = ?";
 
   db.query(query, [email], async (err, result) => {
@@ -56,7 +60,13 @@ export function login(req, res) {
 
     const user = result[0];
 
-    const coincide = await bcrypt.compare(password, user.password);
+    let coincide;
+
+    try {
+      coincide = await bcrypt.compare(password, user.password);
+    } catch (error) {
+      return res.status(500).json({ message: "Error al iniciar sesión" });
+    }
 
     if (coincide) {
       const token = generateToken(user.id_usuario, user.usuario);

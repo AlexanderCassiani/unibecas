@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LoginPage from '../features/auth/pages/LoginPage'
 import SignupPage from '../features/auth/pages/SignupPage'
 import ForgotPassword from '../features/auth/pages/ForgotPassword'
-import Becas from '../features/becas/Becas'
+import Perfil from '../features/perfil/Perfil'
 
 const AppRoutes = () => {
     return (
@@ -11,7 +11,8 @@ const AppRoutes = () => {
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/becas" element={<Becas />} />
+                
+                <Route path="/pefil" element={<Perfil />} />
             </Routes>
         </BrowserRouter>
     )

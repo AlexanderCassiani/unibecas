@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:3000/api";
 
+// registrar usuario
 export async function signup(usuario, email, password) {
   try {
     const response = await fetch(`${BASE_URL}/signup`, {
