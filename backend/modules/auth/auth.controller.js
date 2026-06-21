@@ -84,3 +84,7 @@ export function login(req, res) {
     }
   });
 }
+
+export function perfil(req, res) {
+  res.json({ message: "Perfil del usuario", user: req.user });
+}
