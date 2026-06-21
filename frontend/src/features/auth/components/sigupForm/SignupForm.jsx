@@ -32,6 +32,7 @@ const SignupForm = () => {
   }
 
   return (
+    <>
     <div className="contenedor-signup-form">
       <h3>Crear cuenta</h3>
       <p>Regístrate para comenzar a explorar becas</p>
@@ -82,6 +83,8 @@ const SignupForm = () => {
         Inicia sesión si ya tienes cuenta
       </Link>
     </div>
+    <Link className="volver-al-inicio" to="/">← Volver al inicio</Link>
+    </>
   );
 };
 

@@ -520,6 +520,9 @@
 
 /* Responsive */
 @media (max-width: 860px) {
+  .home-container {
+    padding: 0 5px;
+  }
   .about-grid { grid-template-columns: 1fr; }
   .cards { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: 1fr; }
