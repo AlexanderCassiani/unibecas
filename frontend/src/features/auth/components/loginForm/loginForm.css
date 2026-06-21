@@ -1,10 +1,24 @@
 .contenedor-login-form {
     background-color: #fff;
     padding: 36px 20px 40px 20px;
-    border-radius: 10px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
     max-width: 420px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    text-align: center;
+}
+
+.contenedor-login-form h3 {
+    margin: 0 0 11px 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.contenedor-login-form p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin: 0 0 27px 0;
 }
 
 .signup-form {
@@ -13,6 +27,7 @@
 
 .input-login {
     margin-bottom: 25px;
+    transition: border-color 0.2s ease;
 }
 
 .input-login:hover {
@@ -26,6 +41,7 @@
 .btn-login {
     width: 100%;
     color: white;
+    font-weight: 600;
 }
 
 .btn-login:hover {
@@ -35,20 +51,32 @@
 .opciones-login {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
 }
 
 .forgot-password-link {
     text-decoration: none;
     border-radius: 8px;
-    padding: 10px 15px;
-    font-size: 16.5px;
+    padding: 8px 12px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .forgot-password-link:hover {
-    background-color: #dae0e9;
+    background-color: rgba(37, 99, 235, 0.08);
+    color: var(--primary-color);
 }
 
 .signup-link {
     text-align: center;
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
 }
