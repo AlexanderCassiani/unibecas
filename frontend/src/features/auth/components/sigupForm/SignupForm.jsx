@@ -78,7 +78,7 @@
                 </form>
 
                 <Link
-                    to="/"
+                    to="/login"
                     className='login-link'>
                     Inicia sesión si ya tienes cuenta
                 </Link>

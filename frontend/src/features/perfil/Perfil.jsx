@@ -26,6 +26,7 @@ export default function Perfil() {
         <div>
             <h2>Perfil</h2>
             <p>Hola {data.user.usuario}</p>
+            <p>ID: {data.user.id}</p>
         </div>
     )
 }

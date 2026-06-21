@@ -56,7 +56,7 @@ const LoginForm = () => {
                         {data.message}
                     </p> : 
                     null
-                    }
+                }
 
                 <Button
                     title="Iniciar sesión"
