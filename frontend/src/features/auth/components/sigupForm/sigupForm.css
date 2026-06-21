@@ -1,4 +1,38 @@
-.login-link {
-    display: block;
+.contenedor-signup-form {
+    background-color: #fff;
+    padding: 36px 20px 40px 20px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    max-width: 420px;
+    margin-top: 20px;
     text-align: center;
+}
+
+.contenedor-signup-form h3 {
+    margin: 0 0 11px 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.contenedor-signup-form p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin: 0 0 27px 0;
+}
+
+.signup-form {
+    margin-bottom: 32px;
+}
+
+.login-link {
+    text-align: center;
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
 }

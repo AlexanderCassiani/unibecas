@@ -32,7 +32,9 @@ const SignupForm = () => {
   }
 
   return (
-    <div className="contenedor-login-form">
+    <div className="contenedor-signup-form">
+      <h3>Crear cuenta</h3>
+      <p>Regístrate para comenzar a explorar becas</p>
       <form className="signup-form" onSubmit={handleSignup}>
         <Input
           type="text"
