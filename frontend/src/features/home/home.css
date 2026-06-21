@@ -7,6 +7,19 @@
   padding: 0 24px;
 }
 
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: -210px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 650px;
+  background: radial-gradient(closest-side, rgba(37, 99, 235, 0.18), rgba(37, 99, 235, 0));
+  z-index: -1;
+  pointer-events: none;
+}
+
 .header-wrap {
   position: sticky;
   top: 16px;
@@ -112,19 +125,6 @@
   padding: 96px 0 72px;
   text-align: center;
   overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -180px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 900px;
-  height: 560px;
-  background: radial-gradient(closest-side, rgba(37, 99, 235, 0.18), rgba(37, 99, 235, 0));
-  z-index: -1;
-  pointer-events: none;
 }
 
 .badge {
@@ -521,7 +521,7 @@
 /* Responsive */
 @media (max-width: 860px) {
   .home-container {
-    padding: 0 5px;
+    padding: 0 10px;
   }
   .about-grid { grid-template-columns: 1fr; }
   .cards { grid-template-columns: repeat(2, 1fr); }
