@@ -9,13 +9,19 @@
         const [usuario, setUsuario] = useState('')
         const [email, setEmail] = useState('')
         const [password, setPassword] = useState('')
+        const [data, setData] = useState(null)
         const [error, setError] = useState('')
+
 
         async function handleSignup(evt) {
             evt.preventDefault()
 
+            setData(null)
+            setError('')
+
             try {
                 const data = await signup(usuario, email, password)
+                setData(data)
                 console.log(data)
             } catch (error) {
                 setError(error.message)
@@ -24,7 +30,7 @@
         
         return (
             <div className='contenedor-login-form'>
-                <form className='signup-form'>
+                <form className='signup-form' onSubmit={handleSignup}>
                     <Input
                         type="text"
                         placeholder="Nombre"
@@ -40,7 +46,7 @@
                         className='input-login'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        autoComplete='username'
+                        autoComplete='email'
                         />
                     <Input
                         type="password"
@@ -51,13 +57,23 @@
                         autoComplete='current-password'
                     />
 
-                    {error && <p className='error-message' style={{ color: 'red', marginTop: 0 }}>{error}</p>}
+                    {
+                    error ? 
+                    <p className='error-message' style={{ color: 'var(--danger)', marginTop: 0 }}>
+                        {error}
+                    </p> : 
+                    data ? 
+                    <p className='success-message' style={{ color: 'var(--success)', marginTop: 0 }}>
+                        {data.message}
+                    </p> : 
+                    null
+                    }
 
                     <Button
                         title="Registrarse"
                         text="Registrarse"
                         className="btn-login"
-                        onClick={handleSignup}
+                        type="submit"
                     />
                 </form>
 

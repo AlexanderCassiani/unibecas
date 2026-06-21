@@ -8,27 +8,32 @@ import { login } from '../../services/authService'
 const LoginForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [data, setData] = useState(null)
+    const [error, setError] = useState('')
     const navigate = useNavigate()
 
     const handleLogin = async (evt) => {
         evt.preventDefault()
 
+        setData(null)
+        setError('')
+
         try {
             await login(email, password)
             navigate('/perfil')
         } catch (error) {
-            console.error(error)
+            setError(error.message)
         }
     }
 
     return (
         <div className='contenedor-login-form'>
-            <form className='signup-form'>
+            <form className='signup-form' onSubmit={handleLogin}>
                 <Input
                     type="email"
                     placeholder="correo@ejemplo.com"
                     className='input-login'
-                    autoComplete='username'
+                    autoComplete='email'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
@@ -40,11 +45,24 @@ const LoginForm = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+
+                {
+                    error ? 
+                    <p className='error-message' style={{ color: 'var(--danger)', marginTop: 0 }}>
+                        {error}
+                    </p> : 
+                    data ? 
+                    <p className='success-message' style={{ color: 'var(--success)', marginTop: 0 }}>
+                        {data.message}
+                    </p> : 
+                    null
+                    }
+
                 <Button
                     title="Iniciar sesión"
                     text="Iniciar sesión"
                     className="btn-login"
-                    onClick={handleLogin}
+                    type="submit"
                 />
             </form>
 
