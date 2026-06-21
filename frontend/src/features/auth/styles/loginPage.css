@@ -29,3 +29,14 @@
     color: var(--primary-color);
 }
 
+.volver-al-inicio {
+    font-size: 15px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-top: 16px;
+}
+
+.volver-al-inicio:hover {
+    color: var(--primary-color);
+}
+

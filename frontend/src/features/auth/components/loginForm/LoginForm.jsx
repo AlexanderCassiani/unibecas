@@ -25,6 +25,7 @@ const LoginForm = () => {
   };
 
   return (
+    <>
     <div className="contenedor-login-form">
       <h3>Bienvenido de vuelta</h3>
       <p>Inicia sesión para seguir explorando becas</p>
@@ -67,7 +68,11 @@ const LoginForm = () => {
           ¿No tienes cuenta? Regístrate
         </Link>
       </div>
+
     </div>
+
+    <Link className="volver-al-inicio" to="/">← Volver al inicio</Link>
+    </>
   );
 };
 
