@@ -96,7 +96,7 @@ export function login(req, res) {
     }
 
     if (coincide) {
-      const token = generateToken(user.id_usuario, user.usuario);
+      const token = generateToken(user.id_usuario, user.usuario, user.email);
       res.json({
         success: true,
         message: "Usuario logueado exitosamente",

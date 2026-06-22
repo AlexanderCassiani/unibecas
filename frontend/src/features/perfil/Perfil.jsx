@@ -10,8 +10,10 @@ export default function Perfil() {
         const obtenerDatos = async () => {
             try {
                 const perfilData = await perfil()
-                setData(perfilData)
+                console.log(perfilData)
+                setData(perfilData.user)
             } catch (error) {
+                console.log(error)
                 navigate('/login')
             }
         }
@@ -25,8 +27,9 @@ export default function Perfil() {
     return (
         <div>
             <h2>Perfil</h2>
-            <p>Hola {data.user.usuario}</p>
-            <p>ID: {data.user.id}</p>
+            <p>ID: {data.id}</p>
+            <p>Usuario: {data.usuario}</p>
+            <p>Correo: {data.email}</p>
         </div>
     )
 }
