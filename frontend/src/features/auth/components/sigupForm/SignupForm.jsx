@@ -9,11 +9,22 @@ const SignupForm = () => {
   const [usuario, setUsuario] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   async function handleSignup(evt) {
     evt.preventDefault();
+
+    if (!usuario || !email || !password || !confirmPassword) {
+      setError("Todos los campos son obligatorios");
+      return;
+    }
+    
+    if (password !== confirmPassword) {
+      setError("Las contraseñas no coinciden");
+      return;
+    }
 
     setError(null);
     setData(null);
@@ -26,6 +37,7 @@ const SignupForm = () => {
       setUsuario("");
       setEmail("");
       setPassword("");
+      setConfirmPassword("");
     } catch (error) {
       setError(error.message);
     }
@@ -40,7 +52,7 @@ const SignupForm = () => {
         <Input
           type="text"
           placeholder="Nombre"
-          className="input-login"
+          className="input-login usuario"
           value={usuario}
           onChange={(e) => setUsuario(e.target.value)}
           autoComplete="username"
@@ -48,18 +60,27 @@ const SignupForm = () => {
 
         <Input
           type="email"
-          placeholder="correo@ejemplo.com"
-          className="input-login"
+          placeholder="Correo"
+          className="input-login email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           autoComplete="email"
         />
         <Input
           type="password"
-          placeholder="**********"
-          className="input-login"
+          placeholder='Contraseña'
+          className="input-login password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          autoComplete="new-password"
+        />
+
+        <Input
+          type="password"
+          placeholder="Confirmar contraseña"
+          className="input-login password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           autoComplete="new-password"
         />
 

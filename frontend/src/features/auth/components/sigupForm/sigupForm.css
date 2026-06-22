@@ -25,6 +25,30 @@
     margin-bottom: 32px;
 }
 
+.usuario {
+    background-image: url('../../../../assets/icons/auth/UserIcon.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+    padding-left: 40px;
+}
+
+.email {
+    background-image: url('../../../../assets/icons/auth/EmailIcon.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+    padding-left: 40px;
+}
+
+.password {
+    background-image: url('../../../../assets/icons/auth/PasswordIcon.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+    padding-left: 40px;
+}
+
 .login-link {
     text-align: center;
     font-size: 16px;

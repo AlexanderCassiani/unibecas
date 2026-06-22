@@ -32,16 +32,16 @@ const LoginForm = () => {
       <form className="signup-form" onSubmit={handleLogin}>
         <Input
           type="email"
-          placeholder="correo@ejemplo.com"
-          className="input-login"
+          placeholder="Correo"
+          className="input-login email"
           autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
           type="password"
-          placeholder="**********"
-          className="input-login"
+          placeholder="Contraseña"
+          className="input-login password"
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
