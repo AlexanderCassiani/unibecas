@@ -11,6 +11,10 @@
   --border: #cad1db;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;

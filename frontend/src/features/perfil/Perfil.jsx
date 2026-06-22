@@ -12,7 +12,7 @@ export default function Perfil() {
                 const perfilData = await perfil()
                 setData(perfilData)
             } catch (error) {
-                navigate('/')
+                navigate('/login')
             }
         }
         obtenerDatos()
