@@ -1,11 +1,17 @@
 import "./sigupForm.css";
+
 import Input from "../../../../components/input/Input";
 import Button from "../../../../components/button/Button";
+
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
 import { signup } from "../../services/authService";
+
 import SeePasswordIcon from "../../../../assets/icons/auth/SeePasswordIcon.svg";
 import HidePasswordIcon from "../../../../assets/icons/auth/HidePasswordIcon.svg";
+
+import Spinner from "../../../../components/spinner/Spinner";
 
 const SignupForm = () => {
   const [usuario, setUsuario] = useState("");
@@ -19,11 +25,17 @@ const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(SeePasswordIcon);
   const [passwordType, setPasswordType] = useState("password");
 
-  const [showConfirmPassword, setShowConfirmPassword] = useState(SeePasswordIcon);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState(SeePasswordIcon);
   const [confirmPasswordType, setConfirmPasswordType] = useState("password");
+
+  const [loading, setLoading] = useState(false);
 
   async function handleSignup(evt) {
     evt.preventDefault();
+
+    setError(null);
+    setData(null);
 
     if (!usuario || !email || !password || !confirmPassword) {
       setError("Todos los campos son obligatorios");
@@ -35,10 +47,9 @@ const SignupForm = () => {
       return;
     }
 
-    setError(null);
-    setData(null);
-
     try {
+      setLoading(true);
+
       const result = await signup(usuario, email, password);
       setData(result.message);
 
@@ -49,17 +60,27 @@ const SignupForm = () => {
       setConfirmPassword("");
     } catch (error) {
       setError(error.message);
+    } finally {
+      setLoading(false);
     }
   }
 
   const togglePasswordVisibility = () => {
-    setShowPassword(showPassword === SeePasswordIcon ? HidePasswordIcon : SeePasswordIcon);
+    setShowPassword(
+      showPassword === SeePasswordIcon ? HidePasswordIcon : SeePasswordIcon,
+    );
     setPasswordType(passwordType === "password" ? "text" : "password");
   };
 
   const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(showConfirmPassword === SeePasswordIcon ? HidePasswordIcon : SeePasswordIcon);
-    setConfirmPasswordType(confirmPasswordType === "password" ? "text" : "password");
+    setShowConfirmPassword(
+      showConfirmPassword === SeePasswordIcon
+        ? HidePasswordIcon
+        : SeePasswordIcon,
+    );
+    setConfirmPasswordType(
+      confirmPasswordType === "password" ? "text" : "password",
+    );
   };
 
   return (
@@ -96,7 +117,11 @@ const SignupForm = () => {
               autoComplete="new-password"
             />
 
-            <button type="button" className="see-password-btn" onClick={togglePasswordVisibility}>
+            <button
+              type="button"
+              className="see-password-btn"
+              onClick={togglePasswordVisibility}
+            >
               <img src={showPassword} alt="Ver contraseña" />
             </button>
           </div>
@@ -111,8 +136,19 @@ const SignupForm = () => {
               autoComplete="new-password"
             />
 
-            <button type="button" className="see-password-btn" onClick={toggleConfirmPasswordVisibility}>
-              <img src={showConfirmPassword} alt={showConfirmPassword === SeePasswordIcon ? "Ver contraseña" : "Ocultar contraseña"} />
+            <button
+              type="button"
+              className="see-password-btn"
+              onClick={toggleConfirmPasswordVisibility}
+            >
+              <img
+                src={showConfirmPassword}
+                alt={
+                  showConfirmPassword === SeePasswordIcon
+                    ? "Ver contraseña"
+                    : "Ocultar contraseña"
+                }
+              />
             </button>
           </div>
 
@@ -126,7 +162,15 @@ const SignupForm = () => {
 
           <Button
             title="Registrarse"
-            text="Registrarse"
+            text={
+              loading ? (
+              <>
+                <Spinner />
+                Registrando...
+              </>
+            ) : (
+              "Registrarse"
+            )}
             className="btn-login"
             type="submit"
           />
