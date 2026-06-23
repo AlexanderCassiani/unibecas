@@ -74,3 +74,15 @@
 .login-link:hover {
     text-decoration: underline;
 }
+
+.confirm-password {
+    margin-bottom: 0;
+}
+
+.message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    margin: 0;
+}

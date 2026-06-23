@@ -6,5 +6,4 @@
     cursor: pointer;
     background-color: var(--primary-color);
     transition: all 0.2s ease;
-    min-height: 48px;
 }

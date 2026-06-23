@@ -49,7 +49,7 @@ const SignupForm = () => {
 
     try {
       setLoading(true);
-
+      
       const result = await signup(usuario, email, password);
       setData(result.message);
 
@@ -130,7 +130,7 @@ const SignupForm = () => {
             <Input
               type={confirmPasswordType}
               placeholder="Confirmar contraseña"
-              className="input-login password"
+              className="input-login password confirm-password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               autoComplete="new-password"
@@ -152,26 +152,29 @@ const SignupForm = () => {
             </button>
           </div>
 
-          {error && (
-            <p style={{ color: "var(--danger)", marginTop: 0 }}>{error}</p>
-          )}
+          <div className="message-container">
+            {error && (
+              <p style={{ color: "var(--danger)", margin: 0 }}>{error}</p>
+            )}
 
-          {data && (
-            <p style={{ color: "var(--success)", marginTop: 0 }}>{data}</p>
-          )}
+            {data && (
+              <p style={{ color: "var(--success)", margin: 0 }}>{data}</p>
+            )}
+          </div>
 
           <Button
             title="Registrarse"
             text={
               loading ? (
-              <>
-                <Spinner />
-                Registrando...
-              </>
-            ) : (
-              "Registrarse"
-            )}
-            className="btn-login"
+                <>
+                  <Spinner />
+                  Registrando...
+                </>
+              ) : (
+                "Registrarse"
+              )
+            }
+            className="btn-signup btn-login"
             type="submit"
           />
         </form>
