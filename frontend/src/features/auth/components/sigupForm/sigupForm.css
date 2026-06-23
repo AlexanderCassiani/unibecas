@@ -46,7 +46,21 @@
     background-repeat: no-repeat;
     background-position: 10px center;
     background-size: 20px;
-    padding-left: 40px;
+    padding-left: 41px;
+    padding-right: 61px;
+}
+
+.input-password-container {
+    position: relative;
+}
+
+.see-password-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 3px;
 }
 
 .login-link {

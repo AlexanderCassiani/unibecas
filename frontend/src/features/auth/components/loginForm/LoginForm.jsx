@@ -4,11 +4,17 @@ import Button from "../../../../components/button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../../services/authService";
+import SeePasswordIcon from "../../../../assets/icons/auth/SeePasswordIcon.svg";
+import HidePasswordIcon from "../../../../assets/icons/auth/HidePasswordIcon.svg";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+
+  const [showPassword, setShowPassword] = useState(SeePasswordIcon);
+  const [passwordType, setPasswordType] = useState("password");
+
   const navigate = useNavigate();
 
   const handleLogin = async (evt) => {
@@ -22,6 +28,11 @@ const LoginForm = () => {
     } catch (error) {
       setError(error.message);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(showPassword === SeePasswordIcon ? HidePasswordIcon : SeePasswordIcon);
+    setPasswordType(passwordType === "password" ? "text" : "password");
   };
 
   return (
@@ -38,14 +49,21 @@ const LoginForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Input
-          type="password"
+        
+        <div className="input-password-container">
+          <Input
+          type={passwordType}
           placeholder="Contraseña"
           className="input-login password"
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
+          />
+
+          <button type="button" className="see-password-btn" onClick={togglePasswordVisibility}>
+            <img src={showPassword} alt={showPassword === SeePasswordIcon ? "Ver contraseña" : "Ocultar contraseña"} />
+          </button>
+        </div>
 
         {error && (
           <p style={{ color: "var(--danger)", marginTop: 0 }}>{error}</p>
