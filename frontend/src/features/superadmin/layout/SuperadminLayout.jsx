@@ -8,16 +8,16 @@ export default function SuperadminLayout() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
 
-  const token = localStorage.getItem("token");
-
-  if (!data || data.role !== "SUPERADMINISTRADOR") {
-    navigate("/login");
-  }
-
   useEffect(() => {
     const obtenerDatos = async () => {
       try {
         const perfilData = await perfil();
+
+        if (!perfilData.user || perfilData.user.rol !== "SUPERADMINISTRADOR") {
+          navigate("/login");
+          return;
+        }
+
         setData(perfilData.user);
       } catch (error) {
         console.error(error);
@@ -25,7 +25,7 @@ export default function SuperadminLayout() {
       }
     };
     obtenerDatos();
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="superadmin-layout">
