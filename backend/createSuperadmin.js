@@ -2,8 +2,8 @@ import db from "./config/db.js";
 import bcrypt from "bcrypt";
 import { ROLES } from "./roles.js";
 
-const usuario = "Alex";
-const email = "alex@gmail.com";
+const usuario = "Joce";
+const email = "joce@gmail.com";
 const password = "123456";
 const hashedPassword = await bcrypt.hash(password, 10);
 

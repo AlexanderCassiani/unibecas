@@ -33,7 +33,7 @@ export default function SuperadminLayout() {
 
       <main className="superadmin">
         <div className="top-superadmin-layout">
-          Bienvenido superadmin {data?.usuario}
+          Bienvenido superadmin <span>{data?.usuario}</span>
         </div>
 
         <div className="superadmin-content">

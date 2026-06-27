@@ -8,6 +8,7 @@ import Perfil from "../features/perfil/Perfil";
 import SuperadminLayout from "../features/superadmin/layout/SuperadminLayout";
 import Dashboard from "../features/superadmin/pages/dashboard/Dashboard";
 import ManageAdmins from "../features/superadmin/pages/manageAdmins/ManageAdmins";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const AppRoutes = () => {
   return (
@@ -18,9 +19,11 @@ const AppRoutes = () => {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
-        <Route path="/superadmin" element={<SuperadminLayout />}>
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="manage-admins" element={<ManageAdmins />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/superadmin" element={<SuperadminLayout />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="manage-admins" element={<ManageAdmins />} />
+          </Route>
         </Route>
 
         <Route path="/perfil" element={<Perfil />} />

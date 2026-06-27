@@ -34,7 +34,7 @@ const LoginForm = () => {
       const data = await login(email, password);
 
       if (data.user.rol === "SUPERADMINISTRADOR") {
-        navigate("/superadmin");
+        navigate("/superadmin/dashboard");
       } else {
         navigate("/perfil");
       }

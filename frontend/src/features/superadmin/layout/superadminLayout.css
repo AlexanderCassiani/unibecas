@@ -18,3 +18,7 @@
   font-weight: bold;
   border-bottom: 1px solid #e5e7eb;
 }
+
+.top-superadmin-layout span {
+  color: var(--primary-color);
+}

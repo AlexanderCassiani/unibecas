@@ -1,7 +1,13 @@
 import "./sidebar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login", { replace: true });
+  };
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -33,6 +39,12 @@ export const Sidebar = () => {
           </li>
         </ul>
       </nav>
+
+      <div className="sidebar-footer">
+        <button className="sidebar-logout-btn" onClick={handleLogout}>
+          Cerrar sesión
+        </button>
+      </div>
     </aside>
   );
 };
