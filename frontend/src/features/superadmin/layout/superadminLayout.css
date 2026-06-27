@@ -1,4 +1,20 @@
 .superadmin-layout {
-    display: flex;
-    min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
+}
+
+.superadmin {
+  flex: 1;
+}
+
+.superadmin-content {
+  padding: 12px 15px;
+}
+
+.top-superadmin-layout {
+  padding: 16px 14px;
+  background-color: white;
+  font-size: 19px;
+  font-weight: bold;
+  border-bottom: 1px solid #e5e7eb;
 }

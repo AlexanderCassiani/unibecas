@@ -50,7 +50,7 @@
   transition: background-color 0.2s;
   width: 100%;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .sidebar-nav-link:hover {

@@ -104,6 +104,12 @@ export function login(req, res) {
       res.json({
         success: true,
         message: "Usuario logueado exitosamente",
+        user: {
+          id: user.id_usuario,
+          usuario: user.usuario,
+          email: user.email,
+          rol: user.rol,
+        },
         token,
       });
     } else {

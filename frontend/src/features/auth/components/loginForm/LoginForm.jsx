@@ -31,9 +31,13 @@ const LoginForm = () => {
 
     try {
       setLoading(true);
-      await login(email, password);
+      const data = await login(email, password);
 
-      navigate("/perfil");
+      if (data.user.rol === "SUPERADMINISTRADOR") {
+        navigate("/superadmin");
+      } else {
+        navigate("/perfil");
+      }
     } catch (error) {
       setError(error.message);
     } finally {
