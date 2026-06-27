@@ -1,4 +1,4 @@
-const BASE_URL = "http://192.168.1.56:3000/api";
+const BASE_URL = "http://localhost:3000/api";
 
 // registrar usuario
 export async function signup(usuario, email, password) {

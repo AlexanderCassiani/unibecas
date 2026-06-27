@@ -32,16 +32,16 @@ const Home = () => {
           <span className="dot"></span>Hecho para estudiantes de Cartagena
         </span>
 
-        <h1 className="hero-title">
+        <h2 className="hero-title">
           Encuentra tu <span className="gradient-text">beca ideal</span>
           <br />
           sin perderte en mil páginas
-        </h1>
+        </h2>
 
         <p className="subtitle">
           UNIBECAS centraliza becas, programas tecnológicos y oportunidades de
-          educación superior de Cartagena en un solo lugar, para que
-          postularte sea simple y claro.
+          educación superior de Cartagena en un solo lugar, para que postularte
+          sea simple y claro.
         </p>
 
         <div className="hero-ctas">
@@ -75,13 +75,12 @@ const Home = () => {
             <p className="section-eyebrow">¿Qué es UNIBECAS?</p>
             <h2>Toda la información de becas, en un solo lugar</h2>
             <p>
-              Hoy esa información está dispersa en decenas de páginas
-              distintas, y muchos estudiantes ni siquiera saben que estas
-              oportunidades existen. UNIBECAS reúne becas, programas
-              tecnológicos y opciones de educación superior de
-              universidades, instituciones públicas y entidades como el
-              SENA, con requisitos, beneficios y fechas claras desde el
-              primer momento.
+              Hoy esa información está dispersa en decenas de páginas distintas,
+              y muchos estudiantes ni siquiera saben que estas oportunidades
+              existen. UNIBECAS reúne becas, programas tecnológicos y opciones
+              de educación superior de universidades, instituciones públicas y
+              entidades como el SENA, con requisitos, beneficios y fechas claras
+              desde el primer momento.
             </p>
             <div className="source-list">
               <span className="source-chip">Universidades de Cartagena</span>
@@ -135,8 +134,8 @@ const Home = () => {
             <div className="card-icon">🚀</div>
             <h3>Aplica fácilmente</h3>
             <p>
-              Accede directo al enlace oficial de inscripción, sin vueltas
-              ni intermediarios.
+              Accede directo al enlace oficial de inscripción, sin vueltas ni
+              intermediarios.
             </p>
           </div>
         </div>
@@ -146,7 +145,9 @@ const Home = () => {
         <div className="section-head">
           <p className="section-eyebrow">El proceso</p>
           <h2>Tres pasos para encontrar tu beca</h2>
-          <p>Pensado para que no necesites experiencia previa buscando becas.</p>
+          <p>
+            Pensado para que no necesites experiencia previa buscando becas.
+          </p>
         </div>
 
         <div className="steps">
@@ -162,16 +163,16 @@ const Home = () => {
             <div className="step-number">2</div>
             <h3>Busca y filtra</h3>
             <p>
-              Encuentra becas por universidad o tipo de programa según lo
-              que estás buscando.
+              Encuentra becas por universidad o tipo de programa según lo que
+              estás buscando.
             </p>
           </div>
           <div className="step">
             <div className="step-number">3</div>
             <h3>Aplica con confianza</h3>
             <p>
-              Revisa la guía de aplicación y entra directo al sitio oficial
-              para postularte.
+              Revisa la guía de aplicación y entra directo al sitio oficial para
+              postularte.
             </p>
           </div>
         </div>
@@ -194,15 +195,15 @@ const Home = () => {
           <div className="audience-item">
             <div className="audience-icon">💡</div>
             <p>
-              Jóvenes interesados en becas y programas tecnológicos como
-              los del SENA.
+              Jóvenes interesados en becas y programas tecnológicos como los del
+              SENA.
             </p>
           </div>
           <div className="audience-item">
             <div className="audience-icon">🗂️</div>
             <p>
-              Personas que necesitan información clara, organizada y
-              verificada para decidir.
+              Personas que necesitan información clara, organizada y verificada
+              para decidir.
             </p>
           </div>
         </div>
@@ -212,8 +213,8 @@ const Home = () => {
         <div className="cta-final">
           <h2>Tu próxima beca puede estar a un clic</h2>
           <p>
-            Crea tu cuenta gratis y empieza a explorar oportunidades hechas
-            para ti.
+            Crea tu cuenta gratis y empieza a explorar oportunidades hechas para
+            ti.
           </p>
           <Link to="/signup" className="btn primary large">
             Registrarme gratis
@@ -223,8 +224,8 @@ const Home = () => {
 
       <footer className="footer">
         <p>
-          © {new Date().getFullYear()} UNIBECAS — Plataforma de
-          oportunidades educativas de Cartagena
+          © {new Date().getFullYear()} UNIBECAS — Plataforma de oportunidades
+          educativas de Cartagena
         </p>
         <div className="footer-links">
           <a href="#about">Qué es</a>
