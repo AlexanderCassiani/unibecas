@@ -27,11 +27,10 @@ export async function signup(req, res) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Guardar en la base de datos
     const query =
-      "INSERT INTO usuarios (usuario, email, password) VALUES (?, ?, ?)";
+      "INSERT INTO usuarios (usuario, email, password, rol) VALUES (?, ?, ?, ?)";
 
-    db.query(query, [usuario, email, hashedPassword], (err) => {
+    db.query(query, [usuario, email, hashedPassword, "ESTUDIANTE"], (err) => {
       if (err) {
         if (err.code === "ER_DUP_ENTRY") {
           return res.status(409).json({
@@ -96,7 +95,12 @@ export function login(req, res) {
     }
 
     if (coincide) {
-      const token = generateToken(user.id_usuario, user.usuario, user.email);
+      const token = generateToken(
+        user.id_usuario,
+        user.usuario,
+        user.email,
+        user.rol,
+      );
       res.json({
         success: true,
         message: "Usuario logueado exitosamente",
