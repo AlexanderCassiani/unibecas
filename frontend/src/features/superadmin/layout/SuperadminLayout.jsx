@@ -3,10 +3,12 @@ import "./superadminLayout.css";
 import { Outlet, useNavigate } from "react-router-dom";
 import { perfil } from "../../auth/services/authService";
 import { useState, useEffect } from "react";
+import LogoutModal from "../../../components/logout-modal/LogoutModal";
 
 export default function SuperadminLayout() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   useEffect(() => {
     const obtenerDatos = async () => {
@@ -29,7 +31,7 @@ export default function SuperadminLayout() {
 
   return (
     <div className="superadmin-layout">
-      <Sidebar />
+      <Sidebar setShowLogoutModal={setShowLogoutModal} />
 
       <main className="superadmin">
         <div className="top-superadmin-layout">
@@ -40,6 +42,9 @@ export default function SuperadminLayout() {
           <Outlet />
         </div>
       </main>
+      {showLogoutModal && (
+        <LogoutModal setShowLogoutModal={setShowLogoutModal} />
+      )}
     </div>
   );
 }

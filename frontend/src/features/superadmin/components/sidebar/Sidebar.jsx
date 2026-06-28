@@ -1,13 +1,7 @@
 import "./sidebar.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-export const Sidebar = () => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login", { replace: true });
-  };
+export const Sidebar = ({ setShowLogoutModal }) => {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -41,7 +35,10 @@ export const Sidebar = () => {
       </nav>
 
       <div className="sidebar-footer">
-        <button className="sidebar-logout-btn" onClick={handleLogout}>
+        <button
+          className="sidebar-logout-btn"
+          onClick={() => setShowLogoutModal(true)}
+        >
           Cerrar sesión
         </button>
       </div>
