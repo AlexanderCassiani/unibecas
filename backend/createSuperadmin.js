@@ -5,7 +5,7 @@ import { ROLES } from "./roles.js";
 const usuario = "Joce";
 const email = "joce@gmail.com";
 const password = "123456";
-const hashedPassword = await bcrypt.hash(password, 10);
+const hashedPassword = await bcrypt.hash(password, 12);
 
 db.query(
   "INSERT INTO usuarios (usuario, password, email, rol) VALUES (?, ?, ?, ?)",

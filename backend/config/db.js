@@ -1,11 +1,12 @@
+import "./env.js";
 import mysql2 from "mysql2";
 
 const conexion = mysql2.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Alex 2008#",
-  database: "unibecas",
-  port: 3306,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
 
 conexion.connect((err) => {

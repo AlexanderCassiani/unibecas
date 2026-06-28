@@ -13,7 +13,7 @@ export const validateToken = (req, res, next) => {
   const token = authHeader.split(" ")[1];
 
   try {
-    const data = jwt.verify(token, "My llave 100% inhackeable");
+    const data = jwt.verify(token, process.env.JWT_SECRET);
     req.user = data;
 
     next();
