@@ -2,6 +2,7 @@ import { validarUsuario } from "./auth.validator.js";
 import db from "../../config/db.js";
 import bcrypt from "bcrypt";
 import generateToken from "./auth.token.js";
+import { ROLES } from "../../roles.js";
 
 export async function signup(req, res) {
   try {
@@ -30,24 +31,28 @@ export async function signup(req, res) {
     const query =
       "INSERT INTO usuarios (usuario, email, password, rol) VALUES (?, ?, ?, ?)";
 
-    db.query(query, [usuario, email, hashedPassword, "ESTUDIANTE"], (err) => {
-      if (err) {
-        if (err.code === "ER_DUP_ENTRY") {
-          return res.status(409).json({
+    db.query(
+      query,
+      [usuario, email, hashedPassword, ROLES.ESTUDIANTE],
+      (err) => {
+        if (err) {
+          if (err.code === "ER_DUP_ENTRY") {
+            return res.status(409).json({
+              success: false,
+              error: { message: "El usuario ya se encuentra registrado" },
+            });
+          }
+          return res.status(500).json({
             success: false,
-            error: { message: "El usuario ya se encuentra registrado" },
+            error: { message: "Error al crear usuario" },
           });
         }
-        return res.status(500).json({
-          success: false,
-          error: { message: "Error al crear usuario" },
-        });
-      }
 
-      res
-        .status(201)
-        .json({ success: true, message: "Usuario creado exitosamente" });
-    });
+        res
+          .status(201)
+          .json({ success: true, message: "Usuario creado exitosamente" });
+      },
+    );
   } catch (error) {
     return res
       .status(500)
