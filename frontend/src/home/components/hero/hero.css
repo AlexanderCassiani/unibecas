@@ -48,3 +48,43 @@
   max-width: 550px;
   line-height: 1.35;
 }
+
+.hero-buscador {
+  max-width: 550px;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  padding: 20px 30px;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero-buscador .buscador-input {
+  padding: 16px 6px;
+  margin-top: 10px;
+  padding-right: 125px;
+}
+
+.hero-buscador label {
+  font-size: 22px !important;
+}
+
+.hero-buscador span {
+  text-shadow: 0 0 40px #eee;
+}
+
+.buscador-boton {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  width: 110px;
+  position: absolute;
+  right: 35px;
+  position: absolute;
+  top: 67px;
+  cursor: pointer;
+}
