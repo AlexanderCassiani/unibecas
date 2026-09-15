@@ -1,0 +1,23 @@
+.contenedor-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contenedor-input input {
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 7px 4px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.contenedor-input label {
+  font-size: 17px;
+}
+
+.contenedor-input span {
+  color: #ff3b4f;
+  font-size: 14px;
+}
