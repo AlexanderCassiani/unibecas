@@ -2,6 +2,11 @@ import "./homeLayout.css";
 import Hero from "../components/hero/Hero";
 import infoBecasImg from "../../assets/icons/home/info-becas-icon.svg";
 
+import senaLogo from "../../assets/images/home/sena-logo.png";
+import rafaelLogo from "../../assets/images/home/rafael-nuñez-logo.png";
+import unicartagenaLogo from "../../assets/images/home/unicartagena-logo.png";
+import unicolomboLogo from "../../assets/images/home/unicolombo-logo.png";
+
 const HomeLayout = () => {
   const infoBecas = [
     {
@@ -37,6 +42,14 @@ const HomeLayout = () => {
             <p>{info.description}</p>
           </div>
         ))}
+      </section>
+
+      <h2>Universidades afiliadas</h2>
+      <section className="contenedor-universidades">
+        <img src={senaLogo} alt="Logo del SENA" />
+        <img src={rafaelLogo} alt="Logo del Rafael Núñez" />
+        <img src={unicartagenaLogo} alt="Logo de la Universidad Cartagena" />
+        <img src={unicolomboLogo} alt="Logo de la Universidad Colombo" />
       </section>
     </div>
   );

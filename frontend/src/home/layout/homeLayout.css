@@ -1,5 +1,6 @@
 .home-layout {
   background-color: #dfdfdf;
+  overflow-x: hidden;
 }
 
 .contenedor-info-becas {
@@ -47,4 +48,43 @@
 .info-becas p {
   margin: 0;
   font-size: 18px;
+}
+
+h2 {
+  text-align: center;
+  margin: 50px 0 30px 0;
+}
+
+.contenedor-universidades {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 0 100px 20px 100px;
+  animation: carrusel 20s linear infinite;
+}
+
+.contenedor-universidades:has(img:hover) {
+  animation-play-state: paused;
+}
+
+@keyframes carrusel {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-110%);
+  }
+}
+
+.contenedor-universidades img {
+  height: 100px;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+
+.contenedor-universidades img:hover {
+  filter: grayscale(0%);
 }
