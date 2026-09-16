@@ -7,6 +7,8 @@ import rafaelLogo from "../../assets/images/home/rafael-nuñez-logo.png";
 import unicartagenaLogo from "../../assets/images/home/unicartagena-logo.png";
 import unicolomboLogo from "../../assets/images/home/unicolombo-logo.png";
 
+import Header from "../components/header/Header";
+
 const HomeLayout = () => {
   const infoBecas = [
     {
@@ -28,6 +30,8 @@ const HomeLayout = () => {
 
   return (
     <div className="home-layout">
+      <Header />
+
       <Hero />
 
       <section className="contenedor-info-becas">
