@@ -1,6 +1,6 @@
 import "./input.css";
 
-const Input = ({ id, type, error, textoLabel, ...props }) => {
+const Input = ({ id, type = "text", error, textoLabel, ...props }) => {
   return (
     <div className="contenedor-input">
       <label htmlFor={id}>{textoLabel}</label>
