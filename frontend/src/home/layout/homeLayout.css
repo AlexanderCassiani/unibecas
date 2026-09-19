@@ -88,3 +88,11 @@ h2 {
 .contenedor-universidades img:hover {
   filter: grayscale(0%);
 }
+
+.contenedor-universidades .unicolombo {
+  height: 60px;
+}
+
+.contenedor-universidades .utb {
+  height: 100px;
+}
