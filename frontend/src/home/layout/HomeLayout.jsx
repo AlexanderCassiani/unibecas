@@ -6,6 +6,7 @@ import senaLogo from "../../assets/images/home/sena-logo.png";
 import rafaelLogo from "../../assets/images/home/rafael-nuñez-logo.png";
 import unicartagenaLogo from "../../assets/images/home/unicartagena-logo.png";
 import unicolomboLogo from "../../assets/images/home/unicolombo-logo.png";
+import utbLogo from "../../assets/images/home/utb-logo.png";
 
 import Header from "../components/header/Header";
 
@@ -53,7 +54,12 @@ const HomeLayout = () => {
         <img src={senaLogo} alt="Logo del SENA" />
         <img src={rafaelLogo} alt="Logo del Rafael Núñez" />
         <img src={unicartagenaLogo} alt="Logo de la Universidad Cartagena" />
-        <img src={unicolomboLogo} alt="Logo de la Universidad Colombo" />
+        <img
+          src={unicolomboLogo}
+          className="unicolombo"
+          alt="Logo de la Universidad Colombo"
+        />
+        <img src={utbLogo} className="utb" alt="Logo de la utb" />
       </section>
     </div>
   );
