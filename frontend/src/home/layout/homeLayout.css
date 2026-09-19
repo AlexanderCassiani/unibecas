@@ -80,7 +80,7 @@ h2 {
 }
 
 .contenedor-universidades img {
-  height: 100px;
+  height: 80px;
   filter: grayscale(100%);
   transition: filter 0.3s;
 }
