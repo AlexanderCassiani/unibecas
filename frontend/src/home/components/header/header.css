@@ -52,6 +52,7 @@ header button {
   border: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2px;
   cursor: pointer;
 }
@@ -69,10 +70,60 @@ header button {
 .modal {
   position: absolute;
   z-index: 20;
-  max-width: 200px;
   transform: translateY(-150%);
   right: 40px;
-  border: 1px solid #0f0e0e;
+  border: 1px solid var(--secondary-color);
   background-color: #fff;
   transition: transform 0.5s ease-out;
+  padding: 18px 22px;
+  max-width: 384px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.modal h3 {
+  margin: 0 0 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal h3 .cerrar-modal {
+  font-size: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3;
+}
+
+.modal h3 .cerrar-modal:hover {
+  color: var(--error);
+}
+
+.modal .contenedor-input-registrarme {
+  margin-bottom: 20px;
+}
+
+.modal .btn-registrarme {
+  padding: 10px 12px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  width: 100%;
+  justify-content: center;
+}
+
+.tiene-cuenta {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.tiene-cuenta span {
+  color: var(--secondary-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal .contenedor-input-registrarme .input-error {
+  border-color: var(--error);
 }
