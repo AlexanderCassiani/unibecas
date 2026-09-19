@@ -1,6 +1,8 @@
 :root {
   --primary-color: #f95c39;
   --secondary-color: #1250a8;
+
+  --error: #ff3b4f;
 }
 
 * {
