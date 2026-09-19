@@ -1,10 +1,78 @@
 import "./header.css";
 import flechaAbajo from "../../../assets/icons/home/flechaAbajo.svg";
 import registrarmeIcon from "../../../assets/icons/home/registrarmeIcon.svg";
+import Input from "../../../components/input/Input";
 import { useState } from "react";
 
 const Header = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
+
+  const [usuario, setUsuario] = useState("");
+  const [errorUsuario, setErrorUsuario] = useState(null);
+
+  const [email, setEmail] = useState("");
+  const [errorEmail, setErrorEmail] = useState(null);
+
+  const [contrasenna, setContrasenna] = useState("");
+  const [errorContrasenna, setErrorContrasenna] = useState(null);
+
+  const cerrarModal = () => {
+    setEstaAbierto(false);
+  };
+
+  const handleSubmit = () => {
+    setErrorUsuario(null);
+    setErrorEmail(null);
+    setErrorContrasenna(null);
+
+    if (!usuario.trim()) {
+      setErrorUsuario("¡Oops! debes llenar este campo");
+    }
+
+    if (!email.trim()) {
+      setErrorEmail("¡Oops! debes llenar este campo");
+    }
+
+    if (!contrasenna.trim()) {
+      setErrorContrasenna("¡Oops! debes llenar este campo");
+    }
+  };
+
+  const handleChangeUsuario = (e) => {
+    const nuevoUsuario = e.target.value;
+
+    setUsuario(nuevoUsuario);
+
+    if (nuevoUsuario.trim()) {
+      setErrorUsuario(null);
+    } else {
+      setErrorUsuario("¡Oops! debes llenar este campo");
+    }
+  };
+
+  const handleChangeEmail = (e) => {
+    const nuevoEmail = e.target.value;
+
+    setEmail(nuevoEmail);
+
+    if (nuevoEmail.trim()) {
+      setErrorEmail(null);
+    } else {
+      setErrorEmail("¡Oops! debes llenar este campo");
+    }
+  };
+
+  const handleChangeContrasenna = (e) => {
+    const nuevaContrasenna = e.target.value;
+
+    setContrasenna(nuevaContrasenna);
+
+    if (nuevaContrasenna.trim()) {
+      setErrorContrasenna(null);
+    } else {
+      setErrorContrasenna("¡Oops! debes llenar este campo");
+    }
+  };
 
   return (
     <header>
@@ -33,16 +101,49 @@ const Header = () => {
         </button>
 
         <div className={`modal ${estaAbierto ? "abrir-modal" : ""}`}>
-          <h3>Registrarme</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At vel
-            quisquam voluptatum, quasi ad ea pariatur. Quo enim velit iste
-            dolorum doloremque suscipit rerum possimus, voluptatibus illo
-            reiciendis, a ut. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Accusamus voluptatibus dolorem ducimus fugiat neque fuga
-            repellendus quam. Veniam eos obcaecati rem sed, beatae illo
-            quibusdam saepe temporibus, rerum blanditiis nam.
-          </p>
+          <div>
+            <h3>
+              <span>Registrarme</span>
+              <span className="cerrar-modal" onClick={cerrarModal}>
+                x
+              </span>
+            </h3>
+            <div className="contenedor-input-registrarme">
+              <Input
+                id="nombre"
+                textoLabel="Nombre"
+                onChange={handleChangeUsuario}
+                error={errorUsuario}
+                className={errorUsuario ? "input-error" : null}
+              />
+            </div>
+            <div className="contenedor-input-registrarme">
+              <Input
+                id="Email"
+                type="email"
+                textoLabel="Correo"
+                onChange={handleChangeEmail}
+                error={errorEmail}
+                className={errorEmail ? "input-error" : null}
+              />
+            </div>
+            <div className="contenedor-input-registrarme">
+              <Input
+                id="contraseña"
+                type="password"
+                textoLabel="Contraseña"
+                onChange={handleChangeContrasenna}
+                error={errorContrasenna}
+                className={errorContrasenna ? "input-error" : null}
+              />
+            </div>
+            <button className="btn-registrarme" onClick={handleSubmit}>
+              Registrarme
+            </button>
+            <p className="tiene-cuenta">
+              ¿Ya tienes cuenta? <span>Inicia sesion</span>
+            </p>
+          </div>
         </div>
       </div>
     </header>
