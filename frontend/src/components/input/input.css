@@ -8,7 +8,7 @@
   border-radius: 5px;
   font-size: 16px;
   padding: 7px 4px;
-  border: none;
+  border: 1px solid #ccc;
   outline: none;
   border-radius: 5px;
 }
@@ -18,6 +18,6 @@
 }
 
 .contenedor-input span {
-  color: #ff3b4f;
+  color: var(--error);
   font-size: 14px;
 }
