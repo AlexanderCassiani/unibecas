@@ -1,7 +1,7 @@
 .hero {
   background-image: url("../../../assets/images/home/hero-img.jpg");
+  background-size: 100%;
   background-repeat: no-repeat;
-  height: 596px;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -27,7 +27,7 @@
   color: white;
   max-width: 670px;
   width: 100%;
-  margin: 170px 0 0 100px;
+  margin: 170px 0 50px 100px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -54,7 +54,7 @@
   background-color: var(--secondary-color);
   border-radius: 8px;
   padding: 20px 30px;
-  margin-top: 45px;
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
   position: relative;
