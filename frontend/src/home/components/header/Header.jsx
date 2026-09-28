@@ -16,6 +16,8 @@ const Header = () => {
   const [contrasenna, setContrasenna] = useState("");
   const [errorContrasenna, setErrorContrasenna] = useState(null);
 
+  const [mostrarModal, setMostrarModal] = useState("registrarme");
+
   const cerrarModal = () => {
     setEstaAbierto(false);
   };
@@ -101,49 +103,84 @@ const Header = () => {
         </button>
 
         <div className={`modal ${estaAbierto ? "abrir-modal" : ""}`}>
-          <div>
-            <h3>
-              <span>Registrarme</span>
-              <span className="cerrar-modal" onClick={cerrarModal}>
-                x
-              </span>
-            </h3>
-            <div className="contenedor-input-registrarme">
-              <Input
-                id="nombre"
-                textoLabel="Nombre"
-                onChange={handleChangeUsuario}
-                error={errorUsuario}
-                className={errorUsuario ? "input-error" : null}
-              />
+          {mostrarModal === "registrarme" ? (
+            <div>
+              <h3>
+                <span>Registrarme</span>
+                <span className="cerrar-modal" onClick={cerrarModal}>
+                  x
+                </span>
+              </h3>
+              <div className="contenedor-input-registrarme">
+                <Input
+                  id="nombre"
+                  textoLabel="Nombre"
+                  onChange={handleChangeUsuario}
+                  error={errorUsuario}
+                  className={errorUsuario ? "input-error" : null}
+                />
+              </div>
+              <div className="contenedor-input-registrarme">
+                <Input
+                  id="Email"
+                  type="email"
+                  textoLabel="Correo"
+                  onChange={handleChangeEmail}
+                  error={errorEmail}
+                  className={errorEmail ? "input-error" : null}
+                />
+              </div>
+              <div className="contenedor-input-registrarme">
+                <Input
+                  id="contraseña"
+                  type="password"
+                  textoLabel="Contraseña"
+                  onChange={handleChangeContrasenna}
+                  error={errorContrasenna}
+                  className={errorContrasenna ? "input-error" : null}
+                />
+              </div>
+              <button className="btn-registrarme" onClick={handleSubmit}>
+                Registrarme
+              </button>
+              <p className="tiene-cuenta">
+                <span>¿Ya tienes cuenta? </span>
+                <span className="link" onClick={() => setMostrarModal("login")}>
+                  Inicia sesion
+                </span>
+              </p>
             </div>
-            <div className="contenedor-input-registrarme">
-              <Input
-                id="Email"
-                type="email"
-                textoLabel="Correo"
-                onChange={handleChangeEmail}
-                error={errorEmail}
-                className={errorEmail ? "input-error" : null}
-              />
+          ) : (
+            <div>
+              <h3>
+                <span>Iniciar sesion</span>
+                <span className="cerrar-modal" onClick={cerrarModal}>
+                  x
+                </span>
+              </h3>
+
+              <div className="contenedor-input-registrarme">
+                <Input id="usuario" textoLabel="Usuario" />
+              </div>
+
+              <div className="contenedor-input-registrarme">
+                <Input
+                  type="password"
+                  id="contraseña"
+                  textoLabel="Contraseña"
+                />
+              </div>
+
+              <button className="btn-registrarme">Iniciar sesion</button>
+
+              <p className="tiene-cuenta">
+                <span>¿No tienes cuenta? </span>
+                <span className="link" onClick={() => setMostrarModal("registrarme")}>
+                  Registrate
+                </span>
+              </p>
             </div>
-            <div className="contenedor-input-registrarme">
-              <Input
-                id="contraseña"
-                type="password"
-                textoLabel="Contraseña"
-                onChange={handleChangeContrasenna}
-                error={errorContrasenna}
-                className={errorContrasenna ? "input-error" : null}
-              />
-            </div>
-            <button className="btn-registrarme" onClick={handleSubmit}>
-              Registrarme
-            </button>
-            <p className="tiene-cuenta">
-              ¿Ya tienes cuenta? <span>Inicia sesion</span>
-            </p>
-          </div>
+          )}
         </div>
       </div>
     </header>
