@@ -118,7 +118,7 @@ header button {
   margin-top: 25px;
 }
 
-.tiene-cuenta span {
+.tiene-cuenta .link {
   color: var(--secondary-color);
   text-decoration: underline;
   cursor: pointer;
