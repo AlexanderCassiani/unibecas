@@ -1,0 +1,7 @@
+--- Backend realizado por: Jesús Daniel Pérez Berrocal. ---
+
+Tecnologías: (Por definir)
+
+Experimentales: Flask, Node.js, ...(Por probar)
+
+Proposito: Administración de querys, peticiones, y sesiones.
