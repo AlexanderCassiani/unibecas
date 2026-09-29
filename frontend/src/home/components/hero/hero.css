@@ -1,60 +1,63 @@
 .hero {
-  background-image: url("../../../assets/images/home/hero-img.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
   position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.hero::after {
-  content: "";
-  background: linear-gradient(
-    138deg,
-    rgba(0, 0, 0, 0.548) 0%,
-    rgba(41, 41, 41, 0.555) 49%,
-    rgba(255, 255, 255, 0) 81%
-  );
-  position: absolute;
-  top: 0;
-  height: 100%;
   width: 100%;
 }
 
 .hero-contenido {
   position: relative;
   z-index: 10;
-  color: white;
-  max-width: 670px;
   width: 100%;
-  margin: 170px 0 50px 100px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 20px;
+  padding: 5px 0 25px 90px;
+}
+
+.contenido-izquierda {
+  min-width: 525px;
+}
+
+.contenido-derecha {
+  width: 100%;
+}
+
+.contenido-derecha img {
+  width: 100%;
+  height: auto;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 5%,
+    black 40%,
+    black 100%
+  );
 }
 
 .hero-contenido h1 {
   font-size: 70px;
-  margin: 0;
+  margin: 15px 0 8px 0;
 }
 
 .hero-contenido h1 span {
-  color: var(--primary-color);
+  color: var(--color-primario);
 }
 
 .hero-contenido p {
   margin: 0;
   font-size: 22px;
+  width: 100%;
   max-width: 550px;
   line-height: 1.35;
 }
 
 .hero-buscador {
   max-width: 550px;
-  background-color: var(--secondary-color);
+  width: 100%;
+  color: #fff;
+  background-color: var(--color-secundario);
   border-radius: 8px;
   padding: 20px 30px;
-  margin-top: 35px;
+  margin-top: 56px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -75,7 +78,7 @@
 }
 
 .buscador-boton {
-  background-color: var(--primary-color);
+  background-color: var(--color-primario);
   color: white;
   font-size: 18px;
   padding: 10px;
