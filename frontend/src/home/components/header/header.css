@@ -41,12 +41,12 @@ header nav ul li img {
 
 header nav ul li span {
   font-family: "Oxygen", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
 }
 
 header button {
-  color: var(--secondary-color);
+  color: var(--color-secundario);
   background-color: transparent;
   font-size: 18px;
   border: none;
@@ -72,7 +72,7 @@ header button {
   z-index: 20;
   transform: translateY(-150%);
   right: 40px;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--color-secundario);
   background-color: #fff;
   transition: transform 0.5s ease-out;
   padding: 18px 22px;
@@ -105,7 +105,7 @@ header button {
 
 .modal .btn-registrarme {
   padding: 10px 12px;
-  background-color: var(--primary-color);
+  background-color: var(--color-secundario);
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -119,7 +119,7 @@ header button {
 }
 
 .tiene-cuenta .link {
-  color: var(--secondary-color);
+  color: var(--color-terciario);
   text-decoration: underline;
   cursor: pointer;
 }
