@@ -1,20 +1,17 @@
 .home-layout {
-  background-color: #dfdfdf;
   overflow-x: hidden;
 }
 
 .contenedor-info-becas {
-  position: relative;
-  margin: 0 100px;
-  top: -30px;
+  margin: 20px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 25px;
-  background-color: #ffffff81;
-  backdrop-filter: blur(5px);
+  background-color: #7f44a033;
   border-radius: 16px;
   padding: 28px 100px;
+  max-width: 810px;
 }
 
 .info-becas {
@@ -31,7 +28,7 @@
 }
 
 .info-becas h2 .icon-info-becas {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--color-primario);
   height: 26px;
   width: 26px;
   border-radius: 50%;
