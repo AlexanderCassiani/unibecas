@@ -12,6 +12,8 @@ import personasCelebrando from "../../assets/images/home/personas-celebrando.jpg
 
 import Header from "../components/header/Header";
 
+import PanelAccesible from "../../components/panelAccesible/PanelAccesible";
+
 const HomeLayout = () => {
   const infoBecas = [
     {
@@ -96,6 +98,8 @@ const HomeLayout = () => {
         />
         <img src={utbLogo} className="utb" alt="Logo de la utb" />
       </section>
+
+      <PanelAccesible />
     </div>
   );
 };
