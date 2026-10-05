@@ -17,8 +17,21 @@
   padding: 4px;
   border-radius: 5px;
   color: var(--color-secundario);
+  cursor: pointer;
+}
+
+.contenedor-panel-accesible div span {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.contenedor-panel-accesible div span img {
+  height: 18px;
+}
+
+body.darkmode {
+  background-color: #121212;
+  color: #fff;
 }
