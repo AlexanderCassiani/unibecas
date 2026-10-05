@@ -78,7 +78,7 @@ const Header = () => {
 
   return (
     <header>
-      <h2>Unibecas</h2>
+      <h2>UniBecas</h2>
 
       <nav>
         <ul>
