@@ -93,3 +93,44 @@ h2 {
 .contenedor-universidades .utb {
   height: 100px;
 }
+
+.contenedor-sobre-nosotros {
+  background-color: rgba(125, 23, 221, 0.116);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.contenedor-sobre-nosotros div:first-child div {
+  margin-top: 10px;
+}
+
+.contenedor-sobre-nosotros div:first-child img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.contenedor-sobre-nosotros h2 {
+  margin: 0;
+  font-size: 38px;
+  color: var(--color-terciario);
+}
+
+.contenedor-sobre-nosotros p {
+  margin: 12px 0 0 0;
+  max-width: 800px;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.contenedor-sobre-nosotros .sobre-unibecas {
+  padding-left: 10px;
+}
+
+.contenedor-sobre-nosotros .sobre-unibecas h2 {
+  text-align: start;
+  color: var(--color-primario);
+}
