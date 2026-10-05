@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 25px;
-  background-color: #7f44a033;
+  background-color: rgba(125, 23, 221, 0.055);
   border-radius: 16px;
   padding: 28px 100px;
   max-width: 810px;
@@ -95,7 +95,7 @@ h2 {
 }
 
 .contenedor-sobre-nosotros {
-  background-color: rgba(125, 23, 221, 0.116);
+  background-color: rgba(125, 23, 221, 0.055);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
