@@ -1,0 +1,24 @@
+.contenedor-panel-accesible {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  z-index: 50;
+  padding: 10px 5px;
+  background-color: var(--color-secundario);
+  border-radius: 10px;
+  gap: 6px;
+  user-select: none;
+}
+
+.contenedor-panel-accesible div {
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 5px;
+  color: var(--color-secundario);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
