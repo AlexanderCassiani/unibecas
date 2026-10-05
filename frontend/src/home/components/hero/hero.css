@@ -59,14 +59,20 @@
   padding: 20px 30px;
   margin-top: 56px;
   display: flex;
-  flex-direction: column;
-  position: relative;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.hero-buscador .contenedor-input {
+  flex: 1;
+  min-width: 0;
 }
 
 .hero-buscador .buscador-input {
   padding: 16px 6px;
-  margin-top: 10px;
-  padding-right: 125px;
+  width: 100%;
+  margin-top: 0;
+  box-sizing: border-box;
 }
 
 .hero-buscador label {
@@ -85,9 +91,7 @@
   border-radius: 8px;
   border: none;
   width: 110px;
-  position: absolute;
-  right: 35px;
-  position: absolute;
-  top: 67px;
+  height: 55px;
+  flex-shrink: 0;
   cursor: pointer;
 }
