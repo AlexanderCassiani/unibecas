@@ -54,7 +54,7 @@
   background-size: 220% 100%;
   background-clip: text;
   color: transparent;
-  animation: cambiarColor 4s ease-in-out infinite;
+  animation: cambiarColor 3s ease-in-out infinite;
 }
 
 @keyframes cambiarColor {
