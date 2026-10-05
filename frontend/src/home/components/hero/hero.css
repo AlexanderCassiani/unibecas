@@ -34,7 +34,7 @@
 }
 
 .hero-contenido h1 {
-  font-size: 70px;
+  font-size: 4.38rem;
   margin: 15px 0 8px 0;
 }
 
@@ -44,7 +44,7 @@
 
 .hero-contenido p {
   margin: 0;
-  font-size: 22px;
+  font-size: 1.38rem;
   width: 100%;
   max-width: 550px;
   line-height: 1.35;
@@ -70,7 +70,7 @@
 }
 
 .hero-buscador label {
-  font-size: 22px !important;
+  font-size: 1.38rem !important;
 }
 
 .hero-buscador span {
@@ -80,7 +80,7 @@
 .buscador-boton {
   background-color: var(--color-primario);
   color: white;
-  font-size: 18px;
+  font-size: 1.13rem;
   padding: 10px;
   border-radius: 8px;
   border: none;

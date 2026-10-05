@@ -44,7 +44,7 @@
 
 .info-becas p {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.13rem;
 }
 
 h2 {
@@ -115,14 +115,14 @@ h2 {
 
 .contenedor-sobre-nosotros h2 {
   margin: 0;
-  font-size: 38px;
+  font-size: 2.38rem;
   color: var(--color-terciario);
 }
 
 .contenedor-sobre-nosotros p {
   margin: 12px 0 0 0;
   max-width: 800px;
-  font-size: 17px;
+  font-size: 1.06rem;
   line-height: 1.4;
 }
 
