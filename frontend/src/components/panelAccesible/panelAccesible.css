@@ -6,7 +6,7 @@
   right: 3px;
   z-index: 50;
   padding: 10px 5px;
-  background-color: var(--color-secundario);
+  background-color: var(--color-superficie-azul);
   border-radius: 10px;
   gap: 6px;
   user-select: none;
@@ -16,7 +16,7 @@
   background-color: #fff;
   padding: 4px;
   border-radius: 5px;
-  color: var(--color-secundario);
+  color: var(--color-superficie-azul);
   cursor: pointer;
 }
 
@@ -29,9 +29,4 @@
 
 .contenedor-panel-accesible div span img {
   height: 18px;
-}
-
-body.darkmode {
-  background-color: #121212;
-  color: #fff;
 }
