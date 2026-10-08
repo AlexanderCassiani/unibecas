@@ -29,8 +29,9 @@
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    transparent 5%,
-    black 40%,
+    transparent 8%,
+    rgba(0, 0, 0, 0.4) 25%,
+    black 45%,
     black 100%
   );
   flex-shrink: 0;
@@ -81,7 +82,7 @@
   max-width: 550px;
   width: 100%;
   color: #fff;
-  background-color: var(--color-secundario);
+  background-color: var(--color-superficie-azul);
   border-radius: 8px;
   padding: 20px 30px;
   margin-top: 56px;
