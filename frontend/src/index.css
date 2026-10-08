@@ -1,4 +1,5 @@
 :root {
+  --color: #000;
   --background: #fff;
   --color-primario: #a31a1c;
   --color-secundario: #1250a8;
@@ -15,6 +16,7 @@
 * {
   font-family: AdobeClean;
   box-sizing: border-box;
+  color: var(--color);
 }
 
 body.darkmode {
@@ -29,7 +31,7 @@ body.darkmode {
 
   --hover-azul: #2575e63f;
 
-  color: #fff;
+  --color: #fff;
 }
 
 body {

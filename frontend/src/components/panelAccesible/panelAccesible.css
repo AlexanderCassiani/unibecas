@@ -16,7 +16,6 @@
   background-color: #fff;
   padding: 4px;
   border-radius: 5px;
-  color: var(--color-superficie-azul);
   cursor: pointer;
 }
 
@@ -25,6 +24,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
+  color: #000;
 }
 
 .contenedor-panel-accesible div span img {
