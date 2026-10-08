@@ -1,5 +1,4 @@
 header {
-  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +30,7 @@ header nav ul li {
 }
 
 header nav ul li:hover {
-  background-color: #3373ce27;
+  background-color: var(--hover-azul);
 }
 
 header nav ul li img {
