@@ -57,34 +57,61 @@ h2 {
   padding: 10px 0;
 }
 
+.contenedor-universidades {
+  background-color: var(--color-superficie-blanca);
+  padding: 10px 0;
+}
+
 .contenedor-universidades section {
+  overflow: hidden;
+  padding: 0 100px 20px 100px;
+}
+
+.carrusel-track {
+  display: flex;
+  width: max-content;
+  animation: carrusel 35s linear infinite;
+}
+
+.grupo-universidades {
   display: flex;
   align-items: center;
   gap: 50px;
-  padding: 0 100px 20px 100px;
-  animation: carrusel 20s linear infinite;
+  padding-right: 50px;
+  flex-shrink: 0;
 }
 
-.contenedor-universidades section:has(img:hover) {
+.carrusel-track:has(img:hover) {
   animation-play-state: paused;
 }
 
+.carrusel-track img {
+  height: 80px;
+  flex-shrink: 0;
+  filter: grayscale(100%);
+  transition: filter 0.9s;
+}
+
+.carrusel-track img:hover {
+  filter: grayscale(0%);
+}
+
 @keyframes carrusel {
-  0% {
-    transform: translateX(100%);
-  }
-  50% {
+  from {
     transform: translateX(0);
   }
-  100% {
-    transform: translateX(-110%);
+
+  to {
+    transform: translateX(-50%);
   }
 }
+
+
 
 .contenedor-universidades section img {
   height: 80px;
   filter: grayscale(100%);
-  transition: filter 0.3s;
+  transition: filter 0.9s;
 }
 
 .contenedor-universidades section img:hover {
@@ -96,8 +123,38 @@ h2 {
 }
 
 .contenedor-universidades .utb {
-  height: 100px;
+  height: 150px;
 }
+
+.contenedor-universidades .autonomadenariño {
+  height: 120px;
+}
+
+.contenedor-universidades .cienciasaplicadasambientales {
+  height: 103px;
+}
+
+.contenedor-universidades .unilibertadores {
+  height: 80px;
+}
+
+.contenedor-universidades .sanbuenaventura {
+  height: 120px;
+}
+
+.contenedor-universidades .unibellasartes {
+  height: 150px;
+}
+.contenedor-universidades .unimayor {
+  height: 120px;
+}
+.contenedor-universidades .antonionariño {
+  height: 160px;
+}
+.contenedor-universidades .areandina {
+  height: 120px;
+}
+
 
 .contenedor-sobre-nosotros {
   background-color: var(--color-superficie-morada);
