@@ -4,6 +4,9 @@ import registrarmeIcon from "../../../assets/icons/home/registrarmeIcon.svg";
 import Input from "../../../components/input/Input";
 import { useState } from "react";
 
+import seePassword from "../../../assets/icons/home/see-password.svg";
+import hidePassword from "../../../assets/icons/home/hide-password.svg";
+
 const Header = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
 
@@ -17,6 +20,15 @@ const Header = () => {
   const [errorContrasenna, setErrorContrasenna] = useState(null);
 
   const [mostrarModal, setMostrarModal] = useState("registrarme");
+
+  // type y el icono del modal login
+  const [inputLoginType, setInputLoginType] = useState("password");
+  const [loginPasswordIcon, setLoginPasswordIcon] = useState(seePassword);
+
+  // type y el icono del modal registrarme
+  const [inputRegistrarmeType, setInputRegistrarmeType] = useState("password");
+  const [registrarPasswordIcon, setRegistrarmePasswordIcon] =
+    useState(seePassword);
 
   const cerrarModal = () => {
     setEstaAbierto(false);
@@ -76,6 +88,22 @@ const Header = () => {
     }
   };
 
+  const changeLoginInputType = () => {
+    setInputLoginType(inputLoginType === "password" ? "text" : "password");
+    setLoginPasswordIcon(
+      loginPasswordIcon === seePassword ? hidePassword : seePassword,
+    );
+  };
+
+  const changeRegistrarmeInputType = () => {
+    setInputRegistrarmeType(
+      inputRegistrarmeType === "password" ? "text" : "password",
+    );
+    setRegistrarmePasswordIcon(
+      registrarPasswordIcon === seePassword ? hidePassword : seePassword,
+    );
+  };
+
   return (
     <header>
       <h2>UniBecas</h2>
@@ -132,15 +160,20 @@ const Header = () => {
                   placeholder="ejemplo@gmail.com"
                 />
               </div>
-              <div className="contenedor-input-registrarme">
+              <div className="contenedor-input-registrarme input-password">
                 <Input
                   id="contraseña"
-                  type="password"
+                  type={inputLoginType}
                   textoLabel="Contraseña"
                   onChange={handleChangeContrasenna}
                   error={errorContrasenna}
                   className={errorContrasenna ? "input-error" : null}
                   placeholder="*******"
+                />
+                <img
+                  src={loginPasswordIcon}
+                  alt=""
+                  onClick={changeLoginInputType}
                 />
               </div>
               <button className="btn-registrarme" onClick={handleSubmit}>
@@ -166,11 +199,16 @@ const Header = () => {
                 <Input id="usuario" textoLabel="Usuario" />
               </div>
 
-              <div className="contenedor-input-registrarme">
+              <div className="contenedor-input-registrarme input-password">
                 <Input
-                  type="password"
+                  type={inputRegistrarmeType}
                   id="contraseña"
                   textoLabel="Contraseña"
+                />
+                <img
+                  src={registrarPasswordIcon}
+                  alt=""
+                  onClick={changeRegistrarmeInputType}
                 />
               </div>
 
