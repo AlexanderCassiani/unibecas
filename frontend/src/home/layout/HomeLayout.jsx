@@ -86,18 +86,20 @@ const HomeLayout = () => {
         </div>
       </section>
 
-      <h2>Universidades afiliadas</h2>
-      <section className="contenedor-universidades">
-        <img src={senaLogo} alt="Logo del SENA" />
-        <img src={rafaelLogo} alt="Logo del Rafael Núñez" />
-        <img src={unicartagenaLogo} alt="Logo de la Universidad Cartagena" />
-        <img
-          src={unicolomboLogo}
-          className="unicolombo"
-          alt="Logo de la Universidad Colombo"
-        />
-        <img src={utbLogo} className="utb" alt="Logo de la utb" />
-      </section>
+      <div className="contenedor-universidades">
+        <h2>Universidades afiliadas</h2>
+        <section>
+          <img src={senaLogo} alt="Logo del SENA" />
+          <img src={rafaelLogo} alt="Logo del Rafael Núñez" />
+          <img src={unicartagenaLogo} alt="Logo de la Universidad Cartagena" />
+          <img
+            src={unicolomboLogo}
+            className="unicolombo"
+            alt="Logo de la Universidad Colombo"
+          />
+          <img src={utbLogo} className="utb" alt="Logo de la utb" />
+        </section>
+      </div>
 
       <PanelAccesible />
     </div>
