@@ -10,6 +10,7 @@ import hidePassword from "../../../assets/icons/home/hide-password.svg";
 const Header = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
 
+  // estados del los inputs del modal de registrarme
   const [usuario, setUsuario] = useState("");
   const [errorUsuario, setErrorUsuario] = useState(null);
 
@@ -20,6 +21,13 @@ const Header = () => {
   const [errorContrasenna, setErrorContrasenna] = useState(null);
 
   const [mostrarModal, setMostrarModal] = useState("registrarme");
+
+  // estados de los inputs del modal de login
+  const [usuarioLogin, setUsuarioLogin] = useState("");
+  const [errorUsuarioLogin, setErrorUsuarioLogin] = useState(null);
+
+  const [contrasennaLogin, setContrasennaLogin] = useState("");
+  const [errorContrasennaLogin, setErrorContrasennaLogin] = useState(null);
 
   // type y el icono del modal login
   const [inputLoginType, setInputLoginType] = useState("password");
@@ -34,7 +42,7 @@ const Header = () => {
     setEstaAbierto(false);
   };
 
-  const handleSubmit = () => {
+  const handleRegister = () => {
     setErrorUsuario(null);
     setErrorEmail(null);
     setErrorContrasenna(null);
@@ -85,6 +93,39 @@ const Header = () => {
       setErrorContrasenna(null);
     } else {
       setErrorContrasenna("¡Oops! debes llenar este campo");
+    }
+  };
+
+  const handleLogin = () => {
+    if (!usuarioLogin.trim()) {
+      setErrorUsuarioLogin("¡Oops! debes llenar este campo");
+    }
+    if (!contrasennaLogin.trim()) {
+      setErrorContrasennaLogin("¡Oops! debes llenar este campo");
+    }
+  };
+
+  const handleChangeUsuarioLogin = (e) => {
+    const usuario = e.target.value;
+
+    setUsuarioLogin(usuario);
+
+    if (usuario.trim()) {
+      setErrorUsuarioLogin(null);
+    } else {
+      setErrorUsuarioLogin("¡Oops! debes llenar este campo");
+    }
+  };
+
+  const handleChangeContrasennaLogin = (e) => {
+    const contrasenna = e.target.value;
+
+    setContrasennaLogin(contrasenna);
+
+    if (contrasenna.trim()) {
+      setErrorContrasennaLogin(null);
+    } else {
+      setErrorContrasennaLogin("¡Oops! debes llenar este campo");
     }
   };
 
@@ -176,7 +217,7 @@ const Header = () => {
                   onClick={changeLoginInputType}
                 />
               </div>
-              <button className="btn-registrarme" onClick={handleSubmit}>
+              <button className="btn-registrarme" onClick={handleRegister}>
                 Registrarme
               </button>
               <p className="tiene-cuenta">
@@ -196,14 +237,23 @@ const Header = () => {
               </h3>
 
               <div className="contenedor-input-registrarme">
-                <Input id="usuario" textoLabel="Usuario" />
+                <Input
+                  id="usuario"
+                  value={usuarioLogin}
+                  textoLabel="Usuario"
+                  onChange={handleChangeUsuarioLogin}
+                  error={errorUsuarioLogin}
+                />
               </div>
 
               <div className="contenedor-input-registrarme input-password">
                 <Input
                   type={inputRegistrarmeType}
+                  value={contrasennaLogin}
                   id="contraseña"
                   textoLabel="Contraseña"
+                  onChange={handleChangeContrasennaLogin}
+                  error={errorContrasennaLogin}
                 />
                 <img
                   src={registrarPasswordIcon}
@@ -212,7 +262,9 @@ const Header = () => {
                 />
               </div>
 
-              <button className="btn-registrarme">Iniciar sesion</button>
+              <button className="btn-registrarme" onClick={handleLogin}>
+                Iniciar sesion
+              </button>
 
               <p className="tiene-cuenta">
                 <span>¿No tienes cuenta? </span>
