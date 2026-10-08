@@ -112,6 +112,33 @@ header button {
   justify-content: center;
 }
 
+.input-password {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.input-password .contenedor-input {
+  width: 100%;
+}
+
+.input-password .contenedor-input input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 38px;
+}
+
+.input-password img {
+  position: absolute;
+  right: 12px;
+  top: 68%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
 .tiene-cuenta {
   text-align: center;
   margin-top: 25px;
