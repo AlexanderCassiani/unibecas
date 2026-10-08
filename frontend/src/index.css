@@ -1,8 +1,14 @@
 :root {
+  --background: #fff;
   --color-primario: #a31a1c;
   --color-secundario: #1250a8;
   --color-terciario: #7f44a0;
 
+  --color-superficie-azul: #1250a8;
+  --color-superficie-morada: #7d17dd0f;
+  --color-superficie-blanca: #f4f5f7;
+
+  --hover-azul: #3373ce27;
   --error: #ff3b4f;
 }
 
@@ -11,6 +17,22 @@
   box-sizing: border-box;
 }
 
+body.darkmode {
+  --background: #242a33;
+
+  --color-primario: #e33437;
+  --color-secundario: #589dff;
+
+  --color-superficie-morada: #7d17dd29;
+  --color-superficie-azul: #0e4491;
+  --color-superficie-blanca: #0f1115;
+
+  --hover-azul: #2575e63f;
+
+  color: #fff;
+}
+
 body {
   margin: 0;
+  background-color: var(--background);
 }
