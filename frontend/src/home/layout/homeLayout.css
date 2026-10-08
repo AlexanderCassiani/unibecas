@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 25px;
-  background-color: rgba(125, 23, 221, 0.055);
+  background-color: var(--color-superficie-morada);
   border-radius: 16px;
   padding: 28px 100px;
   max-width: 810px;
@@ -53,6 +53,11 @@ h2 {
 }
 
 .contenedor-universidades {
+  background-color: var(--color-superficie-blanca);
+  padding: 10px 0;
+}
+
+.contenedor-universidades section {
   display: flex;
   align-items: center;
   gap: 50px;
@@ -60,7 +65,7 @@ h2 {
   animation: carrusel 20s linear infinite;
 }
 
-.contenedor-universidades:has(img:hover) {
+.contenedor-universidades section:has(img:hover) {
   animation-play-state: paused;
 }
 
@@ -76,13 +81,13 @@ h2 {
   }
 }
 
-.contenedor-universidades img {
+.contenedor-universidades section img {
   height: 80px;
   filter: grayscale(100%);
   transition: filter 0.3s;
 }
 
-.contenedor-universidades img:hover {
+.contenedor-universidades section img:hover {
   filter: grayscale(0%);
 }
 
@@ -95,7 +100,7 @@ h2 {
 }
 
 .contenedor-sobre-nosotros {
-  background-color: rgba(125, 23, 221, 0.055);
+  background-color: var(--color-superficie-morada);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
