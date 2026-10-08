@@ -118,6 +118,7 @@ const Header = () => {
                   onChange={handleChangeUsuario}
                   error={errorUsuario}
                   className={errorUsuario ? "input-error" : null}
+                  placeholder="Nombre"
                 />
               </div>
               <div className="contenedor-input-registrarme">
@@ -128,6 +129,7 @@ const Header = () => {
                   onChange={handleChangeEmail}
                   error={errorEmail}
                   className={errorEmail ? "input-error" : null}
+                  placeholder="ejemplo@gmail.com"
                 />
               </div>
               <div className="contenedor-input-registrarme">
@@ -138,6 +140,7 @@ const Header = () => {
                   onChange={handleChangeContrasenna}
                   error={errorContrasenna}
                   className={errorContrasenna ? "input-error" : null}
+                  placeholder="*******"
                 />
               </div>
               <button className="btn-registrarme" onClick={handleSubmit}>
@@ -175,7 +178,10 @@ const Header = () => {
 
               <p className="tiene-cuenta">
                 <span>¿No tienes cuenta? </span>
-                <span className="link" onClick={() => setMostrarModal("registrarme")}>
+                <span
+                  className="link"
+                  onClick={() => setMostrarModal("registrarme")}
+                >
                   Registrate
                 </span>
               </p>
