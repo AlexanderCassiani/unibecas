@@ -17,6 +17,8 @@
 }
 
 .contenido-derecha {
+  max-width: 920px;
+  width: 100%;
   height: 500px;
   position: absolute;
   right: 0;
@@ -26,14 +28,7 @@
 .contenido-derecha img {
   width: 100%;
   height: 100%;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    transparent 8%,
-    rgba(0, 0, 0, 0.4) 25%,
-    black 45%,
-    black 100%
-  );
+  object-fit: cover;
   flex-shrink: 0;
   flex-grow: 1;
 }
@@ -79,16 +74,33 @@
 }
 
 .hero-buscador {
-  max-width: 550px;
+  max-width: 480px;
   width: 100%;
-  color: #fff;
-  background-color: var(--color-superficie-azul);
   border-radius: 8px;
-  padding: 20px 30px;
-  margin-top: 56px;
+  margin-top: 50px;
   display: flex;
-  align-items: flex-end;
-  gap: 4px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-buscador div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-buscador h2 {
+  margin: 0 0 12px 0;
+}
+
+.hero-buscador select {
+  padding: 10px 12px;
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+  font-size: 1.1rem;
+  color: #000;
 }
 
 .hero-buscador .contenedor-input {
@@ -101,6 +113,11 @@
   width: 100%;
   margin-top: 0;
   box-sizing: border-box;
+  transition: border-color 0.4s;
+}
+
+.hero-buscador .buscador-input:focus {
+  border-color: var(--color-terciario);
 }
 
 .hero-buscador label {
@@ -115,11 +132,24 @@
   background-color: var(--color-primario);
   color: white;
   font-size: 1.13rem;
-  padding: 10px;
+  padding: 14px 8px;
   border-radius: 8px;
   border: none;
-  width: 110px;
-  height: 55px;
-  flex-shrink: 0;
   cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+@media (min-width: 1200px) {
+  .hero-contenido h1 {
+    margin: 15px 0 20px 0;
+  }
+
+  .hero-contenido p {
+    line-height: 1.45;
+  }
+
+  .hero-buscador {
+    margin-top: 60px;
+  }
 }
