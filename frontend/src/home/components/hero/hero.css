@@ -48,7 +48,8 @@
     #9742ac 100%
   );
   background-size: 220% 100%;
-  color: #fff;
+  color: transparent;
+  background-clip: text;
   border-radius: 5px;
   animation: cambiarColor 3s ease-in-out infinite;
 }
