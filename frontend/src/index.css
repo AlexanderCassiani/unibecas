@@ -38,4 +38,5 @@ body.darkmode {
 body {
   margin: 0;
   background-color: var(--background);
+  transition: all 0.3s;
 }
