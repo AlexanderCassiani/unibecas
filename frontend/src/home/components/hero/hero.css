@@ -48,8 +48,8 @@
     #9742ac 100%
   );
   background-size: 220% 100%;
-  background-clip: text;
-  color: transparent;
+  color: #fff;
+  border-radius: 5px;
   animation: cambiarColor 3s ease-in-out infinite;
 }
 
@@ -138,6 +138,21 @@
   cursor: pointer;
   width: 100%;
   margin-top: 10px;
+}
+
+.typing-cursor {
+  display: inline-block;
+  height: 0.9em;
+  margin-left: 4px;
+  border-right: 3px solid currentColor;
+  vertical-align: -0.05em;
+  animation: parpadeo 0.7s steps(1) infinite;
+}
+
+@keyframes parpadeo {
+  50% {
+    opacity: 0;
+  }
 }
 
 @media (min-width: 1200px) {
