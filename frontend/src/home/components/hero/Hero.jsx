@@ -64,17 +64,17 @@ const Hero = () => {
             <h2>Buscar becas</h2>
             <div>
               <select>
-                <option value="" selected>
+                <option value="" defaultValue>
                   Facultad
                 </option>
               </select>
               <select>
-                <option value="" selected>
+                <option value="" defaultValue>
                   Tipo de formacion
                 </option>
               </select>
               <select>
-                <option value="" selected>
+                <option value="" defaultValue>
                   Sede
                 </option>
               </select>
