@@ -14,11 +14,29 @@ const Hero = () => {
             Explora becas de distintas universidades y encuentra oportunidades
             que se ajusten a tu carrera y necesidades.
           </p>
+
           <div className="hero-buscador">
+            <h2>Buscar becas</h2>
+            <div>
+              <select>
+                <option value="" selected>
+                  Facultad
+                </option>
+              </select>
+              <select>
+                <option value="" selected>
+                  Tipo de formacion
+                </option>
+              </select>
+              <select>
+                <option value="" selected>
+                  Sede
+                </option>
+              </select>
+            </div>
             <Input
               id="buscador"
               type="text"
-              textoLabel="Buscar becas"
               placeholder="Ingeniería, Medicina, Programación..."
               className="buscador-input"
             />
