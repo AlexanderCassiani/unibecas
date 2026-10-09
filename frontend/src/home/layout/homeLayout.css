@@ -3,7 +3,7 @@
 }
 
 .contenedor-info-becas {
-  margin: 150px auto 20px auto;
+  margin: 55px auto 20px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -106,8 +106,6 @@ h2 {
   }
 }
 
-
-
 .contenedor-universidades section img {
   height: 80px;
   filter: grayscale(100%);
@@ -154,7 +152,6 @@ h2 {
 .contenedor-universidades .areandina {
   height: 120px;
 }
-
 
 .contenedor-sobre-nosotros {
   background-color: var(--color-superficie-morada);
