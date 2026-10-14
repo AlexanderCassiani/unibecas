@@ -212,6 +212,7 @@ const Header = () => {
                   placeholder="*******"
                 />
                 <img
+                  style={errorContrasenna ? { top: 47 } : { top: 46 }}
                   src={loginPasswordIcon}
                   alt=""
                   onClick={changeLoginInputType}
@@ -243,6 +244,7 @@ const Header = () => {
                   textoLabel="Usuario"
                   onChange={handleChangeUsuarioLogin}
                   error={errorUsuarioLogin}
+                  placeholder="Nombre"
                 />
               </div>
 
@@ -254,8 +256,10 @@ const Header = () => {
                   textoLabel="Contraseña"
                   onChange={handleChangeContrasennaLogin}
                   error={errorContrasennaLogin}
+                  placeholder="*******"
                 />
                 <img
+                  style={errorContrasennaLogin ? { top: 47 } : { top: 46 }}
                   src={registrarPasswordIcon}
                   alt=""
                   onClick={changeRegistrarmeInputType}
