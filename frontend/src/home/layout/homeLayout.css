@@ -1,4 +1,4 @@
-.home-layout {
+ .home-layout {
   overflow-x: hidden;
 }
 
@@ -88,12 +88,13 @@ h2 {
 .carrusel-track img {
   height: 80px;
   flex-shrink: 0;
-  filter: grayscale(100%);
-  transition: filter 0.9s;
+  transition: scale 0.9s;
 }
 
 .carrusel-track img:hover {
-  filter: grayscale(0%);
+  scale: 1.1;
+  transition-property: scale;
+  transition-duration: 0.7s;
 }
 
 @keyframes carrusel {
@@ -108,7 +109,7 @@ h2 {
 
 .contenedor-universidades section img {
   height: 80px;
-  filter: grayscale(100%);
+  filter: grayscale(0%);
   transition: filter 0.9s;
 }
 
