@@ -31,7 +31,13 @@ import Header from "../components/header/Header";
 
 import PanelAccesible from "../../components/panelAccesible/PanelAccesible";
 
+import BecaCard from "../../components/becaCard/Beca";
+
+import { useState } from "react";
+
 const HomeLayout = () => {
+  const [contenedorBecas, setContenedorBecas] = useState("mas-recientes");
+
   const infoBecas = [
     {
       id: 1,
@@ -49,6 +55,7 @@ const HomeLayout = () => {
       description: "Programas disponibles",
     },
   ];
+
   const universidades = [
     {
       logo: senaLogo,
@@ -157,6 +164,92 @@ const HomeLayout = () => {
     },
   ];
 
+  const becas = [
+    {
+      id_beca: 1,
+      nombre_beca: "Beca Talento Caribe",
+      fecha_creacion_sys: "2026-01-15",
+      vigencia_programa: "2026-02-12",
+      descripcion_informacion:
+        "Beca dirigida a estudiantes destacados académicamente que deseen iniciar sus estudios de pregrado en la Universidad de Cartagena. Busca promover el acceso a la educación superior de jóvenes de la región Caribe.",
+      informacion_aplicar:
+        "Presentar certificado de notas de bachillerato, documento de identidad, resultados de las pruebas Saber 11 y formulario de inscripción. Se requiere un promedio mínimo de 4.3.",
+      modalidad: "Pregrado",
+      cobertura:
+        "Cobertura del 100% del valor de la matrícula durante el primer semestre, con posibilidad de renovación según el rendimiento académico.",
+      estado: "Activa",
+      url_informacion: "https://www.unicartagena.edu.co/becas",
+    },
+    {
+      id_beca: 2,
+      nombre_beca: "Beca Jóvenes Innovadores",
+      fecha_creacion_sys: "2026-02-10",
+      vigencia_programa: "2027-01-20",
+      descripcion_informacion:
+        "Programa de apoyo económico para estudiantes interesados en carreras relacionadas con ingeniería, tecnología y desarrollo de software en la Universidad Tecnológica de Bolívar.",
+      informacion_aplicar:
+        "Ser admitido en un programa de ingeniería, presentar certificado de ingresos familiares, documento de identidad y una carta de motivación explicando el interés por la innovación tecnológica.",
+      modalidad: "Pregrado",
+      cobertura:
+        "Descuento del 70% en el valor de la matrícula y acceso a programas de acompañamiento académico.",
+      estado: "Activa",
+      url_informacion: "https://www.utb.edu.co/becas",
+    },
+    {
+      id_beca: 3,
+      nombre_beca: "Beca Excelencia Académica",
+      fecha_creacion_sys: "2026-03-05",
+      vigencia_programa: "2026-06-20",
+      descripcion_informacion:
+        "Convocatoria dirigida a profesionales que deseen continuar su formación académica mediante programas de especialización y maestría en la Universidad de San Buenaventura Cartagena.",
+      informacion_aplicar:
+        "Contar con título profesional, certificado de calificaciones universitarias, hoja de vida actualizada, documento de identidad y carta de intención. Se valorará especialmente el desempeño académico.",
+      modalidad: "Posgrado",
+      cobertura:
+        "Financiación del 50% del costo total de la matrícula del programa de posgrado.",
+      estado: "Vencida",
+      url_informacion: "https://www.usbcartagena.edu.co/becas",
+    },
+    {
+      id_beca: 4,
+      nombre_beca: "Beca Formación para el Futuro",
+      fecha_creacion_sys: "2026-04-20",
+      vigencia_programa: "2027-08-18",
+      descripcion_informacion:
+        "Iniciativa de apoyo educativo para jóvenes de Cartagena que deseen realizar programas de formación técnica y adquirir competencias para incorporarse rápidamente al mercado laboral.",
+      informacion_aplicar:
+        "Presentar documento de identidad, diploma de bachiller, certificado de residencia en Cartagena y completar el formulario de inscripción. No se requiere experiencia laboral.",
+      modalidad: "Tecnica",
+      cobertura:
+        "Financiación del 100% de los costos de formación, materiales educativos y acceso a talleres de orientación laboral.",
+      estado: "Activa",
+      url_informacion: "https://www.unitecnar.edu.co/becas",
+    },
+    {
+      id_beca: 5,
+      nombre_beca: "Beca Impulso Profesional",
+      fecha_creacion_sys: "2026-05-12",
+      vigencia_programa: "2026-04-20",
+      descripcion_informacion:
+        "Beca orientada a estudiantes y egresados que buscan fortalecer sus conocimientos mediante programas tecnológicos en áreas administrativas, contables y de sistemas en instituciones de educación superior de Cartagena.",
+      informacion_aplicar:
+        "Diligenciar el formulario de solicitud, presentar documento de identidad, certificado académico y una carta explicando las razones por las cuales solicita el beneficio.",
+      modalidad: "Tecnologica",
+      cobertura:
+        "Subsidio del 60% del valor de la matrícula durante toda la duración del programa, sujeto al cumplimiento de los requisitos académicos.",
+      estado: "Vencida",
+      url_informacion: "https://www.unicolombo.edu.co/becas",
+    },
+  ];
+
+  const mostrarBecasRecientes = () => {
+    setContenedorBecas("mas-recientes");
+  };
+
+  const mostrarBecasPopulares = () => {
+    setContenedorBecas("mas-populares");
+  };
+
   return (
     <div className="home-layout">
       <Header />
@@ -215,7 +308,6 @@ const HomeLayout = () => {
 
         <section className="carrusel-universidades">
           <div className="carrusel-track">
-
             <div className="grupo-universidades">
               {universidades.map((universidad, index) => (
                 <img
@@ -237,10 +329,46 @@ const HomeLayout = () => {
                 />
               ))}
             </div>
-
           </div>
         </section>
       </div>
+
+      <section className="seccion-becas">
+        <h2>Becas destacadas</h2>
+
+        <div className="contenedor-botones">
+          <button
+            onClick={mostrarBecasRecientes}
+            className={
+              contenedorBecas === "mas-recientes" ? "seleccionado" : null
+            }
+          >
+            Mas recientes
+          </button>
+          <button
+            onClick={mostrarBecasPopulares}
+            className={
+              contenedorBecas === "mas-populares" ? "seleccionado" : null
+            }
+          >
+            Mas populares
+          </button>
+        </div>
+
+        <div className="contenedor-becas">
+          {becas.map((info) => (
+            <BecaCard
+              nombre={info.nombre_beca}
+              fecha_craecion={info.fecha_creacion_sys}
+              vigencia={info.vigencia_programa}
+              descripcion={info.descripcion_informacion}
+              info_aplicar={info.informacion_aplicar}
+              modalidad={info.modalidad}
+              estado={info.estado}
+            />
+          ))}
+        </div>
+      </section>
 
       <PanelAccesible />
     </div>
