@@ -7,6 +7,8 @@ import { useState } from "react";
 import seePassword from "../../../assets/icons/home/see-password.svg";
 import hidePassword from "../../../assets/icons/home/hide-password.svg";
 
+import logo from "../../../assets/images/home/logo-unibecas.png";
+
 const Header = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
 
@@ -147,7 +149,11 @@ const Header = () => {
 
   return (
     <header>
-      <h2>UniBecas</h2>
+      <div className="logo-unibecas-contenedor">
+        <img src={logo} alt="Logo de UniBecas" className="logo"/>
+        <h2>UniBecas</h2>
+      </div>
+
 
       <nav>
         <ul>

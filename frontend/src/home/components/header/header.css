@@ -153,3 +153,17 @@ header button {
 .modal .contenedor-input-registrarme .input-error {
   border-color: var(--error);
 }
+.logo-unibecas-contenedor {
+  display: flex;
+  align-items: center; 
+  gap: 10px;           
+}
+
+.logo {
+  height: 40px;        
+  width: auto;
+}
+
+.logo-unibecas-contenedor h2 {
+  margin: 0;          
+}
