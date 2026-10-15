@@ -70,3 +70,6 @@ Proyecto académico desarrollado por:
   
 Programa: Analisis y desarrollo de software.
 Institución: Servicio Nacional de Aprendizaje - SENA.
+
+Cronograma de actividades:
+https://docs.google.com/spreadsheets/d/1tx0LFD_E3tvL6UWLJoa38dDQtx1a4-coM4JHS3S51H4/edit?usp=sharing
