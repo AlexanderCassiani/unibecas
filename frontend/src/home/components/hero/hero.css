@@ -68,6 +68,7 @@
   background-clip: text;
   border-radius: 5px;
   animation: cambiarColor 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px #fff);
 }
 
 @keyframes cambiarColor {

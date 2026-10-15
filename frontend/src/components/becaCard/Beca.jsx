@@ -8,13 +8,18 @@ const BecaCard = ({
   info_aplicar,
   modalidad,
   estado,
+  cobertura,
 }) => {
   return (
     <article className="becaCard">
       <header className="becaCard-header">
         <span className="becaCard-modalidad">{modalidad}</span>
-
-        <span className={`becaCard-estado`}>{estado}</span>
+        <span
+          className="becaCard-cobertura"
+          title={`Covertura del ${cobertura}%`}
+        >
+          {cobertura}
+        </span>
       </header>
 
       <div className="becaCard-contenido">
@@ -29,6 +34,12 @@ const BecaCard = ({
       </div>
 
       <footer className="becaCard-footer">
+        <div className="contenedor-becaCard-estado">
+          <span className="becaCard-estado">{estado}</span>
+          <span
+            className={`punto ${estado === "Activa" ? "activa" : "vencidad"}`}
+          ></span>
+        </div>
         <div className="becaCard-vigencia">
           <span>Periodo de convocatoria</span>
           <strong>

@@ -13,9 +13,15 @@ import BecaCard from "../../components/becaCard/Beca";
 import { infoBecas, universidades, becas } from "../data";
 
 import { useState } from "react";
+import { useRef } from "react";
+
+import arrowLeft from "../../assets/icons/home/arrow-left.svg";
+import arrowRight from "../../assets/icons/home/arrow-right.svg";
 
 const HomeLayout = () => {
   const [contenedorBecas, setContenedorBecas] = useState("mas-recientes");
+
+  const contenedorRef = useRef(null);
 
   const mostrarBecasRecientes = () => {
     setContenedorBecas("mas-recientes");
@@ -23,6 +29,18 @@ const HomeLayout = () => {
 
   const mostrarBecasPopulares = () => {
     setContenedorBecas("mas-populares");
+  };
+
+  const moverAIzquierda = () => {
+    contenedorRef.current.scrollBy({
+      left: -320,
+    });
+  };
+
+  const moverADerecha = () => {
+    contenedorRef.current.scrollBy({
+      left: 320,
+    });
   };
 
   return (
@@ -130,7 +148,7 @@ const HomeLayout = () => {
           </button>
         </div>
 
-        <div className="contenedor-becas">
+        <div className="contenedor-becas" ref={contenedorRef}>
           {becas.map((info) => (
             <BecaCard
               nombre={info.nombre_beca}
@@ -140,8 +158,14 @@ const HomeLayout = () => {
               info_aplicar={info.informacion_aplicar}
               modalidad={info.modalidad}
               estado={info.estado}
+              cobertura={info.cobertura}
             />
           ))}
+        </div>
+
+        <div className="contenedor-arrows">
+          <img src={arrowLeft} alt="Arrow left" onClick={moverAIzquierda} />
+          <img src={arrowRight} alt="Arrow right" onClick={moverADerecha} />
         </div>
       </section>
 
