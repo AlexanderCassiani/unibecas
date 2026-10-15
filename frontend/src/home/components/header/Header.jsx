@@ -150,10 +150,9 @@ const Header = () => {
   return (
     <header>
       <div className="logo-unibecas-contenedor">
-        <img src={logo} alt="Logo de UniBecas" className="logo"/>
+        <img src={logo} alt="Logo de UniBecas" className="logo" />
         <h2>UniBecas</h2>
       </div>
-
 
       <nav>
         <ul>
@@ -162,7 +161,7 @@ const Header = () => {
             <img src={flechaAbajo} alt="Flecha abajo" />
           </li>
           <li>
-            <span>Universidades</span>
+            <span>Becas</span>
             <img src={flechaAbajo} alt="Flecha abajo" />
           </li>
         </ul>
