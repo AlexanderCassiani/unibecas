@@ -11,7 +11,7 @@
   background-color: var(--color-superficie-morada);
   border-radius: 16px;
   padding: 28px 100px;
-  max-width: 810px;
+  max-width: 1000px;
 }
 
 .info-becas {
@@ -234,4 +234,57 @@ h2 {
   overflow-y: hidden;
   padding: 10px 5px 15px;
   scroll-behavior: smooth;
+}
+
+.carrusel-becas {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 56px;
+  box-sizing: border-box;
+}
+
+.carrusel-becas-imagen {
+  display: block;
+  width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.carrusel-becas-flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: #4a2f82;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carrusel-becas-flecha-izq {
+  left: 4px;
+}
+
+.carrusel-becas-flecha-der {
+  right: 4px;
+}
+
+@media (max-width: 600px) {
+  .carrusel-becas {
+    padding: 0 40px;
+  }
+
+  .carrusel-becas-flecha {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+    padding: auto 0;
+  }
 }

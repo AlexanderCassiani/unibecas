@@ -33,10 +33,31 @@ import PanelAccesible from "../../components/panelAccesible/PanelAccesible";
 
 import BecaCard from "../../components/becaCard/Beca";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import encuentraBeca1 from "../../assets/images/home/encuentra-beca1.png";
+import encuentraBeca2 from "../../assets/images/home/encuentra-beca2.png";
+import encuentraBeca3 from "../../assets/images/home/encuentra-beca3.png";
+import encuentraBeca4 from "../../assets/images/home/encuentra-beca4.png";
+import encuentraBeca5 from "../../assets/images/home/encuentra-beca5.png";
+import encuentraBeca6 from "../../assets/images/home/encuentra-beca6.png";
+import encuentraBeca7 from "../../assets/images/home/encuentra-beca7.png";
+import logoCompleto from "../../assets/images/home/unibecas-logo-completo.png";
+
+const imagenes = [
+  encuentraBeca1,
+  encuentraBeca2,
+  encuentraBeca3,
+  encuentraBeca4,
+  encuentraBeca5,
+  encuentraBeca6,
+  encuentraBeca7,
+  logoCompleto,
+];
 
 const HomeLayout = () => {
   const [contenedorBecas, setContenedorBecas] = useState("mas-recientes");
+  const [actual, setActual] = useState(0);
 
   const infoBecas = [
     {
@@ -55,6 +76,7 @@ const HomeLayout = () => {
       description: "Programas disponibles",
     },
   ];
+
 
   const universidades = [
     {
@@ -242,6 +264,22 @@ const HomeLayout = () => {
     },
   ];
 
+  const siguiente = () => {
+    setActual((actual + 1) % imagenes.length);
+  };
+
+  const anterior = () => {
+    setActual((actual - 1 + imagenes.length) % imagenes.length);
+  };
+
+  useEffect(() => {
+    const temporizador = setTimeout(() => {
+      setActual((numero) => (numero + 1) % imagenes.length);
+    }, 3000);
+
+    return () => clearTimeout(temporizador);
+  }, [actual]);
+
   const mostrarBecasRecientes = () => {
     setContenedorBecas("mas-recientes");
   };
@@ -268,6 +306,28 @@ const HomeLayout = () => {
             <p>{info.description}</p>
           </div>
         ))}
+      </section>
+
+      <section className="carrusel-becas">
+        <button
+          className="carrusel-becas-flecha carrusel-becas-flecha-izq"
+          onClick={anterior}
+        >
+          ‹
+        </button>
+
+        <img
+          className="carrusel-becas-imagen"
+          src={imagenes[actual]}
+          alt={`Encuentra tu beca ${actual + 1}`}
+        />
+
+        <button
+          className="carrusel-becas-flecha carrusel-becas-flecha-der"
+          onClick={siguiente}
+        >
+          ›
+        </button>
       </section>
 
       <section className="contenedor-sobre-nosotros">
