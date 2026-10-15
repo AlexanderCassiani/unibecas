@@ -157,8 +157,7 @@ export const becas = [
       informacion_aplicar:
         "Presentar certificado de notas de bachillerato, documento de identidad, resultados de las pruebas Saber 11 y formulario de inscripción. Se requiere un promedio mínimo de 4.3.",
       modalidad: "Pregrado",
-      cobertura:
-        "Cobertura del 100% del valor de la matrícula durante el primer semestre, con posibilidad de renovación según el rendimiento académico.",
+      cobertura: "100%",
       estado: "Activa",
       url_informacion: "https://www.unicartagena.edu.co/becas",
     },
@@ -172,8 +171,7 @@ export const becas = [
       informacion_aplicar:
         "Ser admitido en un programa de ingeniería, presentar certificado de ingresos familiares, documento de identidad y una carta de motivación explicando el interés por la innovación tecnológica.",
       modalidad: "Pregrado",
-      cobertura:
-        "Descuento del 70% en el valor de la matrícula y acceso a programas de acompañamiento académico.",
+      cobertura: "80%",
       estado: "Activa",
       url_informacion: "https://www.utb.edu.co/becas",
     },
@@ -187,9 +185,8 @@ export const becas = [
       informacion_aplicar:
         "Contar con título profesional, certificado de calificaciones universitarias, hoja de vida actualizada, documento de identidad y carta de intención. Se valorará especialmente el desempeño académico.",
       modalidad: "Posgrado",
-      cobertura:
-        "Financiación del 50% del costo total de la matrícula del programa de posgrado.",
-      estado: "Vencida",
+      cobertura: "80%",
+      estado: "Activa",
       url_informacion: "https://www.usbcartagena.edu.co/becas",
     },
     {
@@ -202,8 +199,7 @@ export const becas = [
       informacion_aplicar:
         "Presentar documento de identidad, diploma de bachiller, certificado de residencia en Cartagena y completar el formulario de inscripción. No se requiere experiencia laboral.",
       modalidad: "Tecnica",
-      cobertura:
-        "Financiación del 100% de los costos de formación, materiales educativos y acceso a talleres de orientación laboral.",
+      cobertura: "50%",
       estado: "Activa",
       url_informacion: "https://www.unitecnar.edu.co/becas",
     },
@@ -217,9 +213,8 @@ export const becas = [
       informacion_aplicar:
         "Diligenciar el formulario de solicitud, presentar documento de identidad, certificado académico y una carta explicando las razones por las cuales solicita el beneficio.",
       modalidad: "Tecnologica",
-      cobertura:
-        "Subsidio del 60% del valor de la matrícula durante toda la duración del programa, sujeto al cumplimiento de los requisitos académicos.",
-      estado: "Vencida",
+      cobertura: "30%",
+      estado: "Activa",
       url_informacion: "https://www.unicolombo.edu.co/becas",
     },
   ];
