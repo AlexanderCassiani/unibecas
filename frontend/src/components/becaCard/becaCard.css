@@ -1,16 +1,16 @@
 .becaCard {
   width: 100%;
-  max-width: 350px;
+  max-width: 300px;
   min-width: 0;
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: 0.25s ease;
   flex-shrink: 0;
   cursor: pointer;
+  position: relative;
 }
 
 .becaCard:hover {
@@ -24,11 +24,13 @@
   padding: 16px;
 }
 
-.becaCard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+.becaCard-cobertura {
+  position: absolute;
+  right: -8px;
+  background-color: var(--color-primario);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 10px;
 }
 
 .becaCard-contenido h2 {
@@ -66,4 +68,25 @@
 .becaCard-footer {
   border-top: 1px solid #eee;
   margin-top: auto;
+}
+
+.contenedor-becaCard-estado {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.punto {
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+}
+
+.punto.activa {
+  background-color: rgb(33, 224, 33);
+}
+
+.punto.vencida {
+  background-color: rgb(240, 19, 19);
 }
