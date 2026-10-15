@@ -53,6 +53,7 @@
   background-clip: text;
   border-radius: 5px;
   animation: cambiarColor 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px #fff);
 }
 
 @keyframes cambiarColor {
@@ -196,29 +197,5 @@
 @media (max-width: 630px) {
   .hero-contenido h1 {
     font-size: 3rem;
-  }
-}
-
-@media (max-width: 1366px) {
-  .contenido-derecha {
-    max-width: 1366px;
-    height: 600px;
-  }
-
-  .contenido-derecha::before {
-    content: "";
-    position: absolute;
-    z-index: 600;
-    top: 0;
-    left: 0;
-    background: linear-gradient(#242a3394 0%, #242a334f 50%, #242a3313 100%);
-    width: 100%;
-    height: 100%;
-  }
-
-  .hero-contenido .contenido-izquierda h1,
-  .hero-contenido .contenido-izquierda p,
-  .hero-buscador h2 {
-    color: #fff;
   }
 }
