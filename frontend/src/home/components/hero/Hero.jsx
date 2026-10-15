@@ -1,6 +1,7 @@
 import "./hero.css";
 import Input from "../../../components/input/Input";
 import heroImg from "../../../assets/images/home/hero-img.jpg";
+import heroImgHighResolution from "../../../assets/images/home/hero-img-high-resolution.jpg";
 import { useState, useEffect } from "react";
 
 const Hero = () => {
@@ -89,7 +90,13 @@ const Hero = () => {
           </div>
         </div>
         <div className="contenido-derecha">
-          <img src={heroImg} alt="Mujer leyendo" />
+          <picture>
+            <source
+              media="(max-width: 1366px)"
+              srcSet={heroImgHighResolution}
+            />
+            <img src={heroImg} alt="Mujer leyendo" />
+          </picture>
         </div>
       </div>
     </div>
