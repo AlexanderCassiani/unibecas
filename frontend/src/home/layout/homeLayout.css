@@ -1,4 +1,4 @@
- .home-layout {
+.home-layout {
   overflow-x: hidden;
 }
 
@@ -226,12 +226,30 @@ h2 {
 
 .seccion-becas .contenedor-becas {
   margin: 6px auto 12px auto;
-  max-width: 1000px;
+  max-width: 952px;
   width: 100%;
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  overflow-y: hidden;
+  gap: 20px;
+  overflow: hidden;
   padding: 10px 5px 15px;
   scroll-behavior: smooth;
+  user-select: none;
+}
+
+.contenedor-arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.contenedor-arrows img {
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.contenedor-arrows img:hover {
+  transform: scale(1.3);
 }
