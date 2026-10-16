@@ -1,6 +1,7 @@
 import "./becaCard.css";
 
 const BecaCard = ({
+  universidad,
   nombre,
   fecha_creacion,
   vigencia,
@@ -10,10 +11,14 @@ const BecaCard = ({
   estado,
   cobertura,
 }) => {
+
+  const clase = estado === "Activa" ? "activa" : "vencida"
+
   return (
     <article className="becaCard">
       <header className="becaCard-header">
         <span className="becaCard-modalidad">{modalidad}</span>
+        <h2>{universidad}</h2>
         <span
           className="becaCard-cobertura"
           title={`Covertura del ${cobertura}%`}
@@ -23,7 +28,7 @@ const BecaCard = ({
       </header>
 
       <div className="becaCard-contenido">
-        <h2>{nombre}</h2>
+        <h3>{nombre}</h3>
 
         <p className="becaCard-descripcion">{descripcion}</p>
 
@@ -34,10 +39,10 @@ const BecaCard = ({
       </div>
 
       <footer className="becaCard-footer">
-        <div className="contenedor-becaCard-estado">
+        <div className={`contenedor-becaCard-estado ${clase}`}>
           <span className="becaCard-estado">{estado}</span>
           <span
-            className={`punto ${estado === "Activa" ? "activa" : "vencidad"}`}
+            className={`punto ${clase}`}
           ></span>
         </div>
         <div className="becaCard-vigencia">
