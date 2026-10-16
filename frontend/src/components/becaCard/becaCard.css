@@ -18,10 +18,11 @@
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
-.becaCard-header,
-.becaCard-contenido,
-.becaCard-footer {
-  padding: 16px;
+.becaCard-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 14px 7px 14px;
 }
 
 .becaCard-cobertura {
@@ -33,13 +34,25 @@
   border-radius: 10px;
 }
 
-.becaCard-contenido h2 {
-  font-size: 19px;
-  margin: 0 0 6px;
+.becaCard-header h2 {
+  font-size: 1.18rem;
+  margin: 0 0 8px;
+  text-align: start;
+  background-color: #8472f147;
+  display: inline;
+  font-weight: 400;
+}
+
+.becaCard-contenido {
+  padding: 0 14px;
+}
+
+.becaCard-contenido h3 {
+  margin: 0;
 }
 
 .becaCard-descripcion {
-  font-size: 13px;
+  font-size: 0.81rem;
   line-height: 1.5;
   color: #686b75;
   display: -webkit-box;
@@ -67,13 +80,28 @@
 
 .becaCard-footer {
   border-top: 1px solid #eee;
-  margin-top: auto;
+  margin: 8px 0 4px 0;
+  padding: 14px;
+}
+
+.becaCard-vigencia {
+  margin-top: 6px;
 }
 
 .contenedor-becaCard-estado {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 4px;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+
+.contenedor-becaCard-estado.activa {
+  background-color: rgb(22 228 22 / 43%);
+}
+
+.contenedor-becaCard-estado.vencida {
+  background-color: rgba(233, 29, 29, 0.452);
 }
 
 .punto {
