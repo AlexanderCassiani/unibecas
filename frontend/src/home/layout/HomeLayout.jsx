@@ -8,7 +8,7 @@ import Header from "../components/header/Header";
 
 import PanelAccesible from "../../components/panelAccesible/PanelAccesible";
 
-import BecaCard from "../../components/becaCard/Beca";
+import BecaCard from "../../components/becaCard/BecaCard";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -209,6 +209,8 @@ const HomeLayout = () => {
         <div className="contenedor-becas" ref={contenedorRef}>
           {becas.map((info) => (
             <BecaCard
+              key={info.id_beca}
+              universidad={info.universidad}
               nombre={info.nombre_beca}
               fecha_craecion={info.fecha_creacion_sys}
               vigencia={info.vigencia_programa}
