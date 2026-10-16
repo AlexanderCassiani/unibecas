@@ -10,7 +10,12 @@ import PanelAccesible from "../../components/panelAccesible/PanelAccesible";
 
 import BecaCard from "../../components/becaCard/Beca";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
+import { becas, universidades, infoBecas } from "../data";
+
+import arrowLeft from "../../assets/icons/home/arrow-left.svg";
+import arrowRight from "../../assets/icons/home/arrow-right.svg";
 
 import encuentraBeca1 from "../../assets/images/home/encuentra-beca1.png";
 import encuentraBeca2 from "../../assets/images/home/encuentra-beca2.png";
