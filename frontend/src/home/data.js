@@ -223,3 +223,81 @@ export const becas = [
     url_informacion: "https://www.unicolombo.edu.co/becas",
   },
 ];
+
+export const becasPopulares = [
+  {
+    id_beca: 1,
+    nombre_beca: "Beca Ingeniería del Futuro",
+    fecha_creacion_sys: "2026-01-15",
+    vigencia_programa: "2026-12-15",
+    descripcion_informacion:
+      "Beca dirigida a estudiantes interesados en cursar programas de ingeniería, como Ingeniería de Sistemas, Ingeniería Industrial e Ingeniería Civil. Busca impulsar la formación de profesionales capaces de desarrollar soluciones innovadoras para la región Caribe.",
+    informacion_aplicar:
+      "Presentar documento de identidad, diploma de bachiller, resultados de las pruebas Saber 11 y formulario de inscripción. Se dará prioridad a estudiantes con buen rendimiento académico.",
+    modalidad: "Pregrado",
+    cobertura: "80%",
+    estado: "Activa",
+    universidad: "Universidad Tecnológica de Bolívar",
+    url_informacion: "https://www.utb.edu.co/",
+  },
+  {
+    id_beca: 2,
+    nombre_beca: "Beca Vocación Médica",
+    fecha_creacion_sys: "2026-02-01",
+    vigencia_programa: "2026-11-30",
+    descripcion_informacion:
+      "Beca orientada a jóvenes que desean estudiar Medicina y contribuir al bienestar de sus comunidades. Busca facilitar el acceso a la educación superior en el área de la salud.",
+    informacion_aplicar:
+      "Presentar documento de identidad, diploma de bachiller, resultados de las pruebas Saber 11 y formulario de inscripción. Se recomienda contar con un buen promedio académico.",
+    modalidad: "Pregrado",
+    cobertura: "70%",
+    estado: "Activa",
+    universidad: "Universidad de Cartagena",
+    url_informacion: "https://www.unicartagena.edu.co/",
+  },
+  {
+    id_beca: 3,
+    nombre_beca: "Beca Innovación Tecnológica",
+    fecha_creacion_sys: "2026-02-10",
+    vigencia_programa: "2026-12-20",
+    descripcion_informacion:
+      "Beca destinada a estudiantes interesados en programas tecnológicos relacionados con el desarrollo de software, análisis de datos, inteligencia artificial y nuevas tecnologías.",
+    informacion_aplicar:
+      "Diligenciar el formulario de inscripción y presentar documento de identidad, certificado de estudios y resultados de las pruebas Saber 11. La selección dependerá del cumplimiento de los requisitos académicos.",
+    modalidad: "Tecnológica",
+    cobertura: "100%",
+    estado: "Activa",
+    universidad: "Unicolombo",
+    url_informacion: "https://www.unicolombo.edu.co/",
+  },
+  {
+    id_beca: 4,
+    nombre_beca: "Beca Excelencia en Derecho",
+    fecha_creacion_sys: "2026-03-05",
+    vigencia_programa: "2026-11-15",
+    descripcion_informacion:
+      "Beca dirigida a estudiantes con interés en el Derecho, la justicia y las ciencias jurídicas. Promueve la formación de profesionales comprometidos con la defensa de los derechos y el desarrollo social.",
+    informacion_aplicar:
+      "Presentar documento de identidad, diploma de bachiller, resultados de las pruebas Saber 11 y formulario de inscripción. Se valorará el desempeño académico del aspirante.",
+    modalidad: "Pregrado",
+    cobertura: "60%",
+    estado: "Activa",
+    universidad: "Universidad Rafael Núñez",
+    url_informacion: "https://www.uninunez.edu.co/",
+  },
+  {
+    id_beca: 5,
+    nombre_beca: "Beca Talento Empresarial",
+    fecha_creacion_sys: "2026-03-12",
+    vigencia_programa: "2026-12-10",
+    descripcion_informacion:
+      "Beca para estudiantes interesados en Administración de Empresas, Contaduría Pública, Finanzas y áreas relacionadas con la gestión empresarial. Busca fomentar el liderazgo y el emprendimiento.",
+    informacion_aplicar:
+      "Presentar documento de identidad, diploma de bachiller, resultados de las pruebas Saber 11 y formulario de inscripción. Los aspirantes deberán cumplir con los criterios de selección establecidos por la institución.",
+    modalidad: "Pregrado",
+    cobertura: "75%",
+    estado: "Activa",
+    universidad: "Universidad Tecnológica de Bolívar",
+    url_informacion: "https://www.utb.edu.co/",
+  },
+];

@@ -11,8 +11,7 @@ const BecaCard = ({
   estado,
   cobertura,
 }) => {
-
-  const clase = estado === "Activa" ? "activa" : "vencida"
+  const clase = estado === "Activa" ? "activa" : "vencida";
 
   return (
     <article className="becaCard">
@@ -39,17 +38,16 @@ const BecaCard = ({
       </div>
 
       <footer className="becaCard-footer">
+        <div className="becaCard-vigencia">
+          <span>Inscripciones:</span>
+          <br />
+          <span className="becaCard-inscripciones">
+            del {fecha_creacion} al {vigencia}
+          </span>
+        </div>
         <div className={`contenedor-becaCard-estado ${clase}`}>
           <span className="becaCard-estado">{estado}</span>
-          <span
-            className={`punto ${clase}`}
-          ></span>
-        </div>
-        <div className="becaCard-vigencia">
-          <span>Periodo de convocatoria</span>
-          <strong>
-            {fecha_creacion} - {vigencia}
-          </strong>
+          <span className={`punto ${clase}`}></span>
         </div>
       </footer>
     </article>
