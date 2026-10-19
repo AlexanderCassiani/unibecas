@@ -5,3 +5,5 @@ eslint.config.js
 jsconfig.json
 
 api.http
+
+local.http
