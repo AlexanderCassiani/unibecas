@@ -4,7 +4,7 @@ import cors from 'cors'
 import crypto from 'node:crypto'
 
 import { readFile, writeFile } from './utils/funciones/funciones.js'
-import validarUsuario from './esquemas/esquemas.js'
+import { validarUsuario, actualizarDato } from './esquemas/esquemas.js'
 
 const app = express()
 const PORT = process.env.PORT ?? 3001
@@ -66,10 +66,47 @@ app.post('/main', async (req, res) => {
     }
 })
 
+app.patch('/main/:id', async (req, res) => {
+    const dataUpdated = await actualizarDato(req.body)
+    try {
+        if (!dataUpdated.success) {
+            return res.status(422).json({
+                error_validation: JSON.parse(dataUpdated.error.message)
+            })
+        }
+        const { id } = req.params
+        const data = await readFile()
+        const indexDato = data.findIndex(dato => dato.id === id)
+
+        if (indexDato === -1) {
+            return res.status(404).json({
+                error: `No existe dato con la ID: ${id}`
+            })
+        }
+
+        data[indexDato] = {
+            ...data[indexDato],
+            ...dataUpdated.data
+        }
+
+        await writeFile(data)
+
+        return res.status(200).json({
+            message: `Dato ${id} actualizado con éxito`,
+            dato: data[indexDato]
+        })
+    } catch (error) {
+        return res.status(500).json({
+            error: `Error de servicio - ${error.message}`
+        })
+    }
+
+})
+
 app.use((req, res) => {
     res.status(404).json({ error: 'Not found' })
 })
 
 app.listen(PORT, () => {
-    console.log(`[Server] Running port: ${PORT}`)
+    console.log(`[Server] Running port: http://localhost:${PORT}`)
 })
