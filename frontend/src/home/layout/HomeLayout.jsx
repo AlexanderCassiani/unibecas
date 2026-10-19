@@ -5,6 +5,7 @@ import infoBecasImg from "../../assets/icons/home/info-becas-icon.svg";
 import personasCelebrando from "../../assets/images/home/personas-celebrando.jpg";
 
 import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 
 import PanelAccesible from "../../components/panelAccesible/PanelAccesible";
 
@@ -121,7 +122,7 @@ const HomeLayout = () => {
         </button>
       </section>
 
-      <section className="contenedor-sobre-nosotros">
+      <section className="contenedor-sobre-nosotros" id="acerca-de-unibecas">
         <div>
           <img src={personasCelebrando} alt="Personas celebrando" />
           <div>
@@ -184,7 +185,7 @@ const HomeLayout = () => {
         </section>
       </div>
 
-      <section className="seccion-becas">
+      <section className="seccion-becas" id="becas">
         <h2>Becas destacadas</h2>
 
         <div className="contenedor-botones">
@@ -247,6 +248,8 @@ const HomeLayout = () => {
           <img src={arrowRight} alt="Arrow right" onClick={moverADerecha} />
         </div>
       </section>
+
+      <Footer />
 
       <PanelAccesible />
     </div>
