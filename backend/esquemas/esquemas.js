@@ -10,6 +10,10 @@ const formatoNewuser = z.object({
     })
 })
 
-export default function validarUsuario(objeto) {
+export function validarUsuario(objeto) {
     return formatoNewuser.safeParse(objeto)
+}
+
+export function actualizarDato(objeto) {
+    return formatoNewuser.partial().safeParse(objeto)
 }
