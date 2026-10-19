@@ -195,6 +195,10 @@ h2 {
   color: var(--color-primario);
 }
 
+.seccion-becas {
+  margin-bottom: 35px;
+}
+
 .seccion-becas .contenedor-botones {
   display: flex;
   justify-content: center;

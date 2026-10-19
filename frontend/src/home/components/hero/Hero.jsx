@@ -49,7 +49,7 @@ const Hero = () => {
   }, [texto, indiceFrase, borrando]);
 
   return (
-    <div className="hero">
+    <div className="hero" id="inicio">
       <div className="hero-contenido">
         <div className="contenido-izquierda">
           <h1>
@@ -90,8 +90,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="contenido-derecha">
-            <img src={heroImg} alt="Mujer leyendo" />
-
+          <img src={heroImg} alt="Mujer leyendo" />
         </div>
       </div>
     </div>
