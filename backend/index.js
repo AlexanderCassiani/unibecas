@@ -3,8 +3,8 @@ import express from 'express'
 import cors from 'cors'
 import crypto from 'node:crypto'
 
-import { readFile, writeFile } from './utils/funciones/funciones'
-import validarUsuario from './esquemas/esquemas'
+import { readFile, writeFile } from './utils/funciones/funciones.js'
+import validarUsuario from './esquemas/esquemas.js'
 
 const app = express()
 const PORT = process.env.PORT ?? 3001
