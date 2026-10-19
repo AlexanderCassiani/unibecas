@@ -41,14 +41,14 @@ app.post('/main', async (req, res) => {
     const dataVal = validarUsuario(req.body)
 
     try {
-        if (dataVal.error) {
+        if (!dataVal.success) {
             return res.status(422).json({
                 error_validation: JSON.parse(dataVal.error.message)
             })
         }
         const newScsh = {
             id: crypto.randomUUID(),
-            ...dataVal
+            ...dataVal.data
         }
 
         const data = await readFile()
@@ -58,7 +58,7 @@ app.post('/main', async (req, res) => {
         res.status(201).json({
             message: `Usuario insertado con exito - ${newScsh.id}`
         })
-        console.log(`[server - ${new Date().toLocaleString}] Usuario insertado con exito - ${newScsh.id}`)
+        console.log(`[server - ${new Date().toLocaleString()}] Usuario insertado con exito - ${newScsh.id}`)
     } catch (error) {
         res.status(500).json({
             error: `Error de servicio - ${error.message}`
