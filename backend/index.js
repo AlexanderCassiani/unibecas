@@ -1,30 +1,14 @@
 //@ts-nocheck
 import express from 'express'
-import cors from 'cors'
 
 import { mainRouter } from './rutas/main.js'
+import { corsMiddleware } from './middlewares/cors.js'
 
 const app = express()
 const PORT = process.env.PORT ?? 3001
 app.disable('x-powered-by')
 app.use(express.json())
-app.use(cors({
-    origin: (origin, callback) => {
-        const ACCEPTED_ORIGINS = [
-            "https://unibecas.orender.com"
-        ]
-
-        if (ACCEPTED_ORIGINS.includes(origin)) {
-            return callback(null, true)
-        }
-
-        if (!origin) {
-            return callback(null, true)
-        }
-
-        return callback(new Error('No permitido por CORS'))
-    }
-}))
+app.use(corsMiddleware())
 
 // ------- RESPONSES -------
 
