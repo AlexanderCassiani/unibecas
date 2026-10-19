@@ -84,16 +84,13 @@
   padding: 14px;
 }
 
-.becaCard-vigencia {
-  margin-top: 6px;
-}
-
 .contenedor-becaCard-estado {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   border-radius: 20px;
   padding: 4px 10px;
+  margin-top: 8px;
 }
 
 .contenedor-becaCard-estado.activa {
@@ -117,4 +114,8 @@
 
 .punto.vencida {
   background-color: rgb(240, 19, 19);
+}
+
+.becaCard-inscripciones {
+  font-size: 0.8rem;
 }
