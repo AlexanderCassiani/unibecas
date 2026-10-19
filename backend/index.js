@@ -1,7 +1,7 @@
 //@ts-nocheck
 import express from 'express'
 import cors from 'cors'
-import crypto from 'node:cripto'
+import crypto from 'node:crypto'
 
 import { readFile, writeFile } from './utils/funciones/funciones'
 import validarUsuario from './esquemas/esquemas'
