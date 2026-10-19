@@ -79,6 +79,7 @@ app.patch('/main/:id', async (req, res) => {
         const indexDato = data.findIndex(dato => dato.id === id)
 
         if (indexDato === -1) {
+            console.log(`[server - ${new Date().toLocaleString()}] El indice ${id} no existe en la BD`)
             return res.status(404).json({
                 error: `No existe dato con la ID: ${id}`
             })
@@ -91,11 +92,13 @@ app.patch('/main/:id', async (req, res) => {
 
         await writeFile(data)
 
+        console.log(`[server - ${new Date().toLocaleString()}] ID ${id} actualizado con exito`)
         return res.status(200).json({
             message: `Dato ${id} actualizado con éxito`,
             dato: data[indexDato]
         })
     } catch (error) {
+        console.log(`[server - ${new Date().toLocaleString()}] Error de servidor 500 - ${error.message}`)
         return res.status(500).json({
             error: `Error de servicio - ${error.message}`
         })
