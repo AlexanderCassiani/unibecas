@@ -2,6 +2,9 @@
 import z from 'zod'
 
 const formatoNewuser = z.object({
+    beca: z.string({
+        error: 'El campo debe ser un string'
+    }),
     nombre: z.string({
         error: 'El campo nombre debe ser un string'
     }),
