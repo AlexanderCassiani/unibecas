@@ -1,7 +1,13 @@
 [
-    {
-        "id": 1,
-        "beca": "Hola",
-        "proveedor": "udeC"
-    }
+  {
+    "id": "1",
+    "beca": "Hola",
+    "proveedor": "udeC",
+    "nombre": "2"
+  },
+  {
+    "id": "37f33cea-dae9-4223-b438-00f175b12cea",
+    "nombre": "JuaCompadren",
+    "proveedor": "UdeC"
+  }
 ]
