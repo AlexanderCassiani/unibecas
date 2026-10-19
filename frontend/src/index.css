@@ -20,6 +20,10 @@
   color: var(--color);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body.darkmode {
   --background: #242a33;
 
