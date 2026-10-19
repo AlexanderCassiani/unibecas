@@ -12,7 +12,7 @@ import BecaCard from "../../components/becaCard/BecaCard";
 
 import { useState, useEffect, useRef } from "react";
 
-import { becas, universidades, infoBecas } from "../data";
+import { becas, becasPopulares, universidades, infoBecas } from "../data";
 
 import arrowLeft from "../../assets/icons/home/arrow-left.svg";
 import arrowRight from "../../assets/icons/home/arrow-right.svg";
@@ -206,21 +206,40 @@ const HomeLayout = () => {
           </button>
         </div>
 
-        <div className="contenedor-becas" ref={contenedorRef}>
-          {becas.map((info) => (
-            <BecaCard
-              key={info.id_beca}
-              universidad={info.universidad}
-              nombre={info.nombre_beca}
-              fecha_craecion={info.fecha_creacion_sys}
-              vigencia={info.vigencia_programa}
-              descripcion={info.descripcion_informacion}
-              info_aplicar={info.informacion_aplicar}
-              modalidad={info.modalidad}
-              estado={info.estado}
-              cobertura={info.cobertura}
-            />
-          ))}
+        <div
+          className="contenedor-becas"
+          key={contenedorBecas}
+          ref={contenedorRef}
+        >
+          {contenedorBecas === "mas-recientes"
+            ? becas.map((info) => (
+                <BecaCard
+                  key={info.id_beca}
+                  universidad={info.universidad}
+                  nombre={info.nombre_beca}
+                  fecha_creacion={info.fecha_creacion_sys}
+                  vigencia={info.vigencia_programa}
+                  descripcion={info.descripcion_informacion}
+                  info_aplicar={info.informacion_aplicar}
+                  modalidad={info.modalidad}
+                  estado={info.estado}
+                  cobertura={info.cobertura}
+                />
+              ))
+            : becasPopulares.map((info) => (
+                <BecaCard
+                  key={info.id_beca}
+                  universidad={info.universidad}
+                  nombre={info.nombre_beca}
+                  fecha_creacion={info.fecha_creacion_sys}
+                  vigencia={info.vigencia_programa}
+                  descripcion={info.descripcion_informacion}
+                  info_aplicar={info.informacion_aplicar}
+                  modalidad={info.modalidad}
+                  estado={info.estado}
+                  cobertura={info.cobertura}
+                />
+              ))}
         </div>
 
         <div className="contenedor-arrows">
