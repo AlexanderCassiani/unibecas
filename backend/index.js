@@ -32,8 +32,8 @@ app.get('/', (req, res) => {
     res.status(200).send('<p>UniBecas API</p>')
 })
 
-app.get('/main', (req, res) => {
-    const datos = readFile()
+app.get('/main', async (req, res) => {
+    const datos = await readFile()
     res.status(200).json(datos)
 })
 
