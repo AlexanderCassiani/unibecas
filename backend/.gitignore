@@ -7,3 +7,5 @@ jsconfig.json
 api.http
 
 local.http
+
+.env
