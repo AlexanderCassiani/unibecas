@@ -18,7 +18,7 @@ const Footer = () => {
               <a href="#becas">Becas</a>
             </li>
             <li>
-              <a href="#acerca-de-unibecas">Sobr unibecas</a>
+              <a href="#acerca-de-unibecas">Sobre UNIBECAS</a>
             </li>
           </ul>
         </div>
