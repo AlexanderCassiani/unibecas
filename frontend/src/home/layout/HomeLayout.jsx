@@ -105,7 +105,7 @@ const HomeLayout = () => {
           className="carrusel-becas-flecha carrusel-becas-flecha-izq"
           onClick={anterior}
         >
-          ‹
+          <img className="carrusel-becas-flecha-img" src={arrowLeft} alt="Flecha izquierda" />
         </button>
 
         <img
@@ -118,7 +118,7 @@ const HomeLayout = () => {
           className="carrusel-becas-flecha carrusel-becas-flecha-der"
           onClick={siguiente}
         >
-          ›
+          <img className="carrusel-becas-flecha-img" src={arrowRight} alt="Flecha derecha" />
         </button>
       </section>
 
