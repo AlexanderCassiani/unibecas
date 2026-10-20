@@ -9,7 +9,22 @@ import crypto from 'node:crypto'
 export const mainRouter = Router()
 
 mainRouter.get('/', async (req, res) => {
-    const datos = await readFile()
+    const { schsp } = req.query
+    let datos = await readFile()
+
+    if (!schsp) {
+        return res.status(200).json(datos)
+    }
+
+    datos = datos.filter(data => data.beca && data.beca.toLowerCase() === schsp.toLowerCase())
+
+    if (datos.length === 0) {
+        return res.status(404).json({
+            error: `Beca "${schsp}" no encontrada`
+        })
+    }
+
+    console.log('[server] Datos filtrados exitosamente')
     res.status(200).json(datos)
 })
 

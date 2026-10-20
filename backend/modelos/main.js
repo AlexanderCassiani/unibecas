@@ -1,5 +1,5 @@
-// export class MainInfo {
-//     static allRecovery() {
+export class MainInfo {
+    static allRecovery() {
 
-//     }
-// }
+    }
+}
