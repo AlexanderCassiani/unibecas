@@ -1,7 +1,7 @@
 // @ts-nocheck
 import z from 'zod'
 
-const formatoNewuser = z.object({
+const esquemaBeca = z.object({
     nombrebeca: z.string({
         error: 'El campo debe ser un string'
     }).trim().min(1, {
@@ -67,9 +67,9 @@ const formatoNewuser = z.object({
 })
 
 export function validarBeca(objeto) {
-    return formatoNewuser.safeParse(objeto)
+    return esquemaBeca.safeParse(objeto)
 }
 
 export function actualizarBeca(objeto) {
-    return formatoNewuser.partial().safeParse(objeto)
+    return esquemaBeca.partial().safeParse(objeto)
 }
