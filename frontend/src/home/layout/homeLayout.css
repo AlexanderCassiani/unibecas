@@ -302,6 +302,11 @@ h2 {
   animation: aparecerBecas 0.4s ease;
 }
 
+.link-beca-card {
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
 @keyframes aparecerBecas {
   from {
     opacity: 0;
