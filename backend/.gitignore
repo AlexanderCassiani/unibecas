@@ -7,3 +7,7 @@ jsconfig.json
 api.http
 
 local.http
+
+.env
+
+testing-db/
