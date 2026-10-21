@@ -95,7 +95,7 @@ export class MainInfo {
         const checkVal = validarBeca(dataVal)
 
         if (!checkVal.success) {
-            throw new ErrorValidacion('Error validación de campos:', JSON.parse(checkVal.error.message)[0].message)
+            throw new ErrorValidacion(`Error validación de campos: ${JSON.parse(checkVal.error.message)[0].message} - ${JSON.parse(checkVal.error.message)[0].path[0]}`)
         }
 
         const d = checkVal.data
@@ -121,10 +121,10 @@ export class MainInfo {
             d.aplicar,
             d.modalidad,
             d.cobertura,
-            d.iduniversidad,
+            Number(d.iduniversidad),
             d.estado,
             d.urlinfo,
-            d.proveedor
+            Number(d.proveedor)
         ])
 
         return newScsh.rows[0]

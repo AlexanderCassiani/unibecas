@@ -83,7 +83,7 @@ export class MainControl {
             })
         } catch (error) {
             if (error instanceof ErrorValidacion) {
-                console.log(`[server - ${horaActual()}] - Validación:`, error.message, `- Info: ${req.body}`)
+                console.log(`[server - ${horaActual()}] - Validación:`, error.message, `- Info: ${JSON.stringify(req.body)}`)
                 return res.status(400).json({
                     error: error.message
                 })
