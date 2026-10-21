@@ -1,4 +1,5 @@
 import "./becaCard.css";
+import { ArrowUpRight } from "../icons/home/ArrowUpRight";
 
 const BecaCard = ({
   universidad,
@@ -45,9 +46,12 @@ const BecaCard = ({
             del {fecha_creacion} al {vigencia}
           </span>
         </div>
-        <div className={`contenedor-becaCard-estado ${clase}`}>
-          <span className="becaCard-estado">{estado}</span>
-          <span className={`punto ${clase}`}></span>
+        <div className="bottom">
+          <div className={`contenedor-becaCard-estado ${clase}`}>
+            <span className="becaCard-estado">{estado}</span>
+            <span className={`punto ${clase}`}></span>
+          </div>
+          <ArrowUpRight />
         </div>
       </footer>
     </article>
