@@ -18,6 +18,8 @@ import { becas, becasPopulares, universidades, infoBecas } from "../data";
 import arrowLeft from "../../assets/icons/home/arrow-left.svg";
 import arrowRight from "../../assets/icons/home/arrow-right.svg";
 
+import { Link } from "react-router-dom";
+
 import encuentraBeca1 from "../../assets/images/home/encuentra-beca1.png";
 import encuentraBeca2 from "../../assets/images/home/encuentra-beca2.png";
 import encuentraBeca3 from "../../assets/images/home/encuentra-beca3.png";
@@ -105,7 +107,11 @@ const HomeLayout = () => {
           className="carrusel-becas-flecha carrusel-becas-flecha-izq"
           onClick={anterior}
         >
-          <img className="carrusel-becas-flecha-img" src={arrowLeft} alt="Flecha izquierda" />
+          <img
+            className="carrusel-becas-flecha-img"
+            src={arrowLeft}
+            alt="Flecha izquierda"
+          />
         </button>
 
         <img
@@ -118,7 +124,11 @@ const HomeLayout = () => {
           className="carrusel-becas-flecha carrusel-becas-flecha-der"
           onClick={siguiente}
         >
-          <img className="carrusel-becas-flecha-img" src={arrowRight} alt="Flecha derecha" />
+          <img
+            className="carrusel-becas-flecha-img"
+            src={arrowRight}
+            alt="Flecha derecha"
+          />
         </button>
       </section>
 
@@ -214,32 +224,42 @@ const HomeLayout = () => {
         >
           {contenedorBecas === "mas-recientes"
             ? becas.map((info) => (
-                <BecaCard
+                <Link
+                  to={`/beca/${info.id_beca}`}
+                  className="link-beca-card"
                   key={info.id_beca}
-                  universidad={info.universidad}
-                  nombre={info.nombre_beca}
-                  fecha_creacion={info.fecha_creacion_sys}
-                  vigencia={info.vigencia_programa}
-                  descripcion={info.descripcion_informacion}
-                  info_aplicar={info.informacion_aplicar}
-                  modalidad={info.modalidad}
-                  estado={info.estado}
-                  cobertura={info.cobertura}
-                />
+                >
+                  <BecaCard
+                    universidad={info.universidad}
+                    nombre={info.nombre_beca}
+                    fecha_creacion={info.fecha_creacion_sys}
+                    vigencia={info.vigencia_programa}
+                    descripcion={info.descripcion_informacion}
+                    info_aplicar={info.informacion_aplicar}
+                    modalidad={info.modalidad}
+                    estado={info.estado}
+                    cobertura={info.cobertura}
+                  />
+                </Link>
               ))
             : becasPopulares.map((info) => (
-                <BecaCard
+                <Link
+                  to={`/beca/${info.id_beca}`}
+                  className="link-beca-card"
                   key={info.id_beca}
-                  universidad={info.universidad}
-                  nombre={info.nombre_beca}
-                  fecha_creacion={info.fecha_creacion_sys}
-                  vigencia={info.vigencia_programa}
-                  descripcion={info.descripcion_informacion}
-                  info_aplicar={info.informacion_aplicar}
-                  modalidad={info.modalidad}
-                  estado={info.estado}
-                  cobertura={info.cobertura}
-                />
+                >
+                  <BecaCard
+                    universidad={info.universidad}
+                    nombre={info.nombre_beca}
+                    fecha_creacion={info.fecha_creacion_sys}
+                    vigencia={info.vigencia_programa}
+                    descripcion={info.descripcion_informacion}
+                    info_aplicar={info.informacion_aplicar}
+                    modalidad={info.modalidad}
+                    estado={info.estado}
+                    cobertura={info.cobertura}
+                  />
+                </Link>
               ))}
         </div>
 
