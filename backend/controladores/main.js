@@ -33,7 +33,7 @@ export class MainControl {
             const findData = await MainInfo.idRecovery({ id: req.params.id })
             if (findData) {
                 console.log(`[server - ${horaActual()}] - Usuario devuelto`)
-                res.status(200).json({
+                return res.status(200).json({
                     message: `Usuario ID: ${req.params.id} encontrado`,
                     INFO: findData
                 })
@@ -75,7 +75,7 @@ export class MainControl {
             const filData = await MainInfo.deleteData({ id: req.params.id })
             if (filData) {
                 console.log(`[server - ${horaActual()}] Dato ${req.params.id} borrado con éxito`)
-                res.status(200).json({
+                return res.status(200).json({
                     message: `ID: ${req.params.id} eliminada con éxito`
                 })
             }
