@@ -154,45 +154,128 @@ h2 {
   height: 120px;
 }
 
-.contenedor-sobre-nosotros {
-  background-color: var(--color-superficie-morada);
+
+.contenedor-sobre-becas-ofertas {
+  padding: 70px 8%;
+  background-color: #f1f4fc;
+}
+
+.contenedor-sobre-becas-ofertas h2 {
+  margin: 0 0 12px;
+  color: #a31a1c;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.descripcion-oferta {
+  max-width: 650px;
+  margin: 0 auto 35px;
+  color: #555;
+  font-size: 1rem;
+  line-height: 2;
+  text-align: center;
+  font-weight: 600;
+}
+
+.contenedor-sobre-becas-ofertas-categorias {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 16px;
-  margin-top: 38px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
-.contenedor-sobre-nosotros div:first-child div {
-  margin-top: 10px;
+.tarjeta-categoria {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 220px;
+  padding: 26px 24px;
+  border: 2px solid #a31a1c;
+  border-radius: 8px;
+  background-color: #f1f4fc;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
-.contenedor-sobre-nosotros div:first-child img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
+.tarjeta-categoria:hover {
+  transform: translateY(-5px);
+  background-color: #f1f4fc;
+  box-shadow: 0 8px 22px rgb(125, 23, 221/ 12%);
 }
 
-.contenedor-sobre-nosotros h2 {
-  margin: 0;
-  font-size: 2.38rem;
-  color: var(--color-terciario);
+.icono-categoria {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #f1f4fc;
+  color: #7d17dd0f;
+  font-size: 1.8rem;
 }
 
-.contenedor-sobre-nosotros p {
-  margin: 12px 0 0 0;
-  max-width: 800px;
-  font-size: 1.06rem;
+.tarjeta-categoria h3 {
+  margin: 0 0 12px;
+  color: #a31a1c;
+  font-size: 2rem;
   line-height: 1.4;
 }
 
-.contenedor-sobre-nosotros .sobre-unibecas {
-  padding-left: 10px;
+.tarjeta-categoria p {
+  margin: 0 35px 20px 0;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-.contenedor-sobre-nosotros .sobre-unibecas h2 {
-  text-align: start;
-  color: var(--color-primario);
+.flecha-categoria {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  color: #f1f4fc;
+  font-size: 1.8rem;
+  line-height: 1;
+  transition: background-color 0.25s ease;
+}
+
+.tarjeta-categoria:hover .flecha-categoria {
+  background-color: #7d17dd0f;
+}
+
+@media (max-width: 900px) {
+  .contenedor-sobre-becas-ofertas-categorias {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .contenedor-sobre-becas-ofertas {
+    padding: 45px 5%;
+  }
+
+  .contenedor-sobre-becas-ofertas-categorias {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .tarjeta-categoria {
+    min-height: 190px;
+  }
+}
+.icono-categoria img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
 }
 
 .seccion-becas {
