@@ -145,10 +145,21 @@ export class MainInfo {
         const idValido = validarIdEntero(id)
         if (!idValido) return false
 
+        if (input.proveedor || input.iduniversidad) {
+            throw new ErrorValidacion(
+                'No puedes modificar proveedores o universidades', {
+                cause: {
+                    message: 'Intento de modificacion en el modelo patchData (proveedor - iduniversidad)',
+                    parametro: input.proveedor ? `Id proveedor: ${input.proveedor}` : `Id universidad: ${input.iduniversidad}`
+                }
+            }
+            )
+        }
+
         const actData = actualizarBeca(input)
 
         if (!actData.success) {
-            throw new ErrorValidacion('Error validación de campos:', JSON.parse(actData.error.message)[0].message)
+            throw new ErrorValidacion(`Error validación de campos: ${JSON.parse(actData.error.message)[0].message} - ${JSON.parse(actData.error.message)[0].path[0]}`)
         }
 
         const claves = Object.keys(actData.data)

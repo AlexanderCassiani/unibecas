@@ -25,7 +25,7 @@ export class MainControl {
             if (req.query.schsp) {
                 console.log(`[server - ${horaActual()}] Datos filtrados exitosamente`)
             }
-            console.log(`[server - ${horaActual()}] Datos enviados`)
+            console.log(`[server - ${horaActual()}] Datos enviados exitosamente`)
             return res.status(200).json(datos)
 
         } catch (error) {
@@ -151,7 +151,7 @@ export class MainControl {
             })
         } catch (error) {
             if (error instanceof ErrorValidacion) {
-                console.log(`[server - ${horaActual()}] - Validación:`, error.message, `- Info: ${req.params.id}`)
+                console.log(`[server - ${horaActual()}] - Validación:`, error.cause.message, `- Info: ${req.params.id} - ${error.cause.parametro}`)
                 return res.status(400).json({
                     error: error.message
                 })
