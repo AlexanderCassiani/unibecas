@@ -42,6 +42,8 @@ const BecaDetails = () => {
               <BecaDetailsSkeleton />
             ) : (
               <>
+                <h2 className="universidad">{data?.INFO?.universidad}</h2>
+
                 <div className="contenedor-nombre-beca">
                   <h1>{data?.INFO?.nombre}</h1>
                   <span className="modalidad">{data?.INFO?.modalidad}</span>
