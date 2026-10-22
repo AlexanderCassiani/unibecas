@@ -60,8 +60,9 @@ export class MainInfo {
     }
 
     static async idRecovery({ id }) {
-        if (id && id.trim().length > 10) {
-            throw new ErrorValidacion('Demasiados caracteres, sugerencia id <= 10 chars')
+
+        if (!Number.isInteger(Number(id)) || Number(id) < 1 || Number(id) > 2147483647) {
+            return false
         }
 
         if (id) {
@@ -131,8 +132,9 @@ export class MainInfo {
     }
 
     static async deleteData({ id }) {
-        if (id && id.trim().length > 10) {
-            throw new ErrorValidacion('Demasiados caracteres, sugerencia id <= 10 chars')
+
+        if (!Number.isInteger(Number(id)) || Number(id) < 1 || Number(id) > 2147483647) {
+            return false
         }
 
         if (id) {
@@ -153,9 +155,6 @@ export class MainInfo {
     }
 
     static async patchData({ id, input }) {
-        if (id && id.trim().length > 10) {
-            throw new ErrorValidacion('Demasiados caracteres, sugerencia id <= 10 chars')
-        }
 
         if (!Number.isInteger(Number(id)) || Number(id) < 1 || Number(id) > 2147483647) {
             return false
