@@ -1,7 +1,8 @@
 //@ts-nocheck
 import cors from 'cors'
 const ACCEPTED_ORIGINS = [
-    "https://unibecas.orender.com"
+    "https://unibecas.orender.com",
+    "http://localhost:5173"
 ]
 
 export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => cors({
