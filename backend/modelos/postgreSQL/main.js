@@ -25,17 +25,23 @@ export class MainInfo {
             const busquedaFormateada = `%${schsp}%`
 
             const info = await pool.query(`SELECT 
-                        id_beca AS id, 
-                        nombre_beca AS nombre, 
-                        vigencia_programa AS vigencia, 
-                        descripcion_informacion AS descripcion, 
-                        informacion_aplicar AS aplicar, 
-                        modalidad, 
-                        cobertura, 
-                        estado, 
-                        url_informacion AS url 
-                        FROM becas 
-                        WHERE f_unaccent(lower(nombre_beca)) ILIKE f_unaccent(lower($1))
+                        b.id_beca AS id, 
+                        b.nombre_beca AS nombre, 
+                        b.vigencia_programa AS vigencia, 
+                        b.descripcion_informacion AS descripcion, 
+                        b.informacion_aplicar AS aplicar, 
+                        b.modalidad AS modalidad,
+                        u.nom_institucion AS universidad,  
+                        b.cobertura AS cobertura, 
+                        b.estado as estado, 
+                        e.nom_ent AS proveedor, 
+                        b.url_informacion AS url 
+                        FROM becas AS b 
+                        LEFT JOIN universidades AS u
+                            ON b.id_universidad_acceso = u.id_universidad
+                        LEFT JOIN entidades AS e
+                            ON b.proveedor_beca = e.id_entidad
+                        WHERE f_unaccent(lower(b.nombre_beca)) ILIKE f_unaccent(lower($1))
                         `, [busquedaFormateada])
 
             if (info.rowCount === 0) {
@@ -45,16 +51,22 @@ export class MainInfo {
         }
 
         const info = await pool.query(`SELECT 
-                        id_beca AS id, 
-                        nombre_beca AS nombre, 
-                        vigencia_programa AS vigencia, 
-                        descripcion_informacion AS descripcion, 
-                        informacion_aplicar AS aplicar, 
-                        modalidad, 
-                        cobertura, 
-                        estado, 
-                        url_informacion AS url 
-                        FROM becas
+                        b.id_beca AS id, 
+                        b.nombre_beca AS nombre, 
+                        b.vigencia_programa AS vigencia, 
+                        b.descripcion_informacion AS descripcion, 
+                        b.informacion_aplicar AS aplicar, 
+                        b.modalidad AS modalidad,
+                        u.nom_institucion AS universidad,  
+                        b.cobertura AS cobertura, 
+                        b.estado as estado, 
+                        e.nom_ent AS proveedor, 
+                        b.url_informacion AS url 
+                        FROM becas AS b
+                        LEFT JOIN universidades AS u
+                            ON b.id_universidad_acceso = u.id_universidad
+                        LEFT JOIN entidades AS e
+                            ON b.proveedor_beca = e.id_entidad
                         `)
 
         return info.rows
@@ -66,17 +78,23 @@ export class MainInfo {
 
         const datos = await pool.query(`
                         SELECT
-                        id_beca AS id, 
-                        nombre_beca AS nombre, 
-                        vigencia_programa AS vigencia, 
-                        descripcion_informacion AS descripcion, 
-                        informacion_aplicar AS aplicar, 
-                        modalidad, 
-                        cobertura, 
-                        estado, 
-                        url_informacion AS url 
-                        FROM becas 
-                        WHERE id_beca = $1
+                        b.id_beca AS id, 
+                        b.nombre_beca AS nombre, 
+                        b.vigencia_programa AS vigencia, 
+                        b.descripcion_informacion AS descripcion, 
+                        b.informacion_aplicar AS aplicar, 
+                        b.modalidad AS modalidad,
+                        u.nom_institucion AS universidad,  
+                        b.cobertura AS cobertura, 
+                        b.estado as estado, 
+                        e.nom_ent AS proveedor, 
+                        b.url_informacion AS url 
+                        FROM becas AS b 
+                        LEFT JOIN universidades AS u
+                            ON b.id_universidad_acceso = u.id_universidad
+                        LEFT JOIN entidades AS e
+                            ON b.proveedor_beca = e.id_entidad
+                        WHERE b.id_beca = $1
                     `, [idValido])
 
         if (datos.rowCount === 0) {
