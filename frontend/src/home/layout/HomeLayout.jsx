@@ -2,7 +2,7 @@ import "./homeLayout.css";
 import Hero from "../components/hero/Hero";
 import infoBecasImg from "../../assets/icons/home/info-becas-icon.svg";
 
-import personasCelebrando from "../../assets/images/home/personas-celebrando.jpg";
+
 
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
@@ -28,6 +28,13 @@ import encuentraBeca5 from "../../assets/images/home/encuentra-beca5.png";
 import encuentraBeca6 from "../../assets/images/home/encuentra-beca6.png";
 import encuentraBeca7 from "../../assets/images/home/encuentra-beca7.png";
 import logoCompleto from "../../assets/images/home/unibecas-logo-completo.png";
+
+import iconIngenieria from "../../assets/icons/home/ingenieria-icons.png";
+import iconEconomia from "../../assets/icons/home/economia-icons.png";
+import iconSalud from "../../assets/icons/home/salud-icons.png";
+import iconComunicacion from "../../assets/icons/home/comunicacion-icons.png";
+import iconEducacion from "../../assets/icons/home/educacion-icons.png";
+import iconDerecho from "../../assets/icons/home/derecho-icons.png";
 
 const imagenes = [
   encuentraBeca1,
@@ -132,38 +139,82 @@ const HomeLayout = () => {
         </button>
       </section>
 
-      <section className="contenedor-sobre-nosotros" id="acerca-de-unibecas">
-        <div>
-          <img src={personasCelebrando} alt="Personas celebrando" />
-          <div>
-            <h2>Becas disponibles</h2>
-            <p>
-              En UNIBECAS encontrarás diferentes becas y oportunidades
-              educativas dirigidas a estudiantes de Cartagena. Consulta
-              información sobre universidades, programas académicos, requisitos,
-              beneficios y fechas de postulación para que puedas encontrar
-              opciones que se adapten a tus metas.
-            </p>
-          </div>
-        </div>
+      
+<section className="contenedor-sobre-becas-ofertas" id="sobre-becas">
+  <h2>Oferta académica</h2>
+  <p className="descripcion-oferta">
+    Explora diferentes áreas de estudio y encuentra oportunidades
+    para alcanzar tus metas académicas.
+  </p>
 
-        <div className="sobre-unibecas">
-          <h2>Sobre UNIBECAS</h2>
-          <p>
-            UNIBECAS es una plataforma creada para facilitar el acceso a
-            información sobre becas y oportunidades educativas para los
-            estudiantes de Cartagena. Reunimos en un solo lugar diferentes
-            opciones de universidades, programas y beneficios para que encontrar
-            una oportunidad sea más sencillo.
-          </p>
-          <p>
-            Nuestro propósito es acercar a los estudiantes a nuevas
-            posibilidades para continuar su formación académica, brindándoles
-            información clara y organizada que les permita conocer sus opciones
-            y tomar mejores decisiones sobre su futuro educativo.
-          </p>
-        </div>
-      </section>
+  <div className="contenedor-sobre-becas-ofertas-categorias">
+    <div className="ingenieria-tecnologia tarjeta-categoria">
+      <span className="icono-categoria">
+        <img src={iconIngenieria} alt="Icono de ingeniería" />
+      </span>
+      <h3>Ingeniería y tecnología</h3>
+      <p>Software, sistemas, datos e innovación digital.</p>
+      <span className="flecha-categoria">
+        <img src={arrowRight} alt="Flecha derecha" />
+      </span>
+    </div>
+
+    <div className="economia-negocios tarjeta-categoria">
+      <span className="icono-categoria">
+        <img src={iconEconomia} alt="Icono de economía" />
+      </span>
+      <h3>Economía y negocios</h3>
+      <p>Administración, finanzas y emprendimiento.</p>
+      <span className="flecha-categoria">
+        <img src={arrowRight} alt="Flecha derecha" />
+      </span>
+    </div>
+
+    <div className="salud-bienestar tarjeta-categoria">
+      <span className="icono-categoria">
+        <img src={iconSalud} alt="Icono de salud y bienestar" />
+      </span>
+      <h3>Salud y bienestar</h3>
+      <p>Programas relacionados con la salud y el bienestar.</p>
+      <span className="flecha-categoria">
+        <img src={arrowRight} alt="Flecha derecha" />
+      </span>
+    </div>
+
+    <div className="comunicacion-diseño tarjeta-categoria">
+      <span className="icono-categoria">
+        <img src={iconComunicacion} alt="Icono de comunicación y diseño" />
+      </span>
+      <h3>Comunicación y diseño</h3>
+      <p>Marketing, comunicación, artes y creatividad.</p>
+      <span className="flecha-categoria">
+        <img src={arrowRight} alt="Flecha derecha" />
+      </span>
+    </div>
+
+    <div className="educacion-ciencias tarjeta-categoria">
+      <span className="icono-categoria">
+        <img src={iconEducacion} alt="Icono de educación y ciencias" />
+      </span>
+      <h3>Educación y ciencias</h3>
+      <p>Enseñanza, investigación, idiomas y conocimiento.</p>
+      <span className="flecha-categoria">
+        <img src={arrowRight} alt="Flecha derecha" />
+      </span>
+    </div>
+
+    <div className="derecho-idiomas tarjeta-categoria">
+      <span className="icono-categoria">
+        <img src={iconDerecho} alt="Icono de derecho e idiomas" />
+      </span>
+      <h3>Derecho e idiomas</h3>
+      <p>Legislación, lenguas y relaciones internacionales.</p>
+      <span className="flecha-categoria">
+        <img src={arrowRight} alt="Flecha derecha" />
+      </span>
+    </div>
+  </div>
+</section>
 
       <div className="contenedor-universidades">
         <h2>Universidades afiliadas</h2>
