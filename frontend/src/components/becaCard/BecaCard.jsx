@@ -4,13 +4,11 @@ import { ArrowUpRight } from "../icons/home/ArrowUpRight";
 const BecaCard = ({
   universidad,
   nombre,
-  fecha_creacion,
   vigencia,
   descripcion,
   info_aplicar,
   modalidad,
   estado,
-  cobertura,
 }) => {
   const clase = estado === "Activa" ? "activa" : "vencida";
 
@@ -19,12 +17,12 @@ const BecaCard = ({
       <header className="becaCard-header">
         <span className="becaCard-modalidad">{modalidad}</span>
         <h2>{universidad}</h2>
-        <span
+        {/* <span
           className="becaCard-cobertura"
           title={`Covertura del ${cobertura}%`}
         >
           {cobertura}
-        </span>
+        </span> */}
       </header>
 
       <div className="becaCard-contenido">
@@ -40,11 +38,9 @@ const BecaCard = ({
 
       <footer className="becaCard-footer">
         <div className="becaCard-vigencia">
-          <span>Inscripciones:</span>
+          <span>Vigencia:</span>
           <br />
-          <span className="becaCard-inscripciones">
-            del {fecha_creacion} al {vigencia}
-          </span>
+          <span className="becaCard-inscripciones">{vigencia}</span>
         </div>
         <div className="bottom">
           <div className={`contenedor-becaCard-estado ${clase}`}>
