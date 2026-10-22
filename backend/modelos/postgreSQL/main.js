@@ -95,20 +95,20 @@ export class MainInfo {
         const d = checkVal.data
 
         const newScsh = await pool.query(`
-            INSERT INTO becas (nombre_beca, vigencia_programa, descripcion_informacion, informacion_aplicar, modalidad, cobertura, id_universidad_acceso, estado, url_informacion, proveedor_beca) VALUES(
-                $1,
-                $2,
-                $3,
-                $4,
-                $5,
-                $6,
-                $7,
-                $8,
-                $9,
-                $10
-            )
-            RETURNING *
-            `, [
+                INSERT INTO becas (nombre_beca, vigencia_programa, descripcion_informacion, informacion_aplicar, modalidad, cobertura, id_universidad_acceso, estado, url_informacion, proveedor_beca) VALUES(
+                    $1,
+                    $2,
+                    $3,
+                    $4,
+                    $5,
+                    $6,
+                    $7,
+                    $8,
+                    $9,
+                    $10
+                ) 
+                RETURNING *
+                `, [
             d.nombrebeca,
             d.vigencia,
             d.descripcion,
@@ -122,6 +122,7 @@ export class MainInfo {
         ])
 
         return newScsh.rows[0]
+
     }
 
     static async deleteData({ id }) {
