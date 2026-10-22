@@ -1,0 +1,111 @@
+.beca-details {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.beca-details-contenido {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 14px;
+}
+
+.beca-details-contenido .contenedor-navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 34px;
+  border-bottom: 1px solid #cdcdcd;
+  padding-bottom: 20px;
+}
+
+.beca-details-contenido .volver,
+.beca-details-contenido .como-acceder {
+  padding: 10px 12px;
+  font-size: 1.1rem;
+  border: 1px solid var(--color-terciario);
+  background-color: transparent;
+  border-radius: 100px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.beca-details-contenido .volver:hover,
+.beca-details-contenido .como-acceder:hover {
+  background-color: var(--color-terciario);
+  color: #fff;
+}
+
+.beca-details-contenido section {
+  margin-top: 36px;
+}
+
+.beca-details-contenido section .universidad {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: start;
+  background-color: #8472f147;
+  display: inline-block;
+  margin: 0 0 20px 0;
+}
+
+.beca-details-contenido section h1,
+.beca-details-contenido section p {
+  margin: 0;
+}
+
+.beca-details-contenido section .cobertura {
+  background-color: var(--color-primario);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+.beca-details-contenido section .modalidad {
+  color: #6c757d;
+}
+
+.beca-details-contenido section .contenedor-nombre-beca {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.contenedor-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+
+.contenedor-estado.activa {
+  background-color: rgb(22 228 22 / 43%);
+}
+
+.contenedor-estado.vencida {
+  background-color: rgba(233, 29, 29, 0.452);
+}
+.punto {
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+}
+
+.punto.activa {
+  background-color: rgb(33, 224, 33);
+}
+
+.punto.vencida {
+  background-color: rgb(240, 19, 19);
+}
+
+.beca-details-contenido section .como-aplicar {
+  text-align: start;
+  margin: 58px 0 22px 0;
+}

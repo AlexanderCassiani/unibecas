@@ -9,6 +9,8 @@ import hidePassword from "../../../assets/icons/home/hide-password.svg";
 
 import logo from "../../../assets/images/home/logo-unibecas.png";
 
+import { Link } from "react-router-dom";
+
 const Header = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
 
@@ -149,10 +151,12 @@ const Header = () => {
 
   return (
     <header>
-      <div className="logo-unibecas-contenedor">
-        <img src={logo} alt="Logo de UniBecas" className="logo" />
-        <h2>UniBecas</h2>
-      </div>
+      <Link to="/">
+        <div className="logo-unibecas-contenedor">
+          <img src={logo} alt="Logo de UniBecas" className="logo" />
+          <h2>UniBecas</h2>
+        </div>
+      </Link>
 
       <nav>
         <ul>
