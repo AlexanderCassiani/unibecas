@@ -89,7 +89,14 @@ export class MainControl {
                 })
             }
 
-            console.log(`[server - ${horaActual()}] - Error de servidor:`, error)
+            if (error.code === '23503') {
+                console.log(`[server - ${horaActual()}] - Error de servidor:`, error.code, '-', error.detail)
+                return res.status(500).json({
+                    error: 'La referencia universitaria o de proveedor no existe'
+                })
+            }
+
+            console.log(`[server - ${horaActual()}] - Error de servidor:`, error.message)
             return res.status(500).json({
                 error: 'Error interno de servidor'
             })
