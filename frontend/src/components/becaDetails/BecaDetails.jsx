@@ -1,6 +1,5 @@
 import "./becaDetails.css";
 
-import { becas } from "../../home/data";
 import { useParams, Link } from "react-router-dom";
 
 import Header from "../../home/components/header/Header";
@@ -8,12 +7,23 @@ import Footer from "../../home/components/footer/Footer";
 
 import PanelAccesible from "../panelAccesible/PanelAccesible";
 
+import useFetch from "../../hooks/useFetch";
+import { useEffect } from "react";
+
+import BecaDetailsSkeleton from "../../skeletons/BecaDetailsSkeleton";
+
 const BecaDetails = () => {
+  const [data, loading, error, fetchData] = useFetch();
+
   const { id } = useParams();
 
-  const beca = becas.find((beca) => beca.id_beca === Number(id));
+  useEffect(() => {
+    fetchData(`https://unibecas.onrender.com/main/${id}`);
+  }, [id]);
 
-  const clase = beca.estado === "Activa" ? "activa" : "vencida";
+  console.log(data);
+
+  const clase = data?.INFO?.estado === "Activa" ? "activa" : "vencida";
 
   return (
     <div className="beca-details">
@@ -28,22 +38,27 @@ const BecaDetails = () => {
           </div>
 
           <section>
-            <h2 className="universidad">{beca.universidad}</h2>
+            {loading ? (
+              <BecaDetailsSkeleton />
+            ) : (
+              <>
+                <div className="contenedor-nombre-beca">
+                  <h1>{data?.INFO?.nombre}</h1>
+                  <span className="modalidad">{data?.INFO?.modalidad}</span>
+                  <div className={`contenedor-estado ${clase}`}>
+                    <span className="estado">{data?.INFO?.estado}</span>
+                    <span className={`punto ${clase}`}></span>
+                  </div>
+                </div>
 
-            <div className="contenedor-nombre-beca">
-              <h1>{beca.nombre_beca}</h1>
-              <span className="cobertura">{beca.cobertura}</span>
-              <span className="modalidad">{beca.modalidad}</span>
-              <div className={`contenedor-estado ${clase}`}>
-                <span className="estado">{beca.estado}</span>
-                <span className={`punto ${clase}`}></span>
-              </div>
-            </div>
+                <p className="cobertura">{data?.INFO?.cobertura}</p>
 
-            <p>{beca.descripcion_informacion}</p>
+                <p>{data?.INFO?.descripcion}</p>
 
-            <h2 className="como-aplicar">¿Como aplicar?</h2>
-            <p>{beca.informacion_aplicar}</p>
+                <h2 className="como-aplicar">¿Como aplicar?</h2>
+                <p>{data?.INFO?.aplicar}</p>
+              </>
+            )}
           </section>
         </div>
       </div>
