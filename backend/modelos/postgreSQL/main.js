@@ -2,6 +2,7 @@
 import { pool } from './conexion.js'
 import { actualizarBeca, validarBeca } from '../../esquemas/esquemas.js'
 import { ErrorValidacion } from '../../utils/errores/errorcharcount.js'
+import { validarIdEntero } from '../../utils/funciones/funciones.js'
 
 const MAPA_COLUMNAS_BECAS = {
     nombrebeca: 'nombre_beca',
@@ -60,17 +61,10 @@ export class MainInfo {
     }
 
     static async idRecovery({ id }) {
+        const idValido = validarIdEntero(id)
+        if (!idValido) return false
 
-        if (!Number.isInteger(Number(id)) || Number(id) < 1 || Number(id) > 2147483647) {
-            return false
-        }
-
-        if (id) {
-            if (!Number.isInteger(Number(id))) {
-                return false
-            }
-
-            const datos = await pool.query(`
+        const datos = await pool.query(`
                         SELECT
                         id_beca AS id, 
                         nombre_beca AS nombre, 
@@ -83,13 +77,12 @@ export class MainInfo {
                         url_informacion AS url 
                         FROM becas 
                         WHERE id_beca = $1
-                    `, [Number(id)])
+                    `, [idValido])
 
-            if (datos.rowCount === 0) {
-                return false
-            }
-            return datos.rows
+        if (datos.rowCount === 0) {
+            return false
         }
+        return datos.rows[0]
     }
 
     static async newData({ dataVal }) {
@@ -132,33 +125,24 @@ export class MainInfo {
     }
 
     static async deleteData({ id }) {
+        const idValido = validarIdEntero(id)
+        if (!idValido) return false
 
-        if (!Number.isInteger(Number(id)) || Number(id) < 1 || Number(id) > 2147483647) {
+        const datos = await pool.query(`
+                DELETE FROM becas WHERE id_beca = $1 
+                RETURNING * 
+                `, [idValido])
+
+        if (datos.rowCount === 0) {
             return false
         }
 
-        if (id) {
-            if (!Number.isInteger(Number(id))) {
-                return false
-            }
-
-            const datos = await pool.query(`
-                DELETE FROM becas WHERE id_beca = $1 
-                RETURNING * 
-                `, [Number(id)])
-
-            if (datos.rowCount === 0) {
-                return false
-            }
-            return true
-        }
+        return true
     }
 
     static async patchData({ id, input }) {
-
-        if (!Number.isInteger(Number(id)) || Number(id) < 1 || Number(id) > 2147483647) {
-            return false
-        }
+        const idValido = validarIdEntero(id)
+        if (!idValido) return false
 
         const actData = actualizarBeca(input)
 
@@ -176,7 +160,7 @@ export class MainInfo {
         const asignaciones = claves.map((clave, i) => `${MAPA_COLUMNAS_BECAS[clave]} = $${i + 1}`)
         const valores = claves.map(clave => actData.data[clave])
 
-        valores.push(Number(id))
+        valores.push(idValido)
         const posicionId = valores.length
 
         const resultado = await pool.query(
