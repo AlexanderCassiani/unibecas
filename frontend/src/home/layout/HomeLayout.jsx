@@ -232,24 +232,38 @@ const HomeLayout = () => {
         <section className="carrusel-universidades">
           <div className="carrusel-track">
             <div className="grupo-universidades">
+
               {universidades.map((universidad, index) => (
-                <img
+                <a
                   key={`primera-${index}`}
-                  src={universidad.logo}
-                  className={universidad.className}
-                  alt={universidad.alt}
-                />
+                  href={universidad.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visitar ${universidad.alt}`}
+                >
+                  <img
+                    src={universidad.logo}
+                    className={universidad.className}
+                    alt={universidad.alt}
+                  />
+                </a>
               ))}
+
             </div>
 
             <div className="grupo-universidades" aria-hidden="true">
               {universidades.map((universidad, index) => (
-                <img
-                  key={`segunda-${index}`}
-                  src={universidad.logo}
-                  className={universidad.className}
-                  alt={universidad.alt}
-                />
+                <a key={`segunda-${index}`}
+                  href={universidad.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visitar ${universidad.alt}`}>
+                  <img
+                    src={universidad.logo}
+                    className={universidad.className}
+                    alt={universidad.alt}
+                  />
+                </a>
               ))}
             </div>
           </div>
@@ -286,43 +300,43 @@ const HomeLayout = () => {
           {contenedorBecas === "mas-recientes"
             ? loading
               ? Array.from({ length: 5 }).map((_, index) => (
-                  <BecaCardSkeleton key={index} />
-                ))
+                <BecaCardSkeleton key={index} />
+              ))
               : data?.map((info) => (
-                  <Link
-                    to={`/beca/${info?.id}`}
-                    className="link-beca-card"
-                    key={info.id}
-                  >
-                    <BecaCard
-                      universidad={info.universidad}
-                      nombre={info.nombre}
-                      vigencia={info.vigencia}
-                      descripcion={info.descripcion_informacion}
-                      info_aplicar={info.aplicar}
-                      modalidad={info.modalidad}
-                      estado={info.estado}
-                    />
-                  </Link>
-                ))
-            : becasPopulares.map((info) => (
                 <Link
-                  to={`/beca/${info.id_beca}`}
+                  to={`/beca/${info?.id}`}
                   className="link-beca-card"
-                  key={info.id_beca}
+                  key={info.id}
                 >
                   <BecaCard
                     universidad={info.universidad}
-                    nombre={info.nombre_beca}
-                    vigencia={info.vigencia_programa}
+                    nombre={info.nombre}
+                    vigencia={info.vigencia}
                     descripcion={info.descripcion_informacion}
-                    info_aplicar={info.informacion_aplicar}
+                    info_aplicar={info.aplicar}
                     modalidad={info.modalidad}
                     estado={info.estado}
-                    cobertura={info.cobertura}
                   />
                 </Link>
-              ))}
+              ))
+            : becasPopulares.map((info) => (
+              <Link
+                to={`/beca/${info.id_beca}`}
+                className="link-beca-card"
+                key={info.id_beca}
+              >
+                <BecaCard
+                  universidad={info.universidad}
+                  nombre={info.nombre_beca}
+                  vigencia={info.vigencia_programa}
+                  descripcion={info.descripcion_informacion}
+                  info_aplicar={info.informacion_aplicar}
+                  modalidad={info.modalidad}
+                  estado={info.estado}
+                  cobertura={info.cobertura}
+                />
+              </Link>
+            ))}
         </div>
 
         <div className="contenedor-arrows">
