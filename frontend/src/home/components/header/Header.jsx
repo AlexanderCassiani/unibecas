@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const [estaAbierto, setEstaAbierto] = useState(false);
+  const [menuAbierto, setMenuAbierto] = useState(false);
 
   // estados del los inputs del modal de registrarme
   const [usuario, setUsuario] = useState("");
@@ -151,12 +152,53 @@ const Header = () => {
 
   return (
     <header>
-      <Link to="/">
+      <Link to="/" className="link-home">
         <div className="logo-unibecas-contenedor">
           <img src={logo} alt="Logo de UniBecas" className="logo" />
           <h2>UniBecas</h2>
         </div>
       </Link>
+
+      <div className="contenedor-menu-hamburguesa">
+        <button
+          type="button"
+          className={`menu-hamburguesa ${menuAbierto ? "abierto" : ""}`}
+          onClick={() => setMenuAbierto(!menuAbierto)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div
+          className={`overlay-menu-movil ${menuAbierto ? "abierto" : ""}`}
+          onClick={() => setMenuAbierto(false)}
+        >
+          <nav
+            className="nav-mobile"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="cerrar-menu-mobile"
+              onClick={() => setMenuAbierto(false)}
+            >
+              X
+            </button>
+
+            <ul>
+              <li onClick={() => setMenuAbierto(false)}>
+                <span>Programas</span>
+                <img src={flechaAbajo} alt="" />
+              </li>
+              <li onClick={() => setMenuAbierto(false)}>
+                <span>Becas</span>
+                <img src={flechaAbajo} alt="" />
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
 
       <nav>
         <ul>

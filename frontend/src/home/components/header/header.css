@@ -33,6 +33,17 @@ header nav ul li:hover {
   background-color: var(--hover-azul);
 }
 
+.menu-becas {
+  position: relative;
+}
+
+.contenedor-nombre-becas {
+  position: absolute;
+  z-index: 100;
+  top: 42px;
+  display: none;
+}
+
 header nav ul li img {
   height: 17px;
   width: 17px;
@@ -175,4 +186,127 @@ header button {
 
 header a {
   text-decoration: none;
+}
+
+.contenedor-menu-hamburguesa {
+  display: none;
+  position: relative;
+  z-index: 110;
+}
+
+.menu-hamburguesa {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-hamburguesa span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--color-secundario);
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.menu-hamburguesa.abierto span:first-child {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-hamburguesa.abierto span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-hamburguesa.abierto span:last-child {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.overlay-menu-movil {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgb(0 0 0 / 45%);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.overlay-menu-movil.abierto {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-menu-movil nav {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(82vw, 360px);
+  height: 100%;
+  padding: 62px 24px 24px;
+  background-color: var(--background);
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+}
+
+.overlay-menu-movil nav ul {
+  flex-direction: column;
+  gap: 12px;
+}
+
+.overlay-menu-movil.abierto nav {
+  transform: translateX(0);
+}
+
+.nav-mobile {
+  position: relative;
+}
+
+.cerrar-menu-mobile {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  font-size: 28px;
+  color: var(--error);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.cerrar-menu-mobile:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  header nav {
+    display: none;
+  }
+
+  header {
+    padding: 8px 24px;
+  }
+
+  .logo-unibecas-contenedor {
+    display: none;
+  }
+
+  .link-home {
+    display: none;
+  }
+
+  .contenedor-menu-hamburguesa {
+    display: block;
+  }
 }
