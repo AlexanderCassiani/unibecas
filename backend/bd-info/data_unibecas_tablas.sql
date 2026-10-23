@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict ZdzJHztzp7iU0hSWbVlUEQCzGXp1wOGplIFr6d9jpObjt5Pu3nGn1S7jdaNcxSX
+\restrict vKs1CbkktoKZigXIKgvvgtpGyoxnx0qy3tiDDWxLTrzFqI2pvvgSJPaR6B3fZu0
 
 -- Dumped from database version 18.6
 -- Dumped by pg_dump version 18.6
 
--- Started on 2026-10-14 15:19:48
+-- Started on 2026-10-21 15:59:33
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -21,12 +21,39 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+--
+-- TOC entry 2 (class 3079 OID 24799)
+-- Name: unaccent; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public;
+
+
+--
+-- TOC entry 4984 (class 0 OID 0)
+-- Dependencies: 2
+-- Name: EXTENSION unaccent; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION unaccent IS 'text search dictionary that removes accents';
+
+
+--
+-- TOC entry 234 (class 1255 OID 24807)
+-- Name: f_unaccent(text); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.f_unaccent(text) RETURNS text
+    LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE
+    AS $_$    SELECT public.unaccent('public.unaccent', $1);$_$;
+
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- TOC entry 226 (class 1259 OID 16618)
+-- TOC entry 227 (class 1259 OID 16618)
 -- Name: becas; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -49,7 +76,7 @@ CREATE TABLE public.becas (
 
 
 --
--- TOC entry 225 (class 1259 OID 16617)
+-- TOC entry 226 (class 1259 OID 16617)
 -- Name: becas_id_beca_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -63,8 +90,8 @@ CREATE SEQUENCE public.becas_id_beca_seq
 
 
 --
--- TOC entry 4975 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 4985 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: becas_id_beca_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
@@ -72,7 +99,7 @@ ALTER SEQUENCE public.becas_id_beca_seq OWNED BY public.becas.id_beca;
 
 
 --
--- TOC entry 228 (class 1259 OID 16654)
+-- TOC entry 229 (class 1259 OID 16654)
 -- Name: carreras; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -96,7 +123,7 @@ CREATE TABLE public.carreras (
 
 
 --
--- TOC entry 227 (class 1259 OID 16653)
+-- TOC entry 228 (class 1259 OID 16653)
 -- Name: carreras_id_carrera_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -110,8 +137,8 @@ CREATE SEQUENCE public.carreras_id_carrera_seq
 
 
 --
--- TOC entry 4976 (class 0 OID 0)
--- Dependencies: 227
+-- TOC entry 4986 (class 0 OID 0)
+-- Dependencies: 228
 -- Name: carreras_id_carrera_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
@@ -119,7 +146,7 @@ ALTER SEQUENCE public.carreras_id_carrera_seq OWNED BY public.carreras.id_carrer
 
 
 --
--- TOC entry 224 (class 1259 OID 16602)
+-- TOC entry 225 (class 1259 OID 16602)
 -- Name: entidades; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -133,7 +160,7 @@ CREATE TABLE public.entidades (
 
 
 --
--- TOC entry 223 (class 1259 OID 16601)
+-- TOC entry 224 (class 1259 OID 16601)
 -- Name: entidades_id_entidad_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -147,8 +174,8 @@ CREATE SEQUENCE public.entidades_id_entidad_seq
 
 
 --
--- TOC entry 4977 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 4987 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: entidades_id_entidad_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
@@ -156,7 +183,7 @@ ALTER SEQUENCE public.entidades_id_entidad_seq OWNED BY public.entidades.id_enti
 
 
 --
--- TOC entry 222 (class 1259 OID 16581)
+-- TOC entry 223 (class 1259 OID 16581)
 -- Name: universidades; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -175,7 +202,7 @@ CREATE TABLE public.universidades (
 
 
 --
--- TOC entry 221 (class 1259 OID 16580)
+-- TOC entry 222 (class 1259 OID 16580)
 -- Name: universidades_id_universidad_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -189,8 +216,8 @@ CREATE SEQUENCE public.universidades_id_universidad_seq
 
 
 --
--- TOC entry 4978 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 4988 (class 0 OID 0)
+-- Dependencies: 222
 -- Name: universidades_id_universidad_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
@@ -198,7 +225,7 @@ ALTER SEQUENCE public.universidades_id_universidad_seq OWNED BY public.universid
 
 
 --
--- TOC entry 220 (class 1259 OID 16561)
+-- TOC entry 221 (class 1259 OID 16561)
 -- Name: usuario; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -216,7 +243,7 @@ CREATE TABLE public.usuario (
 
 
 --
--- TOC entry 219 (class 1259 OID 16560)
+-- TOC entry 220 (class 1259 OID 16560)
 -- Name: usuario_id_user_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -230,8 +257,8 @@ CREATE SEQUENCE public.usuario_id_user_seq
 
 
 --
--- TOC entry 4979 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 4989 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: usuario_id_user_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
@@ -239,7 +266,7 @@ ALTER SEQUENCE public.usuario_id_user_seq OWNED BY public.usuario.id_user;
 
 
 --
--- TOC entry 4788 (class 2604 OID 16621)
+-- TOC entry 4796 (class 2604 OID 16621)
 -- Name: becas id_beca; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -247,7 +274,7 @@ ALTER TABLE ONLY public.becas ALTER COLUMN id_beca SET DEFAULT nextval('public.b
 
 
 --
--- TOC entry 4792 (class 2604 OID 16657)
+-- TOC entry 4800 (class 2604 OID 16657)
 -- Name: carreras id_carrera; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -255,7 +282,7 @@ ALTER TABLE ONLY public.carreras ALTER COLUMN id_carrera SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 4785 (class 2604 OID 16605)
+-- TOC entry 4793 (class 2604 OID 16605)
 -- Name: entidades id_entidad; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -263,7 +290,7 @@ ALTER TABLE ONLY public.entidades ALTER COLUMN id_entidad SET DEFAULT nextval('p
 
 
 --
--- TOC entry 4779 (class 2604 OID 16584)
+-- TOC entry 4787 (class 2604 OID 16584)
 -- Name: universidades id_universidad; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -271,7 +298,7 @@ ALTER TABLE ONLY public.universidades ALTER COLUMN id_universidad SET DEFAULT ne
 
 
 --
--- TOC entry 4775 (class 2604 OID 16564)
+-- TOC entry 4783 (class 2604 OID 16564)
 -- Name: usuario id_user; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -279,7 +306,7 @@ ALTER TABLE ONLY public.usuario ALTER COLUMN id_user SET DEFAULT nextval('public
 
 
 --
--- TOC entry 4815 (class 2606 OID 16638)
+-- TOC entry 4823 (class 2606 OID 16638)
 -- Name: becas becas_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -288,7 +315,7 @@ ALTER TABLE ONLY public.becas
 
 
 --
--- TOC entry 4817 (class 2606 OID 16674)
+-- TOC entry 4826 (class 2606 OID 16674)
 -- Name: carreras carreras_codigo_snies_programa_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -297,7 +324,7 @@ ALTER TABLE ONLY public.carreras
 
 
 --
--- TOC entry 4819 (class 2606 OID 16672)
+-- TOC entry 4828 (class 2606 OID 16672)
 -- Name: carreras carreras_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -306,7 +333,7 @@ ALTER TABLE ONLY public.carreras
 
 
 --
--- TOC entry 4811 (class 2606 OID 16616)
+-- TOC entry 4819 (class 2606 OID 16616)
 -- Name: entidades entidades_nit_ent_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -315,7 +342,7 @@ ALTER TABLE ONLY public.entidades
 
 
 --
--- TOC entry 4813 (class 2606 OID 16614)
+-- TOC entry 4821 (class 2606 OID 16614)
 -- Name: entidades entidades_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -324,7 +351,7 @@ ALTER TABLE ONLY public.entidades
 
 
 --
--- TOC entry 4809 (class 2606 OID 16600)
+-- TOC entry 4817 (class 2606 OID 16600)
 -- Name: universidades universidades_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -333,7 +360,7 @@ ALTER TABLE ONLY public.universidades
 
 
 --
--- TOC entry 4805 (class 2606 OID 16645)
+-- TOC entry 4813 (class 2606 OID 16645)
 -- Name: usuario usuario_correo_unique; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -342,7 +369,7 @@ ALTER TABLE ONLY public.usuario
 
 
 --
--- TOC entry 4807 (class 2606 OID 16579)
+-- TOC entry 4815 (class 2606 OID 16579)
 -- Name: usuario usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -351,7 +378,15 @@ ALTER TABLE ONLY public.usuario
 
 
 --
--- TOC entry 4820 (class 2606 OID 16639)
+-- TOC entry 4824 (class 1259 OID 24808)
+-- Name: idx_becas_nombre_unaccent; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_becas_nombre_unaccent ON public.becas USING btree (public.f_unaccent(lower((nombre_beca)::text)));
+
+
+--
+-- TOC entry 4829 (class 2606 OID 16639)
 -- Name: becas becas_id_universidad_acceso_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -360,7 +395,7 @@ ALTER TABLE ONLY public.becas
 
 
 --
--- TOC entry 4822 (class 2606 OID 16675)
+-- TOC entry 4831 (class 2606 OID 16675)
 -- Name: carreras carreras_id_universidad_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -369,7 +404,7 @@ ALTER TABLE ONLY public.carreras
 
 
 --
--- TOC entry 4821 (class 2606 OID 16648)
+-- TOC entry 4830 (class 2606 OID 16648)
 -- Name: becas proveedor_beca_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -377,11 +412,11 @@ ALTER TABLE ONLY public.becas
     ADD CONSTRAINT proveedor_beca_fk FOREIGN KEY (proveedor_beca) REFERENCES public.entidades(id_entidad);
 
 
--- Completed on 2026-10-14 15:19:48
+-- Completed on 2026-10-21 15:59:36
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict ZdzJHztzp7iU0hSWbVlUEQCzGXp1wOGplIFr6d9jpObjt5Pu3nGn1S7jdaNcxSX
+\unrestrict vKs1CbkktoKZigXIKgvvgtpGyoxnx0qy3tiDDWxLTrzFqI2pvvgSJPaR6B3fZu0
 

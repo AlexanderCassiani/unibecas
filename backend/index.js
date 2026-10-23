@@ -1,12 +1,10 @@
 //@ts-nocheck
 import express from 'express'
-import dotenv from 'dotenv'
 
 import { mainRouter } from './rutas/main.js'
 import { corsMiddleware } from './middlewares/cors.js'
 
 const app = express()
-dotenv.config()
 app.disable('x-powered-by')
 app.use(express.json())
 app.use(corsMiddleware())
