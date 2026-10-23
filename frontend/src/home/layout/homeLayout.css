@@ -154,7 +154,6 @@ h2 {
   height: 120px;
 }
 
-
 .contenedor-sobre-becas-ofertas {
   padding: 70px 8%;
   background-color: #f1f4fc;
@@ -418,4 +417,25 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+@media (max-width: 660px) {
+  .contenedor-info-becas {
+    padding: 22px 30px;
+  }
+
+  .contenedor-info-becas h2 {
+    text-align: center;
+  }
+
+  .contenedor-info-becas p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-botones button {
+    font-size: 1rem;
+    padding: 5px 20px;
+  }
 }
