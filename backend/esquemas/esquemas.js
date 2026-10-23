@@ -66,6 +66,8 @@ const esquemaBeca = z.object({
     })
 })
 
+// Hacer esquemas de Universidades y Entidades
+
 export function validarBeca(objeto) {
     return esquemaBeca.safeParse(objeto)
 }
@@ -73,3 +75,6 @@ export function validarBeca(objeto) {
 export function actualizarBeca(objeto) {
     return esquemaBeca.partial().safeParse(objeto)
 }
+
+// Hacer funciones de validacion de Universidades y Entidades
+// Hacer funciones de actualizacion de Universidades y Entidades
