@@ -12,6 +12,8 @@
   --border: #ccc;
   --hover-azul: #3373ce27;
   --error: #ff3b4f;
+
+  --skeleton-background: #deebf7;
 }
 
 * {
@@ -37,6 +39,8 @@ body.darkmode {
   --hover-azul: #2575e63f;
 
   --color: #fff;
+
+  --skeleton-background: #172b46;
 }
 
 body {

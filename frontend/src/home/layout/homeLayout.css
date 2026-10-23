@@ -280,6 +280,7 @@ h2 {
 
 .seccion-becas {
   margin-bottom: 35px;
+
 }
 
 .seccion-becas .contenedor-botones {
@@ -287,7 +288,7 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 14px;
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid #531f3f;
 }
 
 .contenedor-botones button {
@@ -308,7 +309,7 @@ h2 {
 .contenedor-botones button.seleccionado {
   background-color: #863db1;
   color: #fff;
-  outline: 2px solid #000;
+  outline: 1px solid #531f3f;
 }
 
 .seccion-becas .contenedor-becas {

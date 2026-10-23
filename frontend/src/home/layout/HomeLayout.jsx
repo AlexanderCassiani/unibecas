@@ -2,8 +2,6 @@ import "./homeLayout.css";
 import Hero from "../components/hero/Hero";
 import infoBecasImg from "../../assets/icons/home/info-becas-icon.svg";
 
-
-
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 
@@ -13,12 +11,14 @@ import BecaCard from "../../components/becaCard/BecaCard";
 
 import { useState, useEffect, useRef } from "react";
 
-import { becas, becasPopulares, universidades, infoBecas } from "../data";
+import { becasPopulares, universidades, infoBecas } from "../data";
 
 import arrowLeft from "../../assets/icons/home/arrow-left.svg";
 import arrowRight from "../../assets/icons/home/arrow-right.svg";
 
 import { Link } from "react-router-dom";
+
+import BecaCardSkeleton from "../../skeletons/BecaCardSkeleton";
 
 import encuentraBeca1 from "../../assets/images/home/encuentra-beca1.png";
 import encuentraBeca2 from "../../assets/images/home/encuentra-beca2.png";
@@ -36,6 +36,8 @@ import iconComunicacion from "../../assets/icons/home/comunicacion-icons.png";
 import iconEducacion from "../../assets/icons/home/educacion-icons.png";
 import iconDerecho from "../../assets/icons/home/derecho-icons.png";
 
+import useFetch from "../../hooks/useFetch";
+
 const imagenes = [
   encuentraBeca1,
   encuentraBeca2,
@@ -50,6 +52,8 @@ const imagenes = [
 const HomeLayout = () => {
   const [contenedorBecas, setContenedorBecas] = useState("mas-recientes");
   const [actual, setActual] = useState(0);
+
+  const [data, loading, error, fetchData] = useFetch();
 
   const contenedorRef = useRef(null);
 
@@ -88,6 +92,10 @@ const HomeLayout = () => {
       left: 320,
     });
   };
+
+  useEffect(() => {
+    fetchData("https://unibecas.onrender.com/main");
+  }, []);
 
   return (
     <div className="home-layout">
@@ -139,82 +147,84 @@ const HomeLayout = () => {
         </button>
       </section>
 
-      
-<section className="contenedor-sobre-becas-ofertas" id="sobre-becas">
-  <h2>Oferta académica</h2>
-  <p className="descripcion-oferta">
-    Explora diferentes áreas de estudio y encuentra oportunidades
-    para alcanzar tus metas académicas.
-  </p>
+      <section className="contenedor-sobre-becas-ofertas" id="sobre-becas">
+        <h2>Oferta académica</h2>
+        <p className="descripcion-oferta">
+          Explora diferentes áreas de estudio y encuentra oportunidades para
+          alcanzar tus metas académicas.
+        </p>
 
-  <div className="contenedor-sobre-becas-ofertas-categorias">
-    <div className="ingenieria-tecnologia tarjeta-categoria">
-      <span className="icono-categoria">
-        <img src={iconIngenieria} alt="Icono de ingeniería" />
-      </span>
-      <h3>Ingeniería y tecnología</h3>
-      <p>Software, sistemas, datos e innovación digital.</p>
-      <span className="flecha-categoria">
-        <img src={arrowRight} alt="Flecha derecha" />
-      </span>
-    </div>
+        <div className="contenedor-sobre-becas-ofertas-categorias">
+          <div className="ingenieria-tecnologia tarjeta-categoria">
+            <span className="icono-categoria">
+              <img src={iconIngenieria} alt="Icono de ingeniería" />
+            </span>
+            <h3>Ingeniería y tecnología</h3>
+            <p>Software, sistemas, datos e innovación digital.</p>
+            <span className="flecha-categoria">
+              <img src={arrowRight} alt="Flecha derecha" />
+            </span>
+          </div>
 
-    <div className="economia-negocios tarjeta-categoria">
-      <span className="icono-categoria">
-        <img src={iconEconomia} alt="Icono de economía" />
-      </span>
-      <h3>Economía y negocios</h3>
-      <p>Administración, finanzas y emprendimiento.</p>
-      <span className="flecha-categoria">
-        <img src={arrowRight} alt="Flecha derecha" />
-      </span>
-    </div>
+          <div className="economia-negocios tarjeta-categoria">
+            <span className="icono-categoria">
+              <img src={iconEconomia} alt="Icono de economía" />
+            </span>
+            <h3>Economía y negocios</h3>
+            <p>Administración, finanzas y emprendimiento.</p>
+            <span className="flecha-categoria">
+              <img src={arrowRight} alt="Flecha derecha" />
+            </span>
+          </div>
 
-    <div className="salud-bienestar tarjeta-categoria">
-      <span className="icono-categoria">
-        <img src={iconSalud} alt="Icono de salud y bienestar" />
-      </span>
-      <h3>Salud y bienestar</h3>
-      <p>Programas relacionados con la salud y el bienestar.</p>
-      <span className="flecha-categoria">
-        <img src={arrowRight} alt="Flecha derecha" />
-      </span>
-    </div>
+          <div className="salud-bienestar tarjeta-categoria">
+            <span className="icono-categoria">
+              <img src={iconSalud} alt="Icono de salud y bienestar" />
+            </span>
+            <h3>Salud y bienestar</h3>
+            <p>Programas relacionados con la salud y el bienestar.</p>
+            <span className="flecha-categoria">
+              <img src={arrowRight} alt="Flecha derecha" />
+            </span>
+          </div>
 
-    <div className="comunicacion-diseño tarjeta-categoria">
-      <span className="icono-categoria">
-        <img src={iconComunicacion} alt="Icono de comunicación y diseño" />
-      </span>
-      <h3>Comunicación y diseño</h3>
-      <p>Marketing, comunicación, artes y creatividad.</p>
-      <span className="flecha-categoria">
-        <img src={arrowRight} alt="Flecha derecha" />
-      </span>
-    </div>
+          <div className="comunicacion-diseño tarjeta-categoria">
+            <span className="icono-categoria">
+              <img
+                src={iconComunicacion}
+                alt="Icono de comunicación y diseño"
+              />
+            </span>
+            <h3>Comunicación y diseño</h3>
+            <p>Marketing, comunicación, artes y creatividad.</p>
+            <span className="flecha-categoria">
+              <img src={arrowRight} alt="Flecha derecha" />
+            </span>
+          </div>
 
-    <div className="educacion-ciencias tarjeta-categoria">
-      <span className="icono-categoria">
-        <img src={iconEducacion} alt="Icono de educación y ciencias" />
-      </span>
-      <h3>Educación y ciencias</h3>
-      <p>Enseñanza, investigación, idiomas y conocimiento.</p>
-      <span className="flecha-categoria">
-        <img src={arrowRight} alt="Flecha derecha" />
-      </span>
-    </div>
+          <div className="educacion-ciencias tarjeta-categoria">
+            <span className="icono-categoria">
+              <img src={iconEducacion} alt="Icono de educación y ciencias" />
+            </span>
+            <h3>Educación y ciencias</h3>
+            <p>Enseñanza, investigación, idiomas y conocimiento.</p>
+            <span className="flecha-categoria">
+              <img src={arrowRight} alt="Flecha derecha" />
+            </span>
+          </div>
 
-    <div className="derecho-idiomas tarjeta-categoria">
-      <span className="icono-categoria">
-        <img src={iconDerecho} alt="Icono de derecho e idiomas" />
-      </span>
-      <h3>Derecho e idiomas</h3>
-      <p>Legislación, lenguas y relaciones internacionales.</p>
-      <span className="flecha-categoria">
-        <img src={arrowRight} alt="Flecha derecha" />
-      </span>
-    </div>
-  </div>
-</section>
+          <div className="derecho-idiomas tarjeta-categoria">
+            <span className="icono-categoria">
+              <img src={iconDerecho} alt="Icono de derecho e idiomas" />
+            </span>
+            <h3>Derecho e idiomas</h3>
+            <p>Legislación, lenguas y relaciones internacionales.</p>
+            <span className="flecha-categoria">
+              <img src={arrowRight} alt="Flecha derecha" />
+            </span>
+          </div>
+        </div>
+      </section>
 
       <div className="contenedor-universidades">
         <h2>Universidades afiliadas</h2>
@@ -222,24 +232,38 @@ const HomeLayout = () => {
         <section className="carrusel-universidades">
           <div className="carrusel-track">
             <div className="grupo-universidades">
+
               {universidades.map((universidad, index) => (
-                <img
+                <a
                   key={`primera-${index}`}
-                  src={universidad.logo}
-                  className={universidad.className}
-                  alt={universidad.alt}
-                />
+                  href={universidad.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visitar ${universidad.alt}`}
+                >
+                  <img
+                    src={universidad.logo}
+                    className={universidad.className}
+                    alt={universidad.alt}
+                  />
+                </a>
               ))}
+
             </div>
 
             <div className="grupo-universidades" aria-hidden="true">
               {universidades.map((universidad, index) => (
-                <img
-                  key={`segunda-${index}`}
-                  src={universidad.logo}
-                  className={universidad.className}
-                  alt={universidad.alt}
-                />
+                <a key={`segunda-${index}`}
+                  href={universidad.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visitar ${universidad.alt}`}>
+                  <img
+                    src={universidad.logo}
+                    className={universidad.className}
+                    alt={universidad.alt}
+                  />
+                </a>
               ))}
             </div>
           </div>
@@ -274,44 +298,45 @@ const HomeLayout = () => {
           ref={contenedorRef}
         >
           {contenedorBecas === "mas-recientes"
-            ? becas.map((info) => (
+            ? loading
+              ? Array.from({ length: 5 }).map((_, index) => (
+                <BecaCardSkeleton key={index} />
+              ))
+              : data?.map((info) => (
                 <Link
-                  to={`/beca/${info.id_beca}`}
+                  to={`/beca/${info?.id}`}
                   className="link-beca-card"
-                  key={info.id_beca}
+                  key={info.id}
                 >
                   <BecaCard
                     universidad={info.universidad}
-                    nombre={info.nombre_beca}
-                    fecha_creacion={info.fecha_creacion_sys}
-                    vigencia={info.vigencia_programa}
+                    nombre={info.nombre}
+                    vigencia={info.vigencia}
                     descripcion={info.descripcion_informacion}
-                    info_aplicar={info.informacion_aplicar}
+                    info_aplicar={info.aplicar}
                     modalidad={info.modalidad}
                     estado={info.estado}
-                    cobertura={info.cobertura}
                   />
                 </Link>
               ))
             : becasPopulares.map((info) => (
-                <Link
-                  to={`/beca/${info.id_beca}`}
-                  className="link-beca-card"
-                  key={info.id_beca}
-                >
-                  <BecaCard
-                    universidad={info.universidad}
-                    nombre={info.nombre_beca}
-                    fecha_creacion={info.fecha_creacion_sys}
-                    vigencia={info.vigencia_programa}
-                    descripcion={info.descripcion_informacion}
-                    info_aplicar={info.informacion_aplicar}
-                    modalidad={info.modalidad}
-                    estado={info.estado}
-                    cobertura={info.cobertura}
-                  />
-                </Link>
-              ))}
+              <Link
+                to={`/beca/${info.id_beca}`}
+                className="link-beca-card"
+                key={info.id_beca}
+              >
+                <BecaCard
+                  universidad={info.universidad}
+                  nombre={info.nombre_beca}
+                  vigencia={info.vigencia_programa}
+                  descripcion={info.descripcion_informacion}
+                  info_aplicar={info.informacion_aplicar}
+                  modalidad={info.modalidad}
+                  estado={info.estado}
+                  cobertura={info.cobertura}
+                />
+              </Link>
+            ))}
         </div>
 
         <div className="contenedor-arrows">

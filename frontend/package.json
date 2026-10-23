@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rolldown/binding-win32-x64-msvc": "^1.2.15",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-loading-skeleton": "^3.5.0",
     "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
