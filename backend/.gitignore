@@ -11,5 +11,3 @@ local.http
 .env
 
 testing-db/
-
-api.http

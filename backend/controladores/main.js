@@ -151,7 +151,7 @@ export class MainControl {
             })
         } catch (error) {
             if (error instanceof ErrorValidacion) {
-                console.log(`[server - ${horaActual()}] - Validación:`, error.cause.message, `- Info: ${req.params.id} - ${error.cause.parametro}`)
+                console.log(`[server - ${horaActual()}] - Validación: ${error.message} - Info: ${req.params.id}`, error.cause?.message ?? '', error.cause?.parametro ?? '')
                 return res.status(400).json({
                     error: error.message
                 })

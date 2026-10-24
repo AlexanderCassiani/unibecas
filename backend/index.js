@@ -3,12 +3,15 @@ import express from 'express'
 
 import { mainRouter } from './rutas/main.js'
 import { corsMiddleware } from './middlewares/cors.js'
+import { cabecerasJSON } from './middlewares/cabeceras.js'
+import { entidadesRouter } from './rutas/entidades.js'
+import { universidadesRouter } from './rutas/universidades.js'
 
 const app = express()
 app.disable('x-powered-by')
-app.use(express.json())
 app.use(corsMiddleware())
-
+app.use(cabecerasJSON)
+app.use(express.json())
 // ------- RESPONSES -------
 
 app.get('/', (req, res) => {
@@ -19,6 +22,8 @@ app.get('/', (req, res) => {
 // de la carpeta rutas para que resuelva las request dependiendo de su metodo
 
 app.use('/main', mainRouter)
+app.use('/entidades', entidadesRouter)
+app.use('/universidades', universidadesRouter)
 
 app.use((req, res) => {
     res.status(404).json({ error: 'Not found' })
