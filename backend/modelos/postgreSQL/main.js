@@ -85,7 +85,7 @@ export class MainInfo {
         const d = checkVal.data
 
         const newScsh = await pool.query(`
-                WITH beca_insertada (
+                WITH beca_insertada AS (
                     INSERT INTO becas (nombre_beca, vigencia_programa, descripcion_informacion, informacion_aplicar, modalidad, cobertura, id_universidad_acceso, estado, url_informacion, proveedor_beca) VALUES(
                         $1,
                         $2,
@@ -159,14 +159,23 @@ export class MainInfo {
         const actData = actualizarBeca(input)
 
         if (!actData.success) {
-            throw new ErrorValidacion(`Error validación de campos: ${JSON.parse(actData.error.message)[0].message} - ${JSON.parse(actData.error.message)[0].path[0]}`)
+            throw new ErrorValidacion(`Error validación de campos: ${JSON.parse(actData.error.message)[0].message} - ${JSON.parse(actData.error.message)[0].path[0]}`, {
+                cause: {
+                    message: `Error validación de campos: ${JSON.parse(actData.error.message)[0].message} - ${JSON.parse(actData.error.message)[0].path[0]}`
+                }
+            })
         }
 
         const claves = Object.keys(actData.data)
             .filter(clave => Object.hasOwn(MAPA_COLUMNAS_BECAS, clave))
 
         if (claves.length === 0) {
-            throw new ErrorValidacion('No hay campos para actualizar')
+            throw new ErrorValidacion('No hay campos para actualizar', {
+                cause: {
+                    message: 'No hay campos para actualizar'
+                }
+            }
+            )
         }
 
         const asignaciones = claves.map((clave, i) => `${MAPA_COLUMNAS_BECAS[clave]} = $${i + 1}`)
