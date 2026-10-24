@@ -3,14 +3,15 @@ import express from 'express'
 
 import { mainRouter } from './rutas/main.js'
 import { corsMiddleware } from './middlewares/cors.js'
+import { cabecerasJSON } from './middlewares/cabeceras.js'
 import { entidadesRouter } from './rutas/entidades.js'
 import { universidadesRouter } from './rutas/universidades.js'
 
 const app = express()
 app.disable('x-powered-by')
-app.use(express.json())
 app.use(corsMiddleware())
-
+app.use(cabecerasJSON)
+app.use(express.json())
 // ------- RESPONSES -------
 
 app.get('/', (req, res) => {
