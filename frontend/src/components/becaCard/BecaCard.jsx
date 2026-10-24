@@ -16,7 +16,7 @@ const BecaCard = ({
     <article className="becaCard">
       <header className="becaCard-header">
         <span className="becaCard-modalidad">{modalidad}</span>
-        <h2>{universidad}</h2>
+        <h2 className="becaCard-universidad">{universidad}</h2>
         {/* <span
           className="becaCard-cobertura"
           title={`Covertura del ${cobertura}%`}

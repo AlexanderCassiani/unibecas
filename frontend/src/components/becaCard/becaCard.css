@@ -25,6 +25,14 @@
   padding: 14px 14px 7px 14px;
 }
 
+.beCard h2,
+.becaCard h3,
+.becaCard p,
+.becaCard span,
+.becaCard .becaCard-universidad {
+  color: #000;
+}
+
 .becaCard-cobertura {
   position: absolute;
   right: -8px;
@@ -47,8 +55,20 @@
   padding: 0 14px;
 }
 
-.becaCard-contenido h3 {
+.becaCard-contenido h3,
+.becaCard-header .universidad {
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.becaCard-header .universidad {
+  display: inline;
+}
+
+.becaCard-universidad {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
